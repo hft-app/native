@@ -1,0 +1,33 @@
+{{^tips.length}}
+	<div class="wrapper">
+		<div class="screen container">
+			<div class="icon-lightbulb-o icon"></div>
+			<div class="title">Keine Tips</div>
+			<div class="line"></div>
+			<div class="info">
+				<p>Es wurden keine Daten geladen.</p>
+				<p>Bitte versuche es später erneut.</p>
+			</div>
+		</div>
+	</div>
+{{/tips.length}}
+{{#tips.length}}
+	<div class="wrapper">
+		<div class="list">
+			<div class="container">
+				{{#tips}}
+					<a class="tip article" {{#href}}href="{{.}}"{{/href}} target="_blank">
+						<div class="{{color}} icon-{{icon}} icon strip"></div>
+						<div class="text">
+							<div class="title">{{title}}</div>
+							<div class="description">
+								<p>{{description}}</p>
+							</div>
+						</div>
+						{{#href}}<div class="arrow icon"></div>{{/href}}
+					</a>
+				{{/tips}}
+			</div>
+		</div>
+	</div>
+{{/tips.length}}

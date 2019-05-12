@@ -1,0 +1,93 @@
+{
+	"page": {
+		"meals": {
+			"title": "Speiseplan",
+			"tab": "Mensa"
+		},
+		"lectures": {
+			"title": "Vorlesungsplan",
+			"tab": "Vorlesungen"
+		},
+		"events": {
+			"title": "Terminkalender",
+			"tab": "Termine"
+		},
+		"exams": {
+			"title": "Notenspiegel",
+			"tab": "Noten"
+		},
+		"menu": {
+			"title": "Weitere Inhalte"
+		},
+		"courses": {
+			"title": "Vorlesungsverzeichnis"
+		},
+		"tips": {
+			"title": "Tipps und Tricks"
+		},
+		"printers": {
+			"title": "Druckerstandorte"
+		},
+		"professors": {
+			"title": "Professorensuche"
+		},
+		"messages": {
+			"title": "Mitteilungen"
+		},
+		"error": {
+			"title": "Oh nein!"
+		}
+	},
+	
+	"error": {
+		"MaintenancePeriod": [
+			"Die Server der HFT sind wegen Wartungsarbeiten nicht erreichbar.",
+			"Bitte versuche es später erneut."
+		],
+		"offline": [
+			"Der Server konnte nicht erreicht werden.",
+			"Bitte stelle sicher, dass du mit dem Internet verbunden bist."
+		],
+		"InvalidUser": [
+			"Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App."
+		]
+	},
+	
+	"date": {
+		"F": [
+			null,
+			"Januar",
+			"Februar",
+			"März",
+			"April",
+			"Mai",
+			"Juni",
+			"Juli",
+			"August",
+			"September",
+			"Oktober",
+			"November",
+			"Dezember"
+		],
+		
+		"D": [
+			"So",
+			"Mo",
+			"Di",
+			"Mi",
+			"Do",
+			"Fr",
+			"Sa"
+		],
+		
+		"l": [
+			"Sonntag",
+			"Montag",
+			"Dienstag",
+			"Mittwoch",
+			"Donnerstag",
+			"Freitag",
+			"Samstag"
+		]
+	}
+}

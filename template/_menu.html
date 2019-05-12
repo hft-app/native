@@ -1,0 +1,52 @@
+<script src="script/client/menu.js" defer></script>
+
+<div class="wrapper">
+	<div class="dashboard">
+		<div class="widget">
+			<div class="container">
+				<h5>Verknüpftes Konto</h5>
+			</div>
+			<div class="menu">
+				<div class="container">
+					<a class="target logout item" href="/logout">
+						<span class="teal badge icon"></span>
+						<div class="title grow">
+							<p class="displayname">{{displayname}}</p>
+							<p class="action">Kontoverknüpfung aufheben</p>
+						</div>
+					</a>
+
+					<a class="hidden installer item">
+						<span class="orange icon-plus-square icon square"></span>
+						<span class="title">An Startbildschirm anheften</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		{{#menus}}
+			<div class="widget">
+				<div class="container">
+					<h5>{{group}}</h5>
+				</div>
+				<div class="menu">
+					<div class="container">
+						{{#items}}
+							<a class="item" href="{{url}}" {{#blank}}target="_blank"{{/blank}}>
+								<span class="{{color}} icon-{{icon}} icon square"></span>
+								<span class="title">{{title}}</span>
+								<span class="arrow icon"></span>
+							</a>
+						{{/items}}
+					</div>
+				</div>
+			</div>
+		{{/menus}}
+	</div>
+	
+	<div class="note">
+		<div class="container">
+			<p>HFT App v{{version}}</p>
+		</div>
+	</div>
+</div>

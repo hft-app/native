@@ -1,0 +1,39 @@
+{{^exams.length}}
+	<div class="wrapper">
+		<div class="screen container">
+			<div class="icon-folder-open icon"></div>
+			<div class="title">Hier ist nichts</div>
+			<div class="line"></div>
+			<div class="info">
+				<p>Bisher keine Prüfungsergebnisse.</p>
+			</div>
+		</div>
+	</div>
+{{/exams.length}}
+{{#exams.length}}
+	<div class="wrapper">
+		<div class="list">
+			<div class="container">							
+				{{#exams}}
+					<div class="{{status}} exam article">
+						<div class="grade icon">
+							{{#grade}}
+								{{.}}
+							{{/grade}}
+						</div>
+						<div class="data">
+							<div class="title">{{title}}</div>
+							<div class="info">{{infos}}</div>
+						</div>
+					</div>
+				{{/exams}}
+			</div>
+		</div>
+		
+		<div class="note">
+			<div class="container">
+				<p>Alle Angaben ohne Gewähr.</p>
+			</div>
+		</div>
+	</div>
+{{/exams.length}}

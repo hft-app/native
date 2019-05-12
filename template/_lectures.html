@@ -1,0 +1,34 @@
+{{^days.length}}
+	<div class="wrapper">
+		<div class="screen container">
+			<div class="icon-thumbs-up icon"></div>
+			<div class="title">Pure Freizeit</div>
+			<div class="line"></div>
+			<div class="info">
+				<p>Keine Vorlesungen in nächster Zeit.</p>
+			</div>
+			<a class="button" href="/courses">Zur Kursauswahl</a>
+		</div>
+	</div>
+{{/days.length}}
+{{#days.length}}
+	<div class="wrapper">
+		<div class="timetable">
+			{{#days}}
+				<div class="col">
+					<div class="head">
+						{{#date}}
+							<div class="day">[[date.l.{{w}}]]</div>
+							<div class="date">{{j}}. [[date.F.{{n}}]]</div>
+						{{/date}}
+					</div>
+					<table>
+						<tbody>
+							{{table}}
+						</tbody>
+					</table>
+				</div>
+			{{/days}}
+		</div>
+	</div>
+{{/days.length}}

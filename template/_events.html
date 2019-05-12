@@ -1,0 +1,33 @@
+{{^events.length}}
+	<div class="wrapper">
+		<div class="screen container">
+			<div class="icon-calendar-o icon"></div>
+			<div class="title">Nichts geplant</div>
+			<div class="line"></div>
+			<div class="info">
+				<p>Keine Termine in nächster Zeit.</p>
+			</div>
+		</div>
+	</div>
+{{/events.length}}
+{{#events.length}}
+	<div class="wrapper">
+		<div class="list">
+			<div class="container">
+				{{#events}}
+					<div class="event article">
+						<a class="date icon-prepend icon" href="/endpoint/event.php?{{query}}">{{range}}</a>
+						{{#title}}<div class="title">{{.}}</div>{{/title}}
+						{{#description}}<div class="description">{{.}}</div>{{/description}}
+					</div>
+				{{/events}}
+			</div>
+		</div>
+		
+		<div class="note">
+			<div class="container">
+				<p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
+			</div>
+		</div>
+	</div>
+{{/events.length}}
