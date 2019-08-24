@@ -8,6 +8,7 @@ self.importScripts(
 	'script/handler/auth.js',
 	'script/handler/launch.js',
 	'script/handler/core.js',
+	'script/handler/event.js',
 );
 
 // Setup controller and service

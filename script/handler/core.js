@@ -129,26 +129,11 @@ class CoreHandler {
 			case 'events': {
 				data.events = (await IDB.events.all(event => event.end >= this.today || event.start >= this.today)).map(event => {
 					
-					// Setup export query
-					const query = [
-						'dtstart='+Math.round(event.start.getTime() / 1000),
-						'dtend='+(Math.round((event.end ? event.end.getTime() : event.start.getTime()) / 1000) + 60*60*24 - 1),
-						'summary='+encodeURIComponent(event.title || event.description)
-					];
-					if(event.title && event.description) query.push('description='+encodeURIComponent(event.description));
-					
-					// Collect data
-					const data = {
-						'title': event.title,
-						'description': event.description,
-						'query': query.join('&')
-					}
-					
 					// Add time range
-					if(event.start <= this.today) data.range = event.end ? 'Aktuell' : 'Heute';
-					else data.range = Elements.render('{{j}}. [[date.F.{{n}}]]', event.start);
-					if(event.end) data.range+= ' – '+Elements.render('{{j}}. [[date.F.{{n}}]]', event.end);
-					return data;	
+					if(event.start <= this.today) event.range = event.end ? 'Aktuell' : 'Heute';
+					else event.range = Elements.render('{{j}}. [[date.F.{{n}}]]', event.start);
+					if(event.end) event.range+= ' – '+Elements.render('{{j}}. [[date.F.{{n}}]]', event.end);
+					return event;
 				});
 			} break;
 			case 'exams': {

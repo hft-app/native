@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:-//Luniverse//HFT App//DE
+X-WR-CALNAME:Hochschultermine
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+{{#description}}DESCRIPTION:{{.}}{{/description}}
+DTEND:{{#dtend}}{{Y}}{{m}}{{d}}T235959{{/dtend}}
+DTSTART:{{#dtstart}}{{Y}}{{m}}{{d}}T000000{{/dtstart}}
+SUMMARY:{{summary}}
+UID:HFT-APP-{{id}}
+DTSTAMP:{{#now}}{{Y}}{{m}}{{d}}T{{H}}{{i}}{{s}}{{/now}}
+END:VEVENT
+END:VCALENDAR

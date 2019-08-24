@@ -16,9 +16,21 @@
 			<div class="container">
 				{{#events}}
 					<div class="event article">
-						<a class="date icon-prepend icon" href="/endpoint/event.php?{{query}}">{{range}}</a>
-						{{#title}}<div class="title">{{.}}</div>{{/title}}
-						{{#description}}<div class="description">{{.}}</div>{{/description}}
+						<a class="date icon-prepend icon" href="/event/{{id}}">{{range}}</a>
+						{{#title.length}}
+							<div class="title">
+								{{#title}}
+									<p>{{.}}</p>
+								{{/title}}
+							</div>
+						{{/title.length}}
+						{{#description.length}}
+							<div class="description">
+								{{#description}}
+									<p>{{.}}</p>
+								{{/description}}
+							</div>
+						{{/description.length}}
 					</div>
 				{{/events}}
 			</div>

@@ -6,7 +6,7 @@
 			exams: { autoIncrement: true },
 			meals: { autoIncrement: true },
 			lectures: { autoIncrement: true },
-			events: { autoIncrement: true },
+			events: { keyPath: 'id' },
 			professors: { autoIncrement: true },
 			messages: { autoIncrement: true },
 			tips: { autoIncrement: true },
@@ -33,6 +33,8 @@
 			'/style/login.scss',
 			
 			'/lang/de.json',
+			
+			'/template/event.ics',
 			
 			'/template/_courses.html',
 			'/template/_events.html',
@@ -62,6 +64,7 @@
 			new LaunchHandler(this),
 			new CoreHandler(this),
 			new AuthHandler(this),
+			new EventHandler(this),
 		];
 	
 		// Connect to DB
