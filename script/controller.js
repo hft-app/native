@@ -94,9 +94,11 @@
 			return redirect;
 		}
 		
-		// Wrap html in response
+		// Return native response
 		if(response instanceof Response) return response;
-		else return new Response(response, {
+		
+		// Return html wrapped in response
+		if(response) return new Response(response, {
 			status: 200,
 			statusText: 'OK',
 			headers: new Headers({
@@ -104,6 +106,9 @@
 				'Content-Length': response.length,
 			}),
 		});
+		
+		// Return error
+		return Response.error();
 	}
 	
 	// Refresh data
