@@ -148,7 +148,7 @@
 		data.set('device', await IDB.server.get('device'));
 		
 		// Perform request
-		const response = await fetch(this.server+'endpoint/api.php?action='+action, {
+		const response = await fetch(this.server+'api.php?action='+action, {
 			method: 'POST',
 			body: data,
 		}).then(response => response.json());

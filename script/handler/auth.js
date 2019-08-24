@@ -17,7 +17,7 @@ class AuthHandler {
 				
 				// Perform request
 				if(request.POST.has('submit')) {
-					const result = await fetch(this.controller.server+'endpoint/auth.php', {
+					const result = await fetch(this.controller.server+'auth.php', {
 						method: 'POST',
 						body: request.POST,
 					}).then(response => response.json());
