@@ -56,6 +56,9 @@ class CoreHandler {
 				
 				// Load subjects
 				data.subjects = await IDB.subjects.all();
+				data.subjects.forEach(subject => {
+					subject.courses.forEach(course => course.subject = subject.id);
+				});
 			} break;
 			case 'meals': {
 				const meals = await IDB.meals.all(meal => new Date(meal.date) >= this.today);
