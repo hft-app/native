@@ -16,11 +16,7 @@
 			<div class="container">							
 				{{#exams}}
 					<div class="{{status}} exam article">
-						<div class="grade icon">
-							{{#grade}}
-								{{.}}
-							{{/grade}}
-						</div>
+						<div class="grade icon">{{#grade}}{{.}}{{/grade}}</div>
 						<div class="data">
 							<div class="title">{{title}}</div>
 							<div class="info">{{infos}}</div>
