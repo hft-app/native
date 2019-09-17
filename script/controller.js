@@ -8,7 +8,6 @@
 			lectures: { autoIncrement: true },
 			events: { keyPath: 'id' },
 			professors: { autoIncrement: true },
-			messages: { autoIncrement: true },
 			tips: { autoIncrement: true },
 			printers: { autoIncrement: true },
 			subjects: { autoIncrement: true },
@@ -39,7 +38,7 @@
 			'/template/_courses.html',
 			'/template/_events.html',
 			'/template/_exams.html',
-			'/template/_messages.html',
+			'/template/_welcome.html',
 			'/template/_lectures.html',
 			'/template/_meals.html',
 			'/template/_menu.html',
@@ -130,8 +129,7 @@
 					(name == 'lectures' && index == 'start') ||
 					(name == 'lectures' && index == 'end') ||
 					(name == 'events' && index == 'start') ||
-					(name == 'events' && index == 'end') ||
-					(name == 'messages' && index == 'sent')
+					(name == 'events' && index == 'end')
 				) && object[index]) object[index] = new Date(object[index]);
 				
 				// Insert data

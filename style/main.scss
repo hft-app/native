@@ -100,13 +100,7 @@ header {
 	}
 	
 	.menu { @extend .icon-bars; }
-	.messages {
-		font-size: 24px;
-		
-		@extend .icon-comments-o;
-		
-		&.unread { @extend .icon-comments; }
-	}
+	.refresh { @extend .icon-refresh; }
 }
 
 footer {
@@ -171,22 +165,6 @@ footer {
 			font-size: 13px;
 			
 			@extend .icon-calendar-plus-o;
-		}
-		
-		.title { margin-top: 10px; }
-		
-		.description { margin-top: 6px; }
-	}
-	
-	&.message {
-		display: block;
-		padding: 12px 16px;
-		
-		.date {
-			color: $primary;
-			text-transform: uppercase;
-			font-weight: 500;
-			font-size: 13px;
 		}
 		
 		.title { margin-top: 10px; }

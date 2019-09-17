@@ -31,8 +31,8 @@
 		"professors": {
 			"title": "Professorensuche"
 		},
-		"messages": {
-			"title": "Mitteilungen"
+		"welcome": {
+			"title": "Willkommen"
 		},
 		"error": {
 			"title": "Oh nein!"

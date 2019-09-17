@@ -11,7 +11,7 @@ class CoreHandler {
 	
 	// URL pattern
 	get pattern() {
-		return /^\/(meals|exams|events|lectures|professors|courses|printers|tips|menu|messages|error)(?:\/(.+))?\/?/i;
+		return /^\/(meals|exams|events|lectures|professors|courses|printers|tips|menu|welcome|error)(?:\/(.+))?\/?/i;
 	}
 	
 	// Color palette
@@ -269,22 +269,14 @@ class CoreHandler {
 					}
 				];
 			} break;
-			case 'messages': {
-				
-				// Mark messages as read
-				await IDB.server.put(new Date(), 'read');
-				
-				data.messages = await IDB.messages.all();
-				for(const message of data.messages) message.blank = message.href.startsWith('http');
+			case 'welcome': {
+				const displayname = await IDB.server.get('displayname');
+				data.firstname = displayname.substr(0, displayname.indexOf(' '));
 			} break;
 			case 'error': {
 				data.error = decodeURI(context);
 			} break;
 		}
-		
-		// Get unread messages
-		const read = await IDB.server.get('read');
-		data.unread = await IDB.messages.all(message => !read || message.sent > read);
 		
 		// Remember visitable page
 		IDB.server.put(page, 'page');	

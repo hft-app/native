@@ -14,8 +14,8 @@ class LaunchHandler {
 		const device = await IDB.server.get('device');
 		if(!device) return Response.redirect('/login');
 		
-		// Redirect to last visited page or messages
-		const page = await IDB.server.get('page') || 'messages';
+		// Redirect to last visited or welcome page
+		const page = await IDB.server.get('page') || 'welcome';
 		return Response.redirect('/'+page);
 	}
 }
