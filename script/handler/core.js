@@ -146,16 +146,16 @@ class CoreHandler {
 				data.exams = exams.map(exam => {
 					const pass = exam.status == 'bestanden';
 					
-					// Collect infos
-					var infos = [];
-					if(exam.date) infos.push(exam.date);
-					if(parseInt(exam.cp) > 0) infos.push(parseInt(exam.cp)+' CP');
-					if(exam.try) infos.push([, 'Erst', 'Zweit', 'Dritt'][exam.try]+'versuch');
+					// Collect info
+					var info = [];
+					if(parseInt(exam.cp) > 0) info.push(parseInt(exam.cp)+' CP');
+					info.push(exam.date || exam.semester);
+					if(exam.try) info.push([, 'Erst', 'Zweit', 'Dritt'][exam.try]+'versuch');
 					
 					// Collect data
 					return {
 						status: pass ? 'passed' : 'failed',
-						infos: infos.join(' &middot; '),
+						info: info.join(' &middot; '),
 						title: exam.title,
 						grade: exam.grade
 					};
