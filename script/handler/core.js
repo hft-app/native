@@ -62,11 +62,6 @@ class CoreHandler {
 		const shell = await this.controller.fetch('/template/shell.html').then(response => response.text());
 		
 		// Render html
-		const combined = shell.replace('{{>content}}', content);
-		const raw = Elements.render(combined, data);
-		
-		// Render language
-		const lang = await this.controller.fetch('/lang/de.json').then(response => response.json());
-		return new Elements({open: '[[', close: ']]'}).render(raw, lang);
+		return Elements.render(shell.replace('{{>content}}', content), data);
 	}
 }

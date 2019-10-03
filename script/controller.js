@@ -97,14 +97,18 @@
 		if(response instanceof Response) return response;
 		
 		// Return html wrapped in response
-		if(response) return new Response(response, {
-			status: 200,
-			statusText: 'OK',
-			headers: new Headers({
-				'Content-Type': 'text/html;charset=UTF-8',
-				'Content-Length': response.length,
-			}),
-		});
+		if(response) {
+			const language = await this.fetch('/lang/de.json').then(response => response.json());
+			const translated = new Elements({open: '[[', close: ']]'}).render(response, language);
+			return new Response(translated, {
+				status: 200,
+				statusText: 'OK',
+				headers: new Headers({
+					'Content-Type': 'text/html;charset=UTF-8',
+					'Content-Length': response.length,
+				}),
+			});
+		}
 		
 		// Return error
 		return Response.error();
