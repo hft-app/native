@@ -1,4 +1,4 @@
-{{^printers.length}}
+{{^list.length}}
 	<div class="wrapper">
 		<div class="screen container">
 			<div class="icon-files-o icon"></div>
@@ -10,8 +10,8 @@
 			</div>
 		</div>
 	</div>
-{{/printers.length}}
-{{#printers.length}}
+{{/list.length}}
+{{#list.length}}
 	<nav>
 		<div class="bar container">
 			<a href="mailto:info@hft-app.de?subject=Veraltete%20Druckerdaten">
@@ -23,7 +23,7 @@
 	<div class="wrapper">
 		<div class="list">
 			<div class="container">
-				{{#printers}}
+				{{#list}}
 					<div class="printer article">
 						<div class="title">{{title}}</div>
 						<div class="data">
@@ -32,7 +32,7 @@
 							<div class="type info icon icon-prepend">{{type}}</div>
 						</div>
 					</div>
-				{{/printers}}
+				{{/list}}
 			</div>
 		</div>
 		
@@ -43,4 +43,4 @@
 			</div>
 		</div>
 	</div>
-{{/printers.length}}
+{{/list.length}}

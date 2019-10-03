@@ -1,4 +1,4 @@
-{{^tips.length}}
+{{^list.length}}
 	<div class="wrapper">
 		<div class="screen container">
 			<div class="icon-lightbulb-o icon"></div>
@@ -10,12 +10,12 @@
 			</div>
 		</div>
 	</div>
-{{/tips.length}}
-{{#tips.length}}
+{{/list.length}}
+{{#list.length}}
 	<div class="wrapper">
 		<div class="list">
 			<div class="container">
-				{{#tips}}
+				{{#list}}
 					<a class="tip article" {{#href}}href="{{.}}"{{/href}} target="_blank">
 						<div class="{{color}} icon-{{icon}} icon strip"></div>
 						<div class="text">
@@ -26,8 +26,8 @@
 						</div>
 						{{#href}}<div class="arrow icon"></div>{{/href}}
 					</a>
-				{{/tips}}
+				{{/list}}
 			</div>
 		</div>
 	</div>
-{{/tips.length}}
+{{/list.length}}

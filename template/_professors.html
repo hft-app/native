@@ -1,4 +1,4 @@
-{{^professors.length}}
+{{^list.length}}
 	<div class="wrapper">
 		<div class="screen container">
 			<div class="icon-address-card-o icon"></div>
@@ -10,8 +10,8 @@
 			</div>
 		</div>
 	</div>
-{{/professors.length}}
-{{#professors.length}}
+{{/list.length}}
+{{#list.length}}
 	<script src="script/client/professors.js" defer></script>
 
 	<nav>
@@ -26,7 +26,7 @@
 	<div class="wrapper">
 		<div class="list">
 			<div class="container">
-				{{#professors}}
+				{{#list}}
 					<div class="professor article">
 						<div class="title">{{name}}</div>
 						<div class="data">
@@ -41,7 +41,7 @@
 							</div>
 						</div>
 					</div>
-				{{/professors}}
+				{{/list}}
 			</div>
 		</div>
 	
@@ -52,4 +52,4 @@
 			</div>
 		</div>
 	</div>
-{{/professors.length}}
+{{/list.length}}
