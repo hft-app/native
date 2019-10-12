@@ -100,7 +100,7 @@
 				statusText: 'OK',
 				headers: new Headers({
 					'Content-Type': 'text/html;charset=UTF-8',
-					'Content-Length': response.length,
+					'Content-Length': translated.length,
 				}),
 			});
 		}
