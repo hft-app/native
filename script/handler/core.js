@@ -31,6 +31,16 @@ class CoreHandler {
 	// Process request
 	async process(request) {
 		
+		// Auto refresh
+		const checked = await IDB.server.get('checked');
+		if(!checked || new Date() - checked > 15*60*1000) {
+			await IDB.server.put(new Date(), 'checked');
+			if(navigator.onLine) await controller.refresh();
+		}
+		
+		// Manual refresh
+		if(request.GET.has('refresh')) await controller.refresh();
+		
 		// Load page and module
 		const page = request.params[1];
 		const module = this.modules[page];

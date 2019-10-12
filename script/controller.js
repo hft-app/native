@@ -86,13 +86,6 @@
 	// Response filter
 	async responseFilter(response) {
 		
-		// Handle delayed exception (thrown at auto refresh)
-		if(this.exception) {
-			const redirect = await this.exceptionHandler(this.exception);
-			delete this.exception;
-			return redirect;
-		}
-		
 		// Return native response
 		if(response instanceof Response) return response;
 		
@@ -117,9 +110,6 @@
 	// Refresh data
 	async refresh() {
 		
-		// Report status to clients
-		this.post({status: 'refreshing'});
-		
 		// Perform request
 		const result = await this.query('refresh');
 		
@@ -142,25 +132,6 @@
 				// Insert data
 				await IDB[name].put(object);
 			}
-		}
-		
-		// Report status to clients
-		this.post({status: 'refreshed'});
-	}
-	
-	// Post message to clients
-	async post(message) {
-		for(const client of await clients.matchAll()) client.postMessage(message);
-	}
-	
-	// Handle incoming messages
-	async messageHandler(message) {
-		switch(message.data.action) {
-			
-			// Refresh request
-			case 'refresh':	{
-				await this.refresh();
-			} break;
 		}
 	}
 	

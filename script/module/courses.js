@@ -8,7 +8,7 @@ class Courses {
 		// Update course selection
 		if(request.GET.has('submit')) {
 			await this.handler.controller.query('enroll', request.POST);
-			await this.handler.controller.refresh(false);
+			await this.handler.controller.refresh();
 			return Response.redirect('/lectures');
 		}
 		

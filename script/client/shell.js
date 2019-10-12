@@ -8,22 +8,9 @@ $('.wrapper').on('touchstart', function(){
 });
 
 // Refresh button
-$('header .refresh').on('click', () => {
-	navigator.serviceWorker.controller.postMessage({action: 'refresh'});
+$('header .refresh').on('click', function(){
+	this.classList.add('icon-spin');
 });
 
-// Handle incoming messages
-navigator.serviceWorker.addEventListener('message', e => {
-	switch(e.data.status) {
-		
-		// Activate loading indicator
-		case 'refreshing': {
-			$('header .refresh').toggleClass('icon-spin');
-		} break;
-		
-		// Reload after refresh
-		case 'refreshed': {
-			location.reload();
-		} break;
-	}
-});
+// Auto-refresh
+setTimeout(() => location.reload(), 3*60*1000);
