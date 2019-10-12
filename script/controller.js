@@ -48,6 +48,8 @@
 			'/template/_error.html',
 			'/template/shell.html',
 			'/template/login.html',
+			
+			'/launcher/meta.html',
 		];
 	}
 	

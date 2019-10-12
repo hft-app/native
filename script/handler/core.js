@@ -70,8 +70,10 @@ class CoreHandler {
 		// Load templates
 		const content = await this.controller.fetch('/template/_'+page+'.html').then(response => response.text());
 		const shell = await this.controller.fetch('/template/shell.html').then(response => response.text());
+		const meta = await this.controller.fetch('/launcher/meta.html').then(response => response.text());
+		const cooked = shell.replace('{{>content}}', content).replace('{{>meta}}', meta);
 		
 		// Render html
-		return Elements.render(shell.replace('{{>content}}', content), data);
+		return Elements.render(cooked, data);
 	}
 }
