@@ -1,0 +1,50 @@
+[
+  {
+    "title": "ITB_HPLJM806_1_014",
+    "room": "1/014",
+    "sizes": "A3, A4",
+    "type": "S/W"
+  },
+  {
+    "title": "ITB_HPLJM806_Tim",
+    "room": "2/021",
+    "sizes": "A3, A4",
+    "type": "S/W"
+  },
+  {
+    "title": "ITB_HPLJM806_Struppi",
+    "room": "2/021",
+    "sizes": "A3, A4",
+    "type": "S/W"
+  },
+  {
+    "title": "ITB_HPLJ4250_Tom",
+    "room": "2/114",
+    "sizes": "A4",
+    "type": "S/W"
+  },
+  {
+    "title": "ITB_HPLJ4250_Jerry",
+    "room": "2/114",
+    "sizes": "A4",
+    "type": "S/W"
+  },
+  {
+    "title": "ITB_HPCLJ5550_2_114",
+    "room": "2/114",
+    "sizes": "A3, A4",
+    "type": "Farbe"
+  },
+  {
+    "title": "ITB_HPLJ9040_2_201",
+    "room": "2/201",
+    "sizes": "A3, A4",
+    "type": "S/W"
+  },
+  {
+    "title": "ITB_HPLJM806:Snoopy",
+    "room": "2/233",
+    "sizes": "A3, A4",
+    "type": "S/W"
+  }
+]

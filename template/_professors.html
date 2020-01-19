@@ -14,42 +14,5 @@
 {{#list.length}}
 	<script src="script/client/professors.js" defer></script>
 
-	<nav>
-		<div class="container">
-			<label>
-				<span class="icon icon-prepend icon-search"></span>
-				<input class="search" placeholder="Suchen...">
-			</label>
-		</div>
-	</nav>
-	
-	<div class="wrapper">
-		<div class="list">
-			<div class="container">
-				{{#list}}
-					<div class="professor article">
-						<div class="title">{{name}}</div>
-						<div class="data">
-							<div class="infos">
-								<div class="room icon-prepend icon-fw icon">{{room}}</div>
-								<div class="time icon-prepend icon-fw icon">{{time}}</div>
-							</div>
-							
-							<div class="actions">
-								<a class="icon icon-phone green" href="tel:{{phone}}"></a>
-								<a class="icon icon-envelope blue" href="mailto:{{email}}"></a>
-							</div>
-						</div>
-					</div>
-				{{/list}}
-			</div>
-		</div>
-	
-		<div class="note">
-			<div class="container">
-				<p>Professorenverzeichnis</p>
-				<p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
-			</div>
-		</div>
-	</div>
+
 {{/list.length}}
