@@ -9,7 +9,7 @@ class Courses {
 		if(request.GET.has('submit')) {
 			await this.handler.controller.query('enroll', request.POST);
 			await this.handler.controller.refresh();
-			return Response.redirect('/lectures');
+			return Response.redirect('/loadLectures');
 		}
 		
 		// List subjects with courses

@@ -2,7 +2,7 @@
     <div class="body">
         <header v-if="!$route.meta.hideNav">
             <div class="container">
-                <a v-if="$route.path === '/menu'" @click="$router.back()">
+                <a v-if="!!$route.meta.canGoBack" @click="$router.back()">
                     <fa-icon class="menu icon" icon="arrow-left"/>
                 </a>
                 <router-link v-else to="menu">
@@ -32,10 +32,11 @@
     </div>
 </template>
 <script>
+    import {mapState} from "vuex";
+
     export default {
         data() {
             return {
-                refreshing: false,
                 routes: [{
                     icon: "home",
                     name: "Start",
@@ -59,12 +60,10 @@
                 }]
             }
         },
-
+        computed: mapState({refreshing: state => state.refreshing}),
         methods: {
             async refresh() {
-                this.refreshing = true;
                 await this.$store.dispatch("refresh");
-                this.refreshing = false;
             }
         }
     }

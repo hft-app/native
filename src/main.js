@@ -15,15 +15,13 @@ import Tips from './components/Tips.vue'
 import Professors from './components/Professors.vue'
 import Printers from './components/Printers.vue'
 import store from "./stores/store";
+import langDE from "./lang/de.json"
 
 import './index.scss'
 
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 
-const messages = {
-    de: import("./lang/de.json")
-};
 const dateTimeFormats = {
     'en': {
         long: {
@@ -53,19 +51,27 @@ const dateTimeFormats = {
 
 const i18n = new VueI18n({
     locale: 'de',
-    messages,
+    messages: {
+        de: langDE
+    },
     dateTimeFormats
 });
 
 const routes = [
     {
-        path: '/', component: Login, //meta: {hideNav: true}},
+        path: '/', component: Login, meta: {hideNav: true}, beforeEnter: (to, from, next) => {
+            if (store.getters["lsf/isLoggedIn"]) {
+                next({path: '/home'})
+            } else {
+                next()
+            }
+        }
     },
     {path: '/timetable', component: Timetable},
     {path: '/meals', component: Meals},
     {path: '/events', component: Events},
     {path: '/exams', component: Exams},
-    {path: '/menu', component: Menu},
+    {path: '/menu', component: Menu, meta: {canGoBack: true}},
     {path: '/courses', component: Courses, meta: {canGoBack: true}},
     {path: '/professors', component: Professors, meta: {canGoBack: true}},
     {path: '/printers', component: Printers, meta: {canGoBack: true}},

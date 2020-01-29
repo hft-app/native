@@ -18,11 +18,11 @@ class Lectures {
 			const start = new Date();
 			start.setDate(start.getDate() + i);
 			start.setHours(0,0,0);
-			const end = new Date()
+			const end = new Date();
 			end.setDate(end.getDate() + i);
 			end.setHours(23,59,59);
 			
-			// Filter lectures for current day
+			// Filter loadLectures for current day
 			const today = lectures.filter(lecture => lecture.start >= start && lecture.end <= end);
 			
 			// Calculate color hash

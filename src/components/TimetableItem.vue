@@ -7,11 +7,11 @@
             {{$d(event.start, 'time')}} - {{$d(event.end, 'time')}}
         </div>
         <div class="info">
-            <div class="professor data icon-prepend icon">
+            <div v-if="event.professor" class="professor data icon-prepend icon">
                 <fa-icon icon="user-alt"/>
                 {{event.professor}}
             </div>
-            <div class="room data icon-prepend icon">
+            <div v-if="event.room" class="room data icon-prepend icon">
                 <fa-icon icon="map-marker-alt"/>
                 {{event.room}}
             </div>
@@ -20,12 +20,8 @@
 </template>
 <script>
     export default {
-        props: ["event"],
-        created() {
-            console.log(this.event)
-        }
+        props: ["event"]
     }
-
 </script>
 <style lang="scss" scoped>
 

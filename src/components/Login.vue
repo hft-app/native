@@ -22,30 +22,24 @@
 
                 <div class="info">
                     <span v-if="error">
-                        <span v-if="error.error">{{error.error}}</span>
-                        <span v-else>
-                            <p>Ein unbekannter Fehler ist aufgetreten.</p>
-                            <p>{{error}}</p>
-                        </span>
+                        <span v-html="$t('error.' + error.type)"/>
                     </span>
                     <div v-else>
-                        <p>Melde dich mit deinem Konto an.</p>
-                        <p>Deine Daten werden verschlüsselt übertragen.</p>
+                        <p>{{$t('page.login.prompt')}}</p>
+                        <p>{{$t('page.login.security')}}</p>
                     </div>
                 </div>
 
-                <form class="shaking" @submit="login">
+                <form :class="invalidCreds? 'shaking':''" @submit="login">
                     <div class="group">
-                        <input v-model="username" required name="username" type="text" placeholder="Benutzername">
-                        <input v-model="password" required name="password" type="password" placeholder="Passwort">
+                        <input v-model="username" required name="username" type="text"
+                               :placeholder="$t('page.login.username')">
+                        <input v-model="password" required name="password" type="password"
+                               :placeholder="$t('page.login.password')">
                     </div>
-                    <label>
-                        <input required name="accepted" type="checkbox" value="true">
-                        <span>Ich akzeptiere die <a class="underlined" href="//luniversity.de/info/terms"
-                                                    title="Nutzungsbedingungen"
-                                                    target="_blank">Nutzungsbedingungen</a>.</span>
-                    </label>
-                    <button name="submit" :class="idle? '':'active'" data-idle="Anmelden" data-active="Meldet an..."/>
+                    <button name="submit" :class="loginIn? 'active':''"
+                            :data-idle="$t('page.login.login')"
+                            :data-active="$t('page.login.loginIn')"/>
                 </form>
             </div>
         </section>
@@ -62,19 +56,36 @@
     </div>
 </template>
 <script>
+    import {mapState} from "vuex";
+
     export default {
         data() {
             return {
-                idle: true,
+                invalidCreds: false,
                 username: "",
                 password: "",
                 error: null
             }
         },
 
+        computed: mapState({loginIn: state => state.refreshing}),
+
         methods: {
-            login(evt) {
-                evt.preventDefault()
+            async login(evt) {
+                evt.preventDefault();
+                try {
+                    this.invalidCreds = false;
+                    await this.$store.dispatch("refresh", {
+                        username: this.username,
+                        password: this.password
+                    });
+                    await this.$router.push("/home")
+                } catch (e) {
+                    this.error = e;
+                    if (e.type === "invalidCreds") {
+                        this.invalidCreds = true;
+                    }
+                }
             }
         }
     }
@@ -257,6 +268,7 @@
                 color: $background;
                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
                 font-weight: 300;
+                margin-top: 10px;
 
                 &::after {
                     content: attr(data-idle);

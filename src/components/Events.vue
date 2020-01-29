@@ -13,8 +13,8 @@
         <div v-else class="list">
             <div class="container">
                 <div v-for="event in events" class="event article">
-                    <a class="date icon-prepend icon">
-                        <fa-icon icon="calendar-alt"/>
+                    <a class="date">
+                        <fa-icon class="icon-prepend icon" icon="calendar-alt"/>
                         <span v-if="event.startDate <= new Date().valueOf()">Aktuell</span>
                         <span v-else>{{$d(event.startDate, 'day')}}</span>
                         <span v-if="event.endDate">- {{$d(event.endDate, 'day')}}</span>

@@ -14,8 +14,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
+    "cordova-ios": "^5.1.0",
     "cordova-plugin-advanced-http": "^2.3.1",
     "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-webpack": "^0.4.7",
     "cordova-plugin-x-socialsharing": "^5.6.3",
     "es6-promise-plugin": "^4.2.2"
   },
@@ -30,10 +33,13 @@
       },
       "cordova-plugin-x-socialsharing": {
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
-      }
+      },
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-webpack": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

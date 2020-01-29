@@ -45,17 +45,16 @@
 
                 // Create timetable for the next 3 weeks
                 for (let i = 0; i < 21; i++) {
-                    const start = new Date();
+                    const start = new Date(new Date() - 604800000);
                     start.setDate(start.getDate() + i);
                     start.setHours(0, 0, 0);
 
-                    // Filter lectures for current day
+                    // Filter loadLectures for current day
                     const today = lectures.filter(lecture =>
                         Math.floor(lecture.start / 864E5) === Math.floor(start.valueOf() / 864E5));
                     if (!today.length) {
                         continue;
                     }
-                    console.log(today);
 
                     // Calculate color hash
                     let column = today.map(lecture => {
@@ -76,17 +75,17 @@
     }
 
     class Table {
-        // Construct with lectures
+        // Construct with loadLectures
         constructor(lectures = []) {
 
-            // Load lectures
+            // Load loadLectures
             this.lectures = lectures;
 
             // Setup grid
             this.grid = [];
             for (var x = 0; x < 12; x++) this.grid[x] = [];
 
-            // Place lectures
+            // Place loadLectures
             for (const lecture of this.lectures) this.place(lecture);
         }
 
@@ -142,7 +141,7 @@
             const morning = new Date(date);
             morning.setHours(8, 0, 0);
 
-            // Only check lectures starting in the current time segment
+            // Only check loadLectures starting in the current time segment
             const y = (lecture.start - morning.valueOf()) / (60 * 15 * 1000);
 
             lecture.rowspan = (lecture.end - lecture.start) / (60 * 15 * 1000);
@@ -154,12 +153,12 @@
                 // Position is occupied
                 if (typeof this.grid[x][y] !== 'undefined') continue;
 
-                // Find overlapping lectures
+                // Find overlapping loadLectures
                 var overlapping = 0;
                 for (var index in this.lectures) {
                     var test = this.lectures[index];
 
-                    // Devide the remaining space among not yet placed lectures
+                    // Devide the remaining space among not yet placed loadLectures
                     if (!test.placed && this.overlap(test, lecture)) overlapping++;
                 }
                 lecture.colspan = (12 - x) / overlapping;

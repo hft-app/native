@@ -4,7 +4,7 @@
             <div class="container">
                 <label>
                     <fa-icon class="icon icon-prepend icon-search" icon="search"/>
-                    <input v-model="filter" class="search" placeholder="Suchen...">
+                    <input v-model="filter" class="search" :placeholder="$t('page.professors.search')">
                 </label>
             </div>
         </nav>
@@ -36,7 +36,7 @@
 
             <div class="note">
                 <div class="container">
-                    <p>Professorenverzeichnis</p>
+                    <p>{{$t('page.professors.title')}}</p>
                     <p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
                 </div>
             </div>

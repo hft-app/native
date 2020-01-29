@@ -7,7 +7,7 @@
                 </div>
                 <div class="menu">
                     <div class="container">
-                        <a class="target logout item" href="/logout">
+                        <a class="target logout item" @click="logout">
                             <fa-icon class="teal badge icon" icon="id-badge"/>
                             <div class="title grow">
                                 <p class="displayname">{{displayname}}</p>
@@ -45,8 +45,14 @@
 </template>
 
 <script>
+    import {mapState} from "vuex";
+
     export default {
         methods: {
+            logout() {
+                this.$store.dispatch("lsf/logout");
+                this.$router.push("/");
+            },
             navigate(item) {
                 if (item.to) {
                     this.$router.push(item.to)
@@ -55,9 +61,11 @@
                 }
             }
         },
+        computed: mapState({
+            displayname: state => state.lsf.fullname
+        }),
         data() {
             return {
-                displayname: "aBC",
                 version: "2.0.1",
                 groups: [{
                     name: 'Weitere Inhalte',
@@ -110,17 +118,17 @@
                     color: 'blue',
                     items: [
                         {
-                            url: '//luniversity.de/info/terms',
+                            url: 'https://luniversity.de/info/terms',
                             icon: 'handshake',
                             title: 'Nutzungsbedingungen',
                             blank: true
                         }, {
-                            url: '//luniversity.de/info/imprint',
+                            url: 'https:://luniversity.de/info/imprint',
                             icon: 'bullhorn',
                             title: 'Impressum',
                             blank: true
                         }, {
-                            url: '//luniversity.de/info/privacy',
+                            url: 'https://luniversity.de/info/privacy',
                             icon: 'shield-alt',
                             title: 'Datenschutzrichtlinien',
                             blank: true

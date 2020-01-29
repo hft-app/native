@@ -10,17 +10,23 @@
         </div>
         <div v-else class="list">
             <div class="container">
-                <div v-for="exam in exams" :class=" exam.status + ' exam article'">
-                    <div v-if="!exam.grade && exam.status === 'passed'" class="grade icon">
+                <div v-for="exam in exams" :class="examClass(exam) + ' exam article'">
+                    <div v-if="!exam.grade && exam.passed" class="grade icon">
                         <fa-icon icon="check"/>
                     </div>
-                    <div v-else-if="!exam.grade && exam.status === 'failed'" class="grade icon">
+                    <div v-else-if="!exam.grade && !exam.passed" class="grade icon">
                         <fa-icon icon="times"/>
                     </div>
                     <div v-else class="grade icon">{{exam.grade}}</div>
                     <div class="data">
                         <div class="title">{{exam.title}}</div>
-                        <div class="info">{{exam.info}}</div>
+                        <div class="info">
+                            <span v-if="exam.date">{{exam.date}} &middot;&nbsp;</span>
+                            <span v-if="exam.cp">{{exam.cp}} CP &middot;&nbsp;</span>
+                            <span v-if="exam.try === 1">Erstversuch</span>
+                            <span v-else-if="exam.try === 2">Zweitversuch</span>
+                            <span v-else>Drittversuch</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,171 +41,14 @@
 </template>
 <script>
     export default {
-        data() {
-            return {
-                exams: [{
-                    "title": "PVL Kommunikationssysteme",
-                    "grade": null,
-                    "status": "failed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": "",
-                    "info": "abd"
-                }, {
-                    "title": "PVL Theoretische Informatik",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "PVL Software-Technik",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "PVL Datenstrukturen und Algorithmen",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "Bachelor-Vorprüfung",
-                    "grade": "1,2",
-                    "status": "passed",
-                    "cp": "60,0",
-                    "try": "1",
-                    "date": "11.07.2019"
-                }, {
-                    "title": "Internet-Programmierung",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "5,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "PVL Informatik-Projekt 1",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "Informatik-Projekt 1",
-                    "grade": "1,0",
-                    "status": "passed",
-                    "cp": "9,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "PVL Programmieren 2",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": "08.07.2019"
-                }, {
-                    "title": "Programmieren 2",
-                    "grade": "1,3",
-                    "status": "passed",
-                    "cp": "7,0",
-                    "try": "1",
-                    "date": "11.07.2019"
-                }, {
-                    "title": "Lineare Algebra",
-                    "grade": "1,3",
-                    "status": "failed",
-                    "cp": "3,0",
-                    "try": "1",
-                    "date": "16.07.2019"
-                }, {
-                    "title": "Vorleistung Mathematik 2",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": "08.07.2019"
-                }, {
-                    "title": "Mathematik 2",
-                    "grade": "1,3",
-                    "status": "passed",
-                    "cp": "5,0",
-                    "try": "1",
-                    "date": "08.07.2019"
-                }, {
-                    "title": "Fremdsprachen",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "2,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "Arbeitstechniken im Studium",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "2,0",
-                    "try": "1",
-                    "date": "08.02.2019"
-                }, {
-                    "title": "Betriebswirtschaftslehre",
-                    "grade": "1,0",
-                    "status": "passed",
-                    "cp": "4,0",
-                    "try": "1",
-                    "date": "31.01.2019"
-                }, {
-                    "title": "Programmieren 1",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "8,0",
-                    "try": "1",
-                    "date": "08.02.2019"
-                }, {
-                    "title": "PVL Einführung in die Informatik",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": ""
-                }, {
-                    "title": "Einführung in die Informatik",
-                    "grade": "1,7",
-                    "status": "passed",
-                    "cp": "5,0",
-                    "try": "1",
-                    "date": "06.02.2019"
-                }, {
-                    "title": "Vorleistung Diskrete Mathematik",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "0,0",
-                    "try": "1",
-                    "date": "08.02.2019"
-                }, {
-                    "title": "Diskrete Mathematik",
-                    "grade": "1,3",
-                    "status": "passed",
-                    "cp": "5,0",
-                    "try": "1",
-                    "date": "29.01.2019"
-                }, {
-                    "title": "Mathematik 1",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "5,0",
-                    "try": "1",
-                    "date": "08.02.2019"
-                }, {
-                    "title": "Erzielte CP GS",
-                    "grade": null,
-                    "status": "passed",
-                    "cp": "60,0",
-                    "try": "",
-                    "date": ""
-                }]
+        computed: {
+            exams() {
+                return this.$store.state.lsf.exams;
+            }
+        },
+        methods: {
+            examClass(exam) {
+                return exam.passed ? 'passed' : 'failed'
             }
         }
     }

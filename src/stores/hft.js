@@ -1,4 +1,5 @@
-import {fetchDOM, parseDate} from "./fetch";
+import {parseDate} from "./util";
+import {fetchDOM} from "platform/fetch";
 
 export default {
     namespaced: true,
@@ -9,7 +10,7 @@ export default {
 
     actions: {
         async refresh(context) {
-            const dom = await fetchDOM("https://www.hft-stuttgart.de/Aktuell/Hochschultermine/Wintersemester1920?set_language=de&cl=de");
+            const dom = await fetchDOM("https://mobile.hft-stuttgart.de/Aktuell/Hochschultermine/Wintersemester1920?set_language=de&cl=de");
             const tableEl = dom.getElementById("HTermin");
             const rowsEl = tableEl.querySelectorAll("tr");
 
@@ -22,7 +23,7 @@ export default {
 
                 const startDate = parseDate(date[0]).valueOf();
                 let endDate;
-                if(date[1]) {
+                if (date[1]) {
                     endDate = parseDate(date[1]).valueOf();
                 }
 

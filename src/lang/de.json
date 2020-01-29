@@ -1,93 +1,61 @@
 {
-	"page": {
-		"meals": {
-			"title": "Speiseplan",
-			"tab": "Mensa"
-		},
-		"lectures": {
-			"title": "Vorlesungsplan",
-			"tab": "Vorlesungen"
-		},
-		"events": {
-			"title": "Terminkalender",
-			"tab": "Termine"
-		},
-		"exams": {
-			"title": "Notenspiegel",
-			"tab": "Noten"
-		},
-		"menu": {
-			"title": "Weitere Inhalte"
-		},
-		"courses": {
-			"title": "Vorlesungsverzeichnis"
-		},
-		"tips": {
-			"title": "Tipps und Tricks"
-		},
-		"printers": {
-			"title": "Druckerstandorte"
-		},
-		"professors": {
-			"title": "Professorensuche"
-		},
-		"welcome": {
-			"title": "Willkommen"
-		},
-		"error": {
-			"title": "Oh nein!"
-		}
-	},
-	
-	"error": {
-		"MaintenancePeriod": [
-			"Die Server der HFT sind wegen Wartungsarbeiten nicht erreichbar.",
-			"Bitte versuche es später erneut."
-		],
-		"offline": [
-			"Der Server konnte nicht erreicht werden.",
-			"Bitte stelle sicher, dass du mit dem Internet verbunden bist."
-		],
-		"InvalidUser": [
-			"Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App."
-		]
-	},
-	
-	"date": {
-		"F": [
-			null,
-			"Januar",
-			"Februar",
-			"März",
-			"April",
-			"Mai",
-			"Juni",
-			"Juli",
-			"August",
-			"September",
-			"Oktober",
-			"November",
-			"Dezember"
-		],
-		
-		"D": [
-			"So",
-			"Mo",
-			"Di",
-			"Mi",
-			"Do",
-			"Fr",
-			"Sa"
-		],
-		
-		"l": [
-			"Sonntag",
-			"Montag",
-			"Dienstag",
-			"Mittwoch",
-			"Donnerstag",
-			"Freitag",
-			"Samstag"
-		]
-	}
+  "page": {
+    "login": {
+      "login": "Anmelden",
+      "loginIn": "Meldet an...",
+      "username": "Benutzername",
+      "password": "Passwort",
+      "prompt": "Melde dich mit deinem Konto an.",
+      "security": "Deine Daten werden verschlüsselt und nur an die Hochschule übertragen."
+    },
+    "meals": {
+      "title": "Speiseplan",
+      "tab": "Mensa",
+      "nothingToEat": "Nichts zu essen",
+      "notLoaded": "Es wurden keine Gerichte geladen.",
+      "tryLater": "Bitte versuche es später erneut."
+    },
+    "loadLectures": {
+      "title": "Vorlesungsplan",
+      "tab": "Vorlesungen"
+    },
+    "events": {
+      "title": "Terminkalender",
+      "tab": "Termine"
+    },
+    "exams": {
+      "title": "Notenspiegel",
+      "tab": "Noten"
+    },
+    "menu": {
+      "title": "Weitere Inhalte"
+    },
+    "courses": {
+      "title": "Vorlesungsverzeichnis"
+    },
+    "tips": {
+      "title": "Tipps und Tricks"
+    },
+    "printers": {
+      "title": "Druckerstandorte",
+      "report": "Veraltete Daten melden"
+    },
+    "professors": {
+      "title": "Professorensuche",
+      "search": "Suchen..."
+    },
+    "welcome": {
+      "title": "Willkommen"
+    },
+    "error": {
+      "title": "Oh nein!"
+    }
+  },
+  "error": {
+    "maintenance": "Die Server der HFT sind wegen Wartungsarbeiten nicht erreichbar.<br>Bitte versuche es später erneut.",
+    "offline": "Der Server konnte nicht erreicht werden.<br>Bitte stelle sicher, dass du mit dem Internet verbunden bist.",
+    "invalidCreds": "Deine Zugangsdaten sind ungültig",
+    "invalidUser": "Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App.",
+    "unknown": "Ein unbekannter Fehler ist aufgetreten. Bitte versuche es später erneut."
+  }
 }

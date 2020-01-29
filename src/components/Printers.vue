@@ -3,7 +3,8 @@
         <nav>
             <div class="bar container">
                 <a href="mailto:info@hft-app.de?subject=Veraltete%20Druckerdaten">
-                    <fa-icon icon="history"/> Veraltete Daten melden
+                    <fa-icon icon="history"/>
+                    {{$t('page.printers.report')}}
                 </a>
             </div>
         </nav>
@@ -33,7 +34,7 @@
 
             <div class="note">
                 <div class="container">
-                    <p>Druckerstandorte</p>
+                    <p>{{$t('page.printers.title')}}</p>
                     <p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
                 </div>
             </div>

@@ -9,4 +9,5 @@ dist/
 # Cordova
 /src-cordova/platforms
 /src-cordova/plugins
+/src-cordova/www
 /public/cordova.js

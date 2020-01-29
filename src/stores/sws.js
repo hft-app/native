@@ -1,5 +1,4 @@
-import {fetchJSON} from "./fetch";
-
+import {fetchJSON} from "platform/fetch";
 
 export default {
     namespaced: true,

@@ -10,11 +10,11 @@
         <div v-if="!meals || !meals.length">
             <div class="screen container">
                 <fa-icon class="icon" icon="utensils"/>
-                <div class="title">Nichts zu essen</div>
+                <div class="title">{{$t('page.meals.nothingToEat')}}</div>
                 <div class="line"></div>
                 <div class="info">
-                    <p>Es wurden keine Gerichte geladen.</p>
-                    <p>Bitte versuche es später erneut.</p>
+                    <p>{{$t('page.meals.notLoaded')}}</p>
+                    <p>{{$t('page.meals.tryLater')}}</p>
                 </div>
             </div>
         </div>
