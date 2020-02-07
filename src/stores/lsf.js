@@ -4,6 +4,13 @@ import {fetchDOM, fetchLogin} from "platform/fetch";
 
 const BASE_URL = "https://lsf.hft-stuttgart.de/qisserver/rds";
 
+function i18nEquals(german, english) {
+    return (element) => {
+        let content = element.textContent.trim();
+        return content.indexOf(german) !== -1 || content.indexOf(english) !== -1;
+    }
+}
+
 const Client = {
     async login({username, password}) {
         const formData = {
@@ -20,7 +27,6 @@ const Client = {
             "&breadCrumbSource=portal",
             formData);
 
-        // We get redirected on a successful login
         if (!success) {
             throw {type: "invalidCreds"};
         }
@@ -37,14 +43,15 @@ const Client = {
             "&subdir=applications" +
             "&xml=menu");
         let link = Array.from(dom.querySelectorAll("a.auflistung"))
-            .filter(element => element.textContent.trim() === "Notenspiegel")[0]
+            .filter(i18nEquals("Notenspiegel", "Exams Extract"))[0]
             .getAttribute("href");
 
         let fullname = dom.querySelector(".divloginstatus").childNodes[10].textContent.trim().substring(5).split(/\s+/).join(" ");
 
         dom = await fetchDOM(link);
         link = Array.from(dom.querySelectorAll("a"))
-            .filter(element => element.getAttribute("title") && element.getAttribute("title").indexOf("Leistungen für Abschluss") !== -1)[0]
+            .filter(element => element.getAttribute("title") && element.getAttribute("title")
+                .indexOf("Leistungen für") !== -1)[0]
             .getAttribute("href");
 
         dom = await fetchDOM(link);
@@ -59,7 +66,7 @@ const Client = {
                 id: columns[0].textContent.trim(),
                 title: columns[1].textContent.trim(),
                 grade: columns[3].textContent.trim() || null,
-                passed: columns[4].textContent.trim() === "bestanden",
+                passed: i18nEquals("bestanden", "passed")(columns[4]),
                 cp: parseFloat(columns[5].textContent.trim()),
                 try: parseInt(columns[7].textContent.trim()),
                 date: columns[8].textContent.trim() || null,
@@ -122,40 +129,42 @@ const Client = {
                         grid[rowIndex + i][x] = true;
                     }
 
-                    let title = column.querySelector("a.ver").textContent.trim();
-                    const prefixLength = title.indexOf(" ");
-                    if (prefixLength && /\d/.test(title.substring(0, prefixLength))) {
-                        title = title.substring(prefixLength + 1);
+                    for (let lectureTable of column.children) {
+                        let title = lectureTable.querySelector("a.ver").textContent.trim();
+                        const prefixLength = title.indexOf(" ");
+                        if (prefixLength && /\d/.test(title.substring(0, prefixLength))) {
+                            title = title.substring(prefixLength + 1);
+                        }
+
+                        const infos = lectureTable.querySelectorAll('td.notiz[colspan="2"]');
+                        let dates = infos[0].textContent;
+                        dates = dates.split(/,/)[1].trim().split(/-/);
+                        const dayDate = days[x];
+                        const startDate = new Date(dayDate);
+                        const endDate = new Date(dayDate);
+                        startDate.setHours(parseInt(dates[0].trim().substring(0, 2)));
+                        startDate.setMinutes(parseInt(dates[0].trim().substring(3, 5)));
+                        endDate.setHours(parseInt(dates[1].trim().substring(0, 2)));
+                        endDate.setMinutes(parseInt(dates[1].trim().substring(3, 5)));
+
+                        let room = infos[infos.length - 1].textContent.split(/:/)[1].trim();
+
+                        let professor;
+                        const notiz = Array.from(lectureTable.querySelectorAll('td.notiz'))
+                            .filter(i18nEquals("Durchf", "Instructor"));
+                        if (notiz.length === 1) {
+                            professor = notiz[0].textContent.split(/:/)[1].trim();
+                        }
+
+                        lectures.push({
+                            start: startDate.valueOf(),
+                            end: endDate.valueOf(),
+                            title,
+                            room,
+                            professor,
+                            date: dayDate.valueOf()
+                        })
                     }
-
-                    const infos = column.querySelectorAll('td.notiz[colspan="2"]');
-                    let dates = infos[0].textContent;
-                    dates = dates.split(/,/)[1].trim().split(/-/);
-                    const dayDate = days[x];
-                    const startDate = new Date(dayDate);
-                    const endDate = new Date(dayDate);
-                    startDate.setHours(parseInt(dates[0].trim().substring(0, 2)));
-                    startDate.setMinutes(parseInt(dates[0].trim().substring(3, 5)));
-                    endDate.setHours(parseInt(dates[1].trim().substring(0, 2)));
-                    endDate.setMinutes(parseInt(dates[1].trim().substring(3, 5)));
-
-                    let room = infos[infos.length - 1].textContent.split(/:/)[1].trim();
-
-                    let professor;
-                    const notiz = Array.from(column.querySelectorAll('td.notiz'))
-                        .filter(element => element.textContent.indexOf("Durchf") !== -1);
-                    if (notiz.length === 1) {
-                        professor = notiz[0].textContent.split(/:/)[1].trim();
-                    }
-
-                    lectures.push({
-                        start: startDate.valueOf(),
-                        end: endDate.valueOf(),
-                        title,
-                        room,
-                        professor,
-                        date: dayDate.valueOf()
-                    })
                 }
             }
         }
@@ -189,8 +198,8 @@ export default {
 
             const examsFullname = Client.loadExamsAndFullname();
 
-            const lecturesThisWeek = Client.loadLectures(new Date(Date.now() - 6.04e+8));
-            const lecturesNextWeek = Client.loadLectures(new Date());
+            const lecturesThisWeek = Client.loadLectures(new Date());
+            const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
 
             const {exams, fullname} = await examsFullname;
             const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);

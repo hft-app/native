@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wrapper">
         <nav>
             <div class="container">
                 <label>
@@ -8,39 +8,57 @@
                 </label>
             </div>
         </nav>
+        <transition name="fade" mode="out-in">
+            <div v-if="filteredProfessors.length === 0" class="screen container">
+                <fa-icon class="icon-address-card-o icon" icon="address-card"/>
+                <div class="title">Keine Professoren</div>
+                <div class="line"></div>
+                <div class="info">
+                    <p>Es wurde kein Professor gefunden.</p>
+                </div>
+            </div>
+            <div v-else class="wrapper">
+                <div class="list">
+                    <div class="container">
+                        <transition-group name="list-complete" tag="p">
+                            <div class="professor article" v-for="professor in filteredProfessors"
+                                 v-bind:key="professor.email">
+                                <div class="title">{{professor.name}}</div>
+                                <div class="data">
+                                    <div class="infos">
+                                        <div>
+                                            <fa-icon class="room icon-prepend icon-fw icon" icon="map-marker-alt"/>
+                                            {{professor.room}}
+                                        </div>
+                                        <div>
+                                            <fa-icon class="time icon-prepend icon-fw icon" icon="calendar-alt"/>
+                                            {{professor.time}}
+                                        </div>
+                                    </div>
 
-        <div class="wrapper">
-            <div class="list">
-                <div class="container">
-
-                    <div class="professor article" v-for="professor in filteredProfessors" v-bind:key="professor.email">
-                        <div class="title">{{professor.name}}</div>
-                        <div class="data">
-                            <div class="infos">
-                                <div class="room icon-prepend icon-fw icon">{{professor.room}}</div>
-                                <div class="time icon-prepend icon-fw icon">{{professor.time}}</div>
+                                    <div class="actions">
+                                        <a class="icon icon-phone green" :href="'tel:' +professor.phone">
+                                            <fa-icon icon="phone"/>
+                                        </a>
+                                        <a class="icon icon-envelope blue" :href="'mailto:'+professor.email">
+                                            <fa-icon icon="envelope"/>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                        </transition-group>
+                    </div>
+                </div>
 
-                            <div class="actions">
-                                <a class="icon icon-phone green" :href="'tel:' +professor.phone">
-                                    <fa-icon icon="phone"/>
-                                </a>
-                                <a class="icon icon-envelope blue" :href="'mailto:'+professor.email">
-                                    <fa-icon icon="envelope"/>
-                                </a>
-                            </div>
-                        </div>
+                <div class="note">
+                    <div class="container">
+                        <p>{{$t('page.professors.title')}}</p>
+                        <p>&copy; <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik
+                            Stuttgart</a></p>
                     </div>
                 </div>
             </div>
-
-            <div class="note">
-                <div class="container">
-                    <p>{{$t('page.professors.title')}}</p>
-                    <p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
-                </div>
-            </div>
-        </div>
+        </transition>
     </div>
 </template>
 <script>
@@ -71,12 +89,29 @@
 
     .list {
         padding-top: 60px;
+        padding-bottom: 20px;
+    }
+
+    .list-complete-item {
+        transition: all 0.6s;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .list-complete-enter, .list-complete-leave-to {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    .list-complete-leave-active {
+        position: absolute;
     }
 
     .professor {
         display: flex;
         flex-direction: column;
         padding: 8px 14px 12px;
+        transition: all 1s;
 
         &.hidden {
             display: none;
@@ -124,7 +159,7 @@
                     white-space: nowrap;
                     overflow: hidden;
 
-                    &::before {
+                    .icon {
                         color: $primary;
                     }
 

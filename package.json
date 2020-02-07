@@ -5,14 +5,13 @@
   "description": "",
   "author": "Christoph Walcher & Lukas Jans",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode=production",
     "build:webext": "webpack --config webpack.config.webext.js --mode=production",
     "build:cordova:android": "cross-env CORDOVA_PLATFORM=android vue-cli-service cordova-build-android",
     "build:cordova:ios": "cross-env CORDOVA_PLATFORM=ios vue-cli-service cordova-build-ios",
     "prepare:cordova": "vue-cli-service cordova-prepare",
     "serve:cordova:android": "cross-env CORDOVA_PLATFORM=android vue-cli-service cordova-serve-android",
     "serve:cordova:ios": "cross-env CORDOVA_PLATFORM=ios vue-cli-service cordova-serve-ios",
-    "serve:dev": "webpack-dev-server",
+    "serve:dev": "webpack-dev-server --config webpack.config.cordova.js",
     "test": "jest"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 <template>
     <div v-if="!days.length" class="wrapper">
         <div class="screen container">
-            <div class="icon-thumbs-up icon"></div>
+            <fa-icon class="icon-thumbs-up icon" icon="thumbs-up"/>
             <div class="title">Pure Freizeit</div>
             <div class="line"></div>
             <div class="info">
@@ -12,6 +12,45 @@
     </div>
     <div v-else class="wrapper">
         <div class="timetable">
+            <div class="sticky col">
+                <div v-if="nowPosition > 0 && nowPosition < 1" class="now"
+                     :style="'top:' + nowPosition*100 + '%'"></div>
+                <div class="r6 block">
+                    <div class="start">8:00</div>
+                    <div class="index">1</div>
+                    <div class="end">9:30</div>
+                </div>
+                <div class="r1 break"></div>
+                <div class="r6 block">
+                    <div class="start">9:45</div>
+                    <div class="index">2</div>
+                    <div class="end">11:15</div>
+                </div>
+                <div class="r1 break"></div>
+                <div class="r6 block">
+                    <div class="start">11:30</div>
+                    <div class="index">3</div>
+                    <div class="end">13:00</div>
+                </div>
+                <div class="r4 break"></div>
+                <div class="r6 block">
+                    <div class="start">14:00</div>
+                    <div class="index">4</div>
+                    <div class="end">15:30</div>
+                </div>
+                <div class="r1 break"></div>
+                <div class="r6 block">
+                    <div class="start">15:45</div>
+                    <div class="index">5</div>
+                    <div class="end">17:15</div>
+                </div>
+                <div class="r1 break"></div>
+                <div class="r6 block">
+                    <div class="start">17:30</div>
+                    <div class="index">6</div>
+                    <div class="end">19:00</div>
+                </div>
+            </div>
             <div v-for="day in days" class="col">
                 <div class="head">
                     <div class="day">{{$d(day.date, 'weekday')}}</div>
@@ -35,6 +74,11 @@
     import TimetableItem from "./TimetableItem.vue";
 
     export default {
+        data() {
+            return {
+                now: Date.now()
+            }
+        },
         components: {TimetableItem},
         computed: {
             days() {
@@ -45,7 +89,7 @@
 
                 // Create timetable for the next 3 weeks
                 for (let i = 0; i < 21; i++) {
-                    const start = new Date(new Date() - 604800000);
+                    const start = new Date(new Date());
                     start.setDate(start.getDate() + i);
                     start.setHours(0, 0, 0);
 
@@ -70,7 +114,18 @@
                     });
                 }
                 return days;
+            },
+            nowPosition() {
+                return (this.now % 864E5 * 0.001 / 3600 - 7) / 11
             }
+        },
+        created() {
+            this.$options.interval = setInterval(() => {
+                this.now = Date.now();
+            }, 15 * 30 * 1000)
+        },
+        beforeDestroy() {
+            clearInterval(this.$options.interval)
         }
     }
 
@@ -231,6 +286,65 @@
                             min-width: 140px;
                         }
                     }
+                }
+            }
+        }
+
+        .sticky {
+            position: sticky;
+            position: -webkit-sticky;
+            left: 0;
+            width: 50px;
+            background-color: $background;
+            border-right: 1px solid $border;
+            z-index: 2;
+            padding-top: 50px;
+
+            .block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .r6 {
+                height: 78px;
+            }
+
+            .r1 {
+                height: 13px;
+            }
+
+            .r4 {
+                height: 52px;
+            }
+
+            .start, .end {
+                font-weight: 200;
+                font-size: 0.6em;
+                color: #AAA;
+            }
+
+            .index {
+                font-size: 1.8em;
+                font-weight: 200;
+            }
+
+            .now {
+                position: absolute;
+                top: -10px;
+                height: 1px;
+                width: 100%;
+                background-color: $primary;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -5px;
+                    left: 0;
+                    border-style: solid;
+                    border-width: 5px 0 5px 7.071px;
+                    border-color: transparent transparent transparent $primary
                 }
             }
         }

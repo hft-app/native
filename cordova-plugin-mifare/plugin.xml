@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-mifare" version="2.4.0">
+    <name>Mifare Plugin</name>
+    <description>
+       Mifare Plugin for reading Mifare Classic NFC Tags
+    </description>
+    <engines>
+        <engine name="cordova-android" version=">=4.0.0"/>
+    </engines>
+    <js-module src="www/mifare.js" name="mifare">
+        <clobbers target="cordova.plugin.mifare"/>
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Mifare">
+                <param name="android-package" value="de.hft.cordova.mifare.Mifare"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.NFC"/>
+        </config-file>
+        <source-file src="src/android/de/hft/cordova/Mifare/Mifare.java" target-dir="src/de/hft/cordova/mifare/"/>
+    </platform>
+</plugin>

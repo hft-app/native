@@ -15,8 +15,9 @@
                 <fa-icon :class="'refresh icon' + (refreshing? ' icon-spin':'')" icon="sync-alt" @click="refresh"/>
             </div>
         </header>
-
+      <!--  <transition name="next">-->
         <router-view class="main"/>
+        <!--</transition>-->
 
         <footer v-if="!$route.meta.hideNav">
             <div class="container">
@@ -88,6 +89,9 @@
         color: inherit;
     }
 
+    .body{
+        max-height: 100%;
+    }
 
     .container {
         margin: 0 auto;
@@ -111,7 +115,7 @@
         z-index: 10;
         box-shadow: $shadow;
         font-size: 22px;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -136,14 +140,18 @@
     }
 
     .main {
-        margin-top: 60px;
-        margin-bottom: 60px;
+        position: absolute;
+        top: 60px;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        overflow: scroll;
     }
 
     footer {
         background: #FFF;
         border-top: 1px solid $border;
-        position: fixed;
+        position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
@@ -179,6 +187,64 @@
             &.active svg, &.active span {
                 color: $primary;
             }
+        }
+    }
+
+    .next-leave-to {
+        animation: leaveToLeft 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 0;
+    }
+
+    .next-enter-to {
+        animation: enterFromRight 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 1;
+    }
+
+    .prev-leave-to {
+        animation: leaveToRight 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 1;
+    }
+
+    .prev-enter-to {
+        animation: enterFromLeft 500ms both cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 0;
+    }
+
+    @keyframes leaveToLeft {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-25%);
+            filter: brightness(0.5);
+        }
+    }
+
+    @keyframes enterFromLeft {
+        from {
+            transform: translateX(-25%);
+            filter: brightness(0.5);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes leaveToRight {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+    @keyframes enterFromRight {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
         }
     }
 </style>

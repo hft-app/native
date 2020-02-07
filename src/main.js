@@ -14,6 +14,7 @@ import Courses from './components/Courses.vue'
 import Tips from './components/Tips.vue'
 import Professors from './components/Professors.vue'
 import Printers from './components/Printers.vue'
+import Credit from "./components/Credit.vue";
 import store from "./stores/store";
 import langDE from "./lang/de.json"
 
@@ -76,6 +77,7 @@ const routes = [
     {path: '/professors', component: Professors, meta: {canGoBack: true}},
     {path: '/printers', component: Printers, meta: {canGoBack: true}},
     {path: '/tips', component: Tips, meta: {canGoBack: true}},
+    {path: '/credit', component: Credit, meta: {canGoBack: true}},
 ];
 
 const router = new VueRouter({
@@ -133,7 +135,10 @@ import {
     faChevronDown,
     faChevronUp,
     faCalendarPlus,
-    faUserAlt
+    faUserAlt,
+    faMoneyCheckAlt,
+    faThumbsUp,
+    faAddressCard
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -175,7 +180,10 @@ library.add(
     faTimes,
     faFolderOpen,
     faCalendarPlus,
-    faUserAlt
+    faUserAlt,
+    faMoneyCheckAlt,
+    faThumbsUp,
+    faAddressCard
 );
 
 Vue.component('fa-icon', FontAwesomeIcon);

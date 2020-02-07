@@ -46,6 +46,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 p {
@@ -144,6 +145,10 @@ nav {
   }
 }
 
+.list {
+  padding-top: 10px;
+}
+
 .screen {
   color: $secondary;
   text-align: center;
@@ -181,10 +186,6 @@ nav {
   }
 }
 
-.screen, .list {
-  margin-top: 15px;
-}
-
 .article {
   display: flex;
 
@@ -203,7 +204,7 @@ nav {
   }
 }
 
-.icon-prepend { margin-right: 0.6em; }
+.icon-prepend { margin-right: 0.4em; }
 
 .note {
   text-align: center;

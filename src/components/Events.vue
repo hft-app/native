@@ -1,6 +1,5 @@
 <template>
     <div class="wrapper">
-
         <div v-if="events.length === 0" class="screen container">
             <fa-icon class="icon-calendar icon" icon="calendar-alt"/>
             <div class="title">Nichts geplant</div>
@@ -10,28 +9,30 @@
             </div>
         </div>
 
-        <div v-else class="list">
-            <div class="container">
-                <div v-for="event in events" class="event article">
-                    <a class="date">
-                        <fa-icon class="icon-prepend icon" icon="calendar-alt"/>
-                        <span v-if="event.startDate <= new Date().valueOf()">Aktuell</span>
-                        <span v-else>{{$d(event.startDate, 'day')}}</span>
-                        <span v-if="event.endDate">- {{$d(event.endDate, 'day')}}</span>
-                    </a>
-                    <div v-if="event.title" class="title">
-                        <p>{{event.title}}</p>
-                    </div>
-                    <div v-if="event.description" class="description">
-                        <p>{{event.description}}</p>
+        <div v-else class="wrapper">
+            <div class="list">
+                <div class="container">
+                    <div v-for="event in events" class="event article">
+                        <a class="date">
+                            <fa-icon class="icon-prepend icon" icon="calendar-alt"/>
+                            <span v-if="event.startDate <= new Date().valueOf()">Aktuell</span>
+                            <span v-else>{{$d(event.startDate, 'day')}}</span>
+                            <span v-if="event.endDate">- {{$d(event.endDate, 'day')}}</span>
+                        </a>
+                        <div v-if="event.title" class="title">
+                            <p>{{event.title}}</p>
+                        </div>
+                        <div v-if="event.description" class="description">
+                            <p>{{event.description}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="note">
-            <div class="container">
-                <p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
+            <div class="note">
+                <div class="container">
+                    <p>© <a href="http://www.hft-stuttgart.de/" target="_blank">Hochschule für Technik Stuttgart</a></p>
+                </div>
             </div>
         </div>
     </div>

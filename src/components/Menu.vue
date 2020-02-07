@@ -65,76 +65,90 @@
             displayname: state => state.lsf.fullname
         }),
         data() {
-            return {
-                version: "2.0.1",
-                groups: [{
-                    name: 'Weitere Inhalte',
-                    color: 'red',
-                    items: [
-                        {
-                            to: 'courses',
-                            icon: 'book',
-                            title: 'Kurse auswählen'
-                        }, {
-                            to: 'tips',
-                            icon: 'lightbulb',
-                            title: 'Tipps und Tricks'
-                        }, {
-                            to: 'printers',
-                            icon: 'print',
-                            title: 'Druckerstandorte'
-                        }, {
-                            to: 'professors',
-                            icon: 'list-ul',
-                            title: 'Professorenverzeichnis'
-                        }
-                    ]
-                }, {
-                    name: 'App unterstützen',
-                    color: 'green',
-                    items: [
-                        {
-                            action: () => {
+            const groups = [{
+                name: 'Weitere Inhalte',
+                color: 'red',
+                items: [
+                    {
+                        to: 'courses',
+                        icon: 'book',
+                        title: 'Kurse auswählen'
+                    }, {
+                        to: 'tips',
+                        icon: 'lightbulb',
+                        title: 'Tipps und Tricks'
+                    }, {
+                        to: 'printers',
+                        icon: 'print',
+                        title: 'Druckerstandorte'
+                    }, {
+                        to: 'professors',
+                        icon: 'list-ul',
+                        title: 'Professorenverzeichnis'
+                    }
+                ]
+            }, {
+                name: 'App unterstützen',
+                color: 'green',
+                items: [
+                    {
+                        action: () => {
+                            if (window.plugins) {
                                 window.plugins.socialsharing.shareWithOptions({
                                     message: "Lad dir jetzt die neue HFT App",
                                     url: "https://hft-app.de"
                                 });
-                            },
-                            icon: 'share-alt',
-                            title: 'Freunde einladen'
-                        }, {
-                            url: 'mailto:info@hft-app.de?subject=Feedback',
-                            icon: 'star',
-                            title: 'Feedback senden'
-                        }, {
-                            url: 'https://github.com/hft-app',
-                            icon: 'puzzle-piece',
-                            title: 'Selbst mitwirken',
-                            blank: true
-                        }
-                    ]
-                }, {
-                    name: 'Informationen',
-                    color: 'blue',
-                    items: [
-                        {
-                            url: 'https://luniversity.de/info/terms',
-                            icon: 'handshake',
-                            title: 'Nutzungsbedingungen',
-                            blank: true
-                        }, {
-                            url: 'https:://luniversity.de/info/imprint',
-                            icon: 'bullhorn',
-                            title: 'Impressum',
-                            blank: true
-                        }, {
-                            url: 'https://luniversity.de/info/privacy',
-                            icon: 'shield-alt',
-                            title: 'Datenschutzrichtlinien',
-                            blank: true
-                        }
-                    ]
-                }]
+                            } else {
+                                window.open(`mailto:?to=&subject=${encodeURIComponent("Lad dir jetzt die neue HFT App")}&body=${encodeURIComponent("https://hft-app.de")}`)
+                            }
+                        },
+                        icon: 'share-alt',
+                        title: 'Freunde einladen'
+                    }, {
+                        url: 'mailto:info@hft-app.de?subject=Feedback',
+                        icon: 'star',
+                        title: 'Feedback senden'
+                    }, {
+                        url: 'https://github.com/hft-app',
+                        icon: 'puzzle-piece',
+                        title: 'Selbst mitwirken',
+                        blank: true
+                    }
+                ]
+            }, {
+                name: 'Informationen',
+                color: 'blue',
+                items: [
+                    {
+                        url: 'https://luniversity.de/info/terms',
+                        icon: 'handshake',
+                        title: 'Nutzungsbedingungen',
+                        blank: true
+                    }, {
+                        url: 'https:://luniversity.de/info/imprint',
+                        icon: 'bullhorn',
+                        title: 'Impressum',
+                        blank: true
+                    }, {
+                        url: 'https://luniversity.de/info/privacy',
+                        icon: 'shield-alt',
+                        title: 'Datenschutzrichtlinien',
+                        blank: true
+                    }
+                ]
+            }];
+
+            if (typeof cordova !== 'undefined' && cordova.plugin.mifare) {
+                groups[0].items.push({
+                    to: 'credit',
+                    icon: 'money-check-alt',
+                    title: 'Guthaben überprüfen'
+                })
+            }
+
+            return {
+                version: "2.0.1",
+                groups
             };
         }
     }

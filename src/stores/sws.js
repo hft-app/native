@@ -17,9 +17,13 @@ export default {
                 let newMeals = newMealsByDay[day];
 
                 meals[day] = newMeals.map(meal => {
+                    let title = meal.meal;
+                    if (meal.description) {
+                        title += ", " + meal.description;
+                    }
                     return {
-                        title: meal.meal,
-                        additives: meal.additives,
+                        title,
+                        additives: meal.additives.replace(/,/g, ", "),
                         price: meal.price1,
                         photo: meal.foto
                     }

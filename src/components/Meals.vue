@@ -1,73 +1,68 @@
 <template>
-    <div class="meals wrapper">
+    <div class="wrapper meals">
         <nav>
             <div class="container bar">
-                <fa-icon icon="chevron-left" @click="prevDay"/>
+                <fa-icon icon="chevron-left" @click="prevDay" :class='dateIndex > 0?"active":""'/>
                 {{$d(date, 'short')}}
-                <fa-icon icon="chevron-right" @click="nextDay"/>
+                <fa-icon icon="chevron-right" @click="nextDay" :class='dateIndex < dates.length - 1?"active":""'/>
             </div>
         </nav>
-        <div v-if="!meals || !meals.length">
-            <div class="screen container">
-                <fa-icon class="icon" icon="utensils"/>
-                <div class="title">{{$t('page.meals.nothingToEat')}}</div>
-                <div class="line"></div>
-                <div class="info">
-                    <p>{{$t('page.meals.notLoaded')}}</p>
-                    <p>{{$t('page.meals.tryLater')}}</p>
-                </div>
+        <div v-if="!meals || !meals.length" class="screen container">
+            <fa-icon class="icon" icon="utensils"/>
+            <div class="title">{{$t('page.meals.nothingToEat')}}</div>
+            <div class="line"></div>
+            <div class="info">
+                <p>{{$t('page.meals.notLoaded')}}</p>
+                <p>{{$t('page.meals.tryLater')}}</p>
             </div>
         </div>
-        <div v-else>
-            <div class="wrapper">
-                <div class="list">
-                    <div class="container">
-                        <div v-for="meal in meals" class="meal article">
-                            <div class="photo">
-                                <img :src="'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo: 'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg')"
-                                     alt="Bild konnte nicht geladen werden">
-                            </div>
-                            <div class="data">
-                                <div class="title">{{meal.title}}</div>
-                                <span v-if="meal.additives" href="#legend" class="info">
-                                    <fa-icon icon="info-circle"/>
-                                    {{meal.additives}}</span>
-                                <div class="price" v-html="meal.price"></div>
-                            </div>
+        <div v-else class="wrapper">
+            <div class="list">
+                <div class="container">
+                    <div v-for="meal in meals" class="meal article">
+                        <div class="photo">
+                            <img :src="'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo: 'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg')"
+                                 alt="Bild konnte nicht geladen werden">
+                        </div>
+                        <div class="data">
+                            <div class="title">{{meal.title}}</div>
+                            <span v-if="meal.additives" href="#legend" class="info">
+                                    <fa-icon icon="info-circle"/>{{meal.additives}}</span>
+                            <div class="price" v-html="meal.price"></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="legend" id="legend">
-                    <div class="container">
-                        <div class="title">Allergene</div>
-                        <div class="columns">
-                            <table>
-                                <tr v-for="(key, value) in allergens">
-                                    <th>{{key}}</th>
-                                    <td>{{value}}</td>
-                                </tr>
-                            </table>
-                        </div>
+            <div class="legend" id="legend">
+                <div class="container">
+                    <div class="title">Allergene</div>
+                    <div class="columns">
+                        <table>
+                            <tr v-for="(key, value) in allergens">
+                                <th>{{key}}</th>
+                                <td>{{value}}</td>
+                            </tr>
+                        </table>
+                    </div>
 
-                        <div class="title">Zusatzstoffe</div>
-                        <div class="columns">
-                            <table>
-                                <tr v-for="(key, value) in additives">
-                                    <th>{{key}}</th>
-                                    <td>{{value}}</td>
-                                </tr>
-                            </table>
-                        </div>
+                    <div class="title">Zusatzstoffe</div>
+                    <div class="columns">
+                        <table>
+                            <tr v-for="(key, value) in additives">
+                                <th>{{key}}</th>
+                                <td>{{value}}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
+            </div>
 
-                <div class="note">
-                    <div class="container">
-                        <p>Speisefotos und Speiseplan</p>
-                        <p>© <a href="https://www.studierendenwerk-stuttgart.de/" target="_blank">Studierendenwerk
-                            Stuttgart</a></p>
-                    </div>
+            <div class="note">
+                <div class="container">
+                    <p>Speisefotos und Speiseplan</p>
+                    <p>&copy; <a href="https://www.studierendenwerk-stuttgart.de/" target="_blank">Studierendenwerk
+                        Stuttgart</a></p>
                 </div>
             </div>
         </div>
@@ -78,7 +73,7 @@
     export default {
         data() {
             return {
-                date: new Date(),
+                dateIndex: 0,
                 allergens: {
                     'Ei': 'Ei',
                     'En': 'Erdnuss',
@@ -124,17 +119,32 @@
         },
 
         computed: {
+            date() {
+                return this.dates[this.dateIndex];
+            },
             meals() {
                 return this.$store.state.sws.meals[this.date.toISOString().substr(0, 10)]
+            },
+            dates() {
+                const dates = [];
+                for (let dateStr in this.$store.state.sws.meals) {
+                    const date = new Date(dateStr);
+                    if (date.valueOf() >= new Date().valueOf() - 863E5) {
+                        dates.push(date);
+                    }
+                }
+                return dates;
             }
         },
 
         methods: {
             prevDay() {
-                this.date = new Date(this.date.valueOf() - 864E5);
+                if (this.dateIndex > 0)
+                    this.dateIndex--;
             },
             nextDay() {
-                this.date = new Date(this.date.valueOf() + 864E5);
+                if (this.dateIndex < this.dates.length - 1)
+                    this.dateIndex++
             }
         }
     }
@@ -143,12 +153,12 @@
 <style lang="scss" scoped>
     @import '../colors';
 
-    .screen, .list {
-        margin-top: 60px;
+    .active {
+        color: $primary;
     }
 
-    .meals {
-        display: flex;
+    .list {
+        padding-top: 60px !important;
     }
 
     .photo {
@@ -156,8 +166,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        //        @extend .icon, .icon-spin, .icon-circle-o-notch;
 
         &::before {
             position: absolute;
@@ -189,11 +197,9 @@
     }
 
     .info {
-        font-size: 14px;
+        font-size: 13px;
         color: $secondary;
         font-weight: 300;
-
-        // @extend .icon-info-circle;
     }
 
     .price {
