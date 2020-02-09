@@ -52,7 +52,7 @@ module.exports = (env, options) => {
             new VueLoaderPlugin(),
             new HtmlWebpackPlugin({
                 chunks: ['content'],
-                template: "src/index.html"
+                template: 'src/index.html'
             }),
             new CopyPlugin([
                 {from: 'image/icon.png', to: 'icon.png'},

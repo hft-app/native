@@ -16,6 +16,7 @@
 html {
   height: 100%;
 }
+
 html, body, .body {
   height: 100%;
   width: 100%;
@@ -53,7 +54,9 @@ p {
   margin: 0;
   line-height: 1.4;
 
-  & + p { margin-top: 6px; }
+  & + p {
+    margin-top: 6px;
+  }
 }
 
 .container {
@@ -61,36 +64,6 @@ p {
   width: 100%;
   max-width: 400px;
   padding: 0 15px;
-}
-
-.legend {
-  padding-top: 20px;
-  color: $secondary;
-
-  .title {
-    padding-bottom: 12px;
-    color: $secondary;
-    font-weight: 500;
-  }
-
-  .columns {
-    column-count: 2;
-    font-size: 10px;
-    padding-bottom: 28px;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-
-    th {
-      text-align: right;
-    }
-
-    td {
-      padding: 0.5em 0.8em;
-    }
-  }
 }
 
 nav {
@@ -204,7 +177,9 @@ nav {
   }
 }
 
-.icon-prepend { margin-right: 0.4em; }
+.icon-prepend {
+  margin-right: 0.4em;
+}
 
 .note {
   text-align: center;
@@ -213,14 +188,39 @@ nav {
   font-size: 0.7em;
   font-weight: 300;
 
-  a { font-weight: 500; }
+  a {
+    font-weight: 500;
+  }
 }
 
-.blue { background-color: #007AFF; }
-.green { background-color: #4CD964; }
-.orange { background-color: #FF9500; }
-.teal { background-color: #5AC8FA; }
-.red { background-color: #FF3B30; }
-.yellow { background-color: #FFCC00; }
-.purple { background-color: #5856D6; }
-.pink { background-color: #FF2D55; }
+.blue {
+  background-color: #007AFF;
+}
+
+.green {
+  background-color: #4CD964;
+}
+
+.orange {
+  background-color: #FF9500;
+}
+
+.teal {
+  background-color: #5AC8FA;
+}
+
+.red {
+  background-color: #FF3B30;
+}
+
+.yellow {
+  background-color: #FFCC00;
+}
+
+.purple {
+  background-color: #5856D6;
+}
+
+.pink {
+  background-color: #FF2D55;
+}

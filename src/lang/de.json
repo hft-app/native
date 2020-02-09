@@ -1,5 +1,8 @@
 {
   "page": {
+    "common": {
+      "noWarranty": "Alle Angaben ohne Gewähr."
+    },
     "login": {
       "login": "Anmelden",
       "loginIn": "Meldet an...",
@@ -11,9 +14,12 @@
     "meals": {
       "title": "Speiseplan",
       "tab": "Mensa",
-      "nothingToEat": "Nichts zu essen",
-      "notLoaded": "Es wurden keine Gerichte geladen.",
-      "tryLater": "Bitte versuche es später erneut."
+      "noDataTitle": "Nichts zu essen",
+      "noDataInfo": "Es wurden keine Gerichte geladen.",
+      "tryLater": "Bitte versuche es später erneut.",
+      "imageNotLoaded": "Bild konnte nicht geladen werden",
+      "allergens": "Allergene",
+      "additives": "Zusatzstoffe"
     },
     "loadLectures": {
       "title": "Vorlesungsplan",
@@ -21,11 +27,16 @@
     },
     "events": {
       "title": "Terminkalender",
-      "tab": "Termine"
+      "tab": "Termine",
+      "noDataTitle": "Nichts geplant",
+      "noDataInfo": "Keine Termine in nächster Zeit."
     },
     "exams": {
       "title": "Notenspiegel",
-      "tab": "Noten"
+      "tab": "Noten",
+      "noDataTitle": "Hier ist nichts",
+      "noDataInfo": "Bisher keine Prüfungsergebnisse.",
+      "try": ["Erstversuch", "Zweitversuch", "Drittversuch"]
     },
     "menu": {
       "title": "Weitere Inhalte"
@@ -52,8 +63,8 @@
     }
   },
   "error": {
-    "maintenance": "Die Server der HFT sind wegen Wartungsarbeiten nicht erreichbar.<br>Bitte versuche es später erneut.",
-    "offline": "Der Server konnte nicht erreicht werden.<br>Bitte stelle sicher, dass du mit dem Internet verbunden bist.",
+    "maintenance": "Die Server der HFT sind wegen Wartungsarbeiten nicht erreichbar.\nBitte versuche es später erneut.",
+    "offline": "Der Server konnte nicht erreicht werden.\nBitte stelle sicher, dass du mit dem Internet verbunden bist.",
     "invalidCreds": "Deine Zugangsdaten sind ungültig",
     "invalidUser": "Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App.",
     "unknown": "Ein unbekannter Fehler ist aufgetreten. Bitte versuche es später erneut."

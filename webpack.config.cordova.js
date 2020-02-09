@@ -11,7 +11,7 @@ module.exports = {
         filename: 'bundle.js',
     },
     devServer: {
-        stats: "minimal",
+        stats: 'minimal',
         contentBase: path.resolve(__dirname, 'dist'),
     },
     module: {
