@@ -2,7 +2,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:vue/recommended',
-    "plugin:vue-i18n/recommended"
+    "plugin:vue-i18n/recommended",
+    "plugin:jest/recommended"
   ],
   rules: {
     "quotes": [2, "single", {"avoidEscape": true}],
@@ -16,7 +17,7 @@ module.exports = {
   },
   "globals": {
     "chrome": false,
-    "cordova": false
+    "cordova": false,
   },
   settings: {
     'vue-i18n': {

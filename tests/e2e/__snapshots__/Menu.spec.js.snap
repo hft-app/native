@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu renders correctly 1`] = `
+<div
+  class="wrapper"
+>
+  <div
+    class="dashboard"
+  >
+    <div
+      class="widget"
+    >
+      <div
+        class="container"
+      >
+        <h5>
+          Verknüpftes Konto
+        </h5>
+      </div>
+       
+      <div
+        class="menu"
+      >
+        <div
+          class="container"
+        >
+          <a
+            class="target logout item"
+          >
+            <fa-icon-stub
+              class="teal badge icon"
+              icon="id-badge"
+            />
+             
+            <div
+              class="title grow"
+            >
+              <p
+                class="displayname"
+              >
+                Max Müller
+              </p>
+               
+              <p
+                class="action"
+              >
+                Kontoverknüpfung aufheben
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="widget"
+    >
+      <div
+        class="container"
+      >
+        <h5>
+          Weitere Inhalte
+        </h5>
+      </div>
+       
+      <div
+        class="menu"
+      >
+        <div
+          class="container"
+        >
+          <span>
+            <a
+              class="item"
+            >
+              <fa-icon-stub
+                class="square icon red"
+                icon="book"
+              />
+               
+              <span
+                class="title"
+              >
+                Kurse auswählen
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+            >
+              <fa-icon-stub
+                class="square icon red"
+                icon="lightbulb"
+              />
+               
+              <span
+                class="title"
+              >
+                Tipps und Tricks
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+            >
+              <fa-icon-stub
+                class="square icon red"
+                icon="print"
+              />
+               
+              <span
+                class="title"
+              >
+                Druckerstandorte
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+            >
+              <fa-icon-stub
+                class="square icon red"
+                icon="list-ul"
+              />
+               
+              <span
+                class="title"
+              >
+                Professorenverzeichnis
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="widget"
+    >
+      <div
+        class="container"
+      >
+        <h5>
+          App unterstützen
+        </h5>
+      </div>
+       
+      <div
+        class="menu"
+      >
+        <div
+          class="container"
+        >
+          <span>
+            <a
+              class="item"
+            >
+              <fa-icon-stub
+                class="square icon green"
+                icon="share-alt"
+              />
+               
+              <span
+                class="title"
+              >
+                Freunde einladen
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+              href="mailto:info@hft-app.de?subject=Feedback"
+            >
+              <fa-icon-stub
+                class="square icon green"
+                icon="star"
+              />
+               
+              <span
+                class="title"
+              >
+                Feedback senden
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+              href="https://github.com/hft-app"
+            >
+              <fa-icon-stub
+                class="square icon green"
+                icon="puzzle-piece"
+              />
+               
+              <span
+                class="title"
+              >
+                Selbst mitwirken
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="widget"
+    >
+      <div
+        class="container"
+      >
+        <h5>
+          Informationen
+        </h5>
+      </div>
+       
+      <div
+        class="menu"
+      >
+        <div
+          class="container"
+        >
+          <span>
+            <a
+              class="item"
+              href="https://luniversity.de/info/terms"
+            >
+              <fa-icon-stub
+                class="square icon blue"
+                icon="handshake"
+              />
+               
+              <span
+                class="title"
+              >
+                Nutzungsbedingungen
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+              href="https:://luniversity.de/info/imprint"
+            >
+              <fa-icon-stub
+                class="square icon blue"
+                icon="bullhorn"
+              />
+               
+              <span
+                class="title"
+              >
+                Impressum
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+          <span>
+            <a
+              class="item"
+              href="https://luniversity.de/info/privacy"
+            >
+              <fa-icon-stub
+                class="square icon blue"
+                icon="shield-alt"
+              />
+               
+              <span
+                class="title"
+              >
+                Datenschutzrichtlinien
+              </span>
+               
+              <fa-icon-stub
+                class="arrow icon"
+                icon="chevron-right"
+              />
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="note"
+  >
+    <div
+      class="container"
+    >
+      <p>
+        HFT App v2.0.1
+      </p>
+    </div>
+  </div>
+</div>
+`;

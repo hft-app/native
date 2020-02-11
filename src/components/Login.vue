@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <form :class="invalidCreds? 'shaking':''" @submit="login">
+        <form :class="invalidCreds? 'shaking':''" @submit.prevent="login">
           <div class="group">
             <input v-model="username" required name="username" type="text"
                    :placeholder="$t('page.login.username')">
@@ -46,7 +46,7 @@
         <span>
           <a href="https://github.com/luniverse/hft-app" title="GitHub Repository" target="_blank"
              class="icon icon-prepend icon-github-alt">hft-app</a> &middot;
-          <a href="//luniversity.de/info/imprint" title="Impressum" target="_blank">Impressum</a>
+          <a href="https:://luniversity.de/info/imprint" title="Impressum" target="_blank">Impressum</a>
         </span>
       </div>
     </footer>
@@ -68,8 +68,7 @@
     computed: mapState({loginIn: state => state.refreshing}),
 
     methods: {
-      async login(evt) {
-        evt.preventDefault();
+      async login() {
         try {
           this.invalidCreds = false;
           await this.$store.dispatch('refresh', {

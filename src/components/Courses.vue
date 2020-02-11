@@ -46,7 +46,7 @@
         <div class="container">
           <p>Vorlesungsverzeichnis</p>
           <p>
-            © <a href="http://www.hft-stuttgart.de/" target="_blank">
+            &copy; <a href="http://www.hft-stuttgart.de/" target="_blank">
               Hochschule für Technik Stuttgart</a>
           </p>
         </div>

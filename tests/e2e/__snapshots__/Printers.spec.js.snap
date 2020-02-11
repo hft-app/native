@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Printers renders correctly 1`] = `
+<div>
+  <nav>
+    <div
+      class="bar container"
+    >
+      <a
+        href="mailto:info@hft-app.de?subject=Veraltete%20Druckerdaten"
+      >
+        <fa-icon-stub
+          icon="history"
+        />
+        
+        page.printers.report
+      
+      </a>
+    </div>
+  </nav>
+   
+  <div
+    class="wrapper"
+  >
+    <div
+      class="list"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="printer article"
+        >
+          <div
+            class="title"
+          >
+            ITB_HPCLJ5550_2_114
+          </div>
+           
+          <div
+            class="data"
+          >
+            <div
+              class="room info icon icon-prepend"
+            >
+              <fa-icon-stub
+                icon="map-marker-alt"
+              />
+              
+              2/114
+            
+            </div>
+             
+            <div
+              class="size info icon icon-prepend"
+            >
+              <fa-icon-stub
+                icon="file-alt"
+              />
+              
+              A3, A4
+            
+            </div>
+             
+            <div
+              class="type info icon icon-prepend"
+            >
+              <fa-icon-stub
+                icon="font"
+              />
+              
+              Farbe
+            
+            </div>
+          </div>
+        </div>
+        <div
+          class="printer article"
+        >
+          <div
+            class="title"
+          >
+            ITB_HPLJ9040_2_201
+          </div>
+           
+          <div
+            class="data"
+          >
+            <div
+              class="room info icon icon-prepend"
+            >
+              <fa-icon-stub
+                icon="map-marker-alt"
+              />
+              
+              2/201
+            
+            </div>
+             
+            <div
+              class="size info icon icon-prepend"
+            >
+              <fa-icon-stub
+                icon="file-alt"
+              />
+              
+              A3
+            
+            </div>
+             
+            <div
+              class="type info icon icon-prepend"
+            >
+              <fa-icon-stub
+                icon="font"
+              />
+              
+              S/W
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="note"
+    >
+      <div
+        class="container"
+      >
+        <p>
+          page.printers.title
+        </p>
+         
+        <p>
+          
+          © 
+          <a
+            href="http://www.hft-stuttgart.de/"
+            target="_blank"
+          >
+            Hochschule für Technik Stuttgart
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -60,8 +60,9 @@ const Client = {
     const rows = table.querySelectorAll('tr');
 
     let exams = [];
-    for (let rowIndex = 3; rowIndex < rows.length; rowIndex++) {
+    for (let rowIndex = 2; rowIndex < rows.length; rowIndex++) {
       let columns = rows[rowIndex].children;
+      if (columns[0].className === 'qis_kontoOnTop') continue;
 
       exams.push({
         id: columns[0].textContent.trim(),
@@ -170,9 +171,42 @@ const Client = {
       }
     }
     return lectures;
-  }
+  },
 
+  async loadSubjects() {
+    const dom = await fetchDOM(BASE_URL + '?state=verpublish&publishContainer=stgPlanList');
+
+    return Array(...dom.querySelectorAll('.content tbody tr'))
+      .map(element => {
+        const href = element.children[1].children[0].getAttribute('href');
+        return {
+          name: element.children[0].textContent.trim(),
+          parallelId: /k_parallel.parallelid=(\d+)/.exec(href)[1],
+          id: /k_abstgv.abstgvnr=(\d+)/.exec(href)[1]
+        }
+      });
+  },
+
+  async loadCourses({parallelId, id}) {
+    const dom = await fetchDOM(BASE_URL + '?state=wplan&act=stg&show=liste&P.Print' +
+      `&k_parallel.parallelid=${parallelId}&k_abstgv.abstgvnr=${id}`);
+
+    return Array(...dom.querySelectorAll('table tbody tr'))
+      .slice(1)
+      .map(element => {
+        const linkElement = element.children[1].children[0];
+        return {
+          name: linkElement.textContent.trim(),
+          id: /publishid=(\d+)/.exec(linkElement.getAttribute('href'))[1]
+        }
+      })
+  }
 };
+
+Client.loadSubjects().then(list => {
+  console.log(list);
+  return Client.loadCourses(list[0]);
+}).then(console.log);
 
 export default {
   namespaced: true,

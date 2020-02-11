@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exams renders correctly 1`] = `
+<div
+  class="wrapper"
+>
+  <div
+    class="list"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="passed exam article"
+      >
+        <div
+          class="grade icon"
+        >
+          1.7
+        </div>
+         
+        <div
+          class="data"
+        >
+          <div
+            class="title"
+          >
+            Exam0
+          </div>
+           
+          <div
+            class="info"
+          >
+            <span>
+              Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) · 
+            </span>
+             
+            <span>
+              3 CP · 
+            </span>
+             
+            <span>
+              page.exams.try[0]
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="failed exam article"
+      >
+        <div
+          class="grade icon"
+        >
+          5
+        </div>
+         
+        <div
+          class="data"
+        >
+          <div
+            class="title"
+          >
+            Exam1
+          </div>
+           
+          <div
+            class="info"
+          >
+            <!---->
+             
+            <span>
+              3 CP · 
+            </span>
+             
+            <span>
+              page.exams.try[1]
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="passed exam article"
+      >
+        <div
+          class="grade icon"
+        >
+          <fa-icon-stub
+            icon="check"
+          />
+        </div>
+         
+        <div
+          class="data"
+        >
+          <div
+            class="title"
+          >
+            Exam2
+          </div>
+           
+          <div
+            class="info"
+          >
+            <!---->
+             
+            <span>
+              3 CP · 
+            </span>
+             
+            <span>
+              page.exams.try[2]
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="failed exam article"
+      >
+        <div
+          class="grade icon"
+        >
+          <fa-icon-stub
+            icon="times"
+          />
+        </div>
+         
+        <div
+          class="data"
+        >
+          <div
+            class="title"
+          >
+            Exam3
+          </div>
+           
+          <div
+            class="info"
+          >
+            <span>
+              Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) · 
+            </span>
+             
+            <span>
+              6 CP · 
+            </span>
+             
+            <span>
+              page.exams.try[1]
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="note"
+  >
+    <div
+      class="container"
+    >
+      <p>
+        page.common.noWarranty
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimetableItem renders correctly 1`] = `
+<div
+  class="lecture orange"
+>
+  <div
+    class="title"
+  >
+    
+    Advanced Stuff
+  
+  </div>
+   
+  <div
+    class="time"
+  >
+    
+    Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) - Mon Feb 10 2020 09:30:00 GMT+0100 (Central European Standard Time)
+  
+  </div>
+   
+  <div
+    class="info"
+  >
+    <div
+      class="professor data icon-prepend icon"
+    >
+      <fa-icon-stub
+        icon="user-alt"
+      />
+      
+      Müller
+    
+    </div>
+     
+    <div
+      class="room data icon-prepend icon"
+    >
+      <fa-icon-stub
+        icon="map-marker-alt"
+      />
+      
+      2/433
+    
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TimetableItem renders correctly without professor 1`] = `
+<div
+  class="lecture orange"
+>
+  <div
+    class="title"
+  >
+    
+    Advanced Stuff
+  
+  </div>
+   
+  <div
+    class="time"
+  >
+    
+    Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) - Mon Feb 10 2020 09:30:00 GMT+0100 (Central European Standard Time)
+  
+  </div>
+   
+  <div
+    class="info"
+  >
+    <!---->
+     
+    <div
+      class="room data icon-prepend icon"
+    >
+      <fa-icon-stub
+        icon="map-marker-alt"
+      />
+      
+      2/433
+    
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TimetableItem renders correctly without room 1`] = `
+<div
+  class="lecture orange"
+>
+  <div
+    class="title"
+  >
+    
+    Advanced Stuff
+  
+  </div>
+   
+  <div
+    class="time"
+  >
+    
+    Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) - Mon Feb 10 2020 09:30:00 GMT+0100 (Central European Standard Time)
+  
+  </div>
+   
+  <div
+    class="info"
+  >
+    <div
+      class="professor data icon-prepend icon"
+    >
+      <fa-icon-stub
+        icon="user-alt"
+      />
+      
+      Müller
+    
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;

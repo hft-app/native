@@ -15,9 +15,9 @@
           <div v-for="event in events" class="event article">
             <a class="date">
               <fa-icon class="icon-prepend icon" icon="calendar-alt" />
-              <span v-if="event.startDate <= new Date().valueOf()">Aktuell</span>
+              <span v-if="event.startDate <= new Date().valueOf()" v-t="'page.events.currently'" />
               <span v-else>{{ $d(event.startDate, 'day') }}</span>
-              <span v-if="event.endDate">- {{ $d(event.endDate, 'day') }}</span>
+              <span v-if="event.endDate">&hyphen; {{ $d(event.endDate, 'day') }}</span>
             </a>
             <div v-if="event.title" class="title">
               <p>{{ event.title }}</p>
@@ -46,16 +46,7 @@
     computed: mapState({
       events: state => state.hft.events.filter(event =>
         event.endDate && event.endDate + 864E5 >= new Date().valueOf() || event.startDate >= new Date().valueOf())
-    }),
-    methods: {
-      range(event, d) {
-        if (event.endDate) {
-          return d(event.startDate, 'short') + ' - ' + d(event.endDate, 'short')
-        } else {
-          return d(event.startDate, 'short')
-        }
-      }
-    }
+    })
   }
 
 </script>

@@ -29,7 +29,8 @@
       "title": "Terminkalender",
       "tab": "Termine",
       "noDataTitle": "Nichts geplant",
-      "noDataInfo": "Keine Termine in nächster Zeit."
+      "noDataInfo": "Keine Termine in nächster Zeit.",
+      "currently": "Aktuell"
     },
     "exams": {
       "title": "Notenspiegel",

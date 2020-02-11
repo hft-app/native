@@ -1,0 +1,374 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Professors renders correctly - filters 1`] = `
+<div
+  class="wrapper"
+>
+  <nav>
+    <div
+      class="container"
+    >
+      <label>
+        <fa-icon-stub
+          class="icon icon-prepend icon-search"
+          icon="search"
+        />
+         
+        <input
+          class="search"
+          placeholder="page.professors.search"
+        />
+      </label>
+    </div>
+  </nav>
+   
+  <transition-stub
+    mode="out-in"
+    name="fade"
+  >
+    <div
+      class="wrapper"
+    >
+      <div
+        class="list"
+      >
+        <div
+          class="container"
+        >
+          <transition-group-stub
+            name="list-complete"
+            tag="p"
+          >
+            <div
+              class="professor article"
+            >
+              <div
+                class="title"
+              >
+                Prof. Dr. Rick Sanchez
+              </div>
+               
+              <div
+                class="data"
+              >
+                <div
+                  class="infos"
+                >
+                  <div>
+                    <fa-icon-stub
+                      class="room icon-prepend icon-fw icon"
+                      icon="map-marker-alt"
+                    />
+                    
+                    3/232
+                  
+                  </div>
+                   
+                  <div>
+                    <fa-icon-stub
+                      class="time icon-prepend icon-fw icon"
+                      icon="calendar-alt"
+                    />
+                    
+                    Donnerstag 11:20 - 12:20
+                  
+                  </div>
+                </div>
+                 
+                <div
+                  class="actions"
+                >
+                  <a
+                    class="icon icon-phone green"
+                    href="tel:+49 (0)711 1245 8901"
+                  >
+                    <fa-icon-stub
+                      icon="phone"
+                    />
+                  </a>
+                   
+                  <a
+                    class="icon icon-envelope blue"
+                    href="mailto:rick.sanchez@hft-stuttgart.de"
+                  >
+                    <fa-icon-stub
+                      icon="envelope"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </transition-group-stub>
+        </div>
+      </div>
+       
+      <div
+        class="note"
+      >
+        <div
+          class="container"
+        >
+          <p>
+            page.professors.title
+          </p>
+           
+          <p>
+            
+            © 
+            <a
+              href="http://www.hft-stuttgart.de/"
+              target="_blank"
+            >
+              Hochschule für Technik Stuttgart
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</div>
+`;
+
+exports[`Professors renders correctly - filters nothing found 1`] = `
+<div
+  class="wrapper"
+>
+  <nav>
+    <div
+      class="container"
+    >
+      <label>
+        <fa-icon-stub
+          class="icon icon-prepend icon-search"
+          icon="search"
+        />
+         
+        <input
+          class="search"
+          placeholder="page.professors.search"
+        />
+      </label>
+    </div>
+  </nav>
+   
+  <transition-stub
+    mode="out-in"
+    name="fade"
+  >
+    <div
+      class="screen container"
+    >
+      <fa-icon-stub
+        class="icon-address-card-o icon"
+        icon="address-card"
+      />
+       
+      <div
+        class="title"
+      >
+        Keine Professoren
+      </div>
+       
+      <div
+        class="line"
+      />
+       
+      <div
+        class="info"
+      >
+        <p>
+          Es wurde kein Professor gefunden.
+        </p>
+      </div>
+    </div>
+  </transition-stub>
+</div>
+`;
+
+exports[`Professors renders correctly 1`] = `
+<div
+  class="wrapper"
+>
+  <nav>
+    <div
+      class="container"
+    >
+      <label>
+        <fa-icon-stub
+          class="icon icon-prepend icon-search"
+          icon="search"
+        />
+         
+        <input
+          class="search"
+          placeholder="page.professors.search"
+        />
+      </label>
+    </div>
+  </nav>
+   
+  <transition-stub
+    mode="out-in"
+    name="fade"
+  >
+    <div
+      class="wrapper"
+    >
+      <div
+        class="list"
+      >
+        <div
+          class="container"
+        >
+          <transition-group-stub
+            name="list-complete"
+            tag="p"
+          >
+            <div
+              class="professor article"
+            >
+              <div
+                class="title"
+              >
+                Prof. Dr. Rick Sanchez
+              </div>
+               
+              <div
+                class="data"
+              >
+                <div
+                  class="infos"
+                >
+                  <div>
+                    <fa-icon-stub
+                      class="room icon-prepend icon-fw icon"
+                      icon="map-marker-alt"
+                    />
+                    
+                    3/232
+                  
+                  </div>
+                   
+                  <div>
+                    <fa-icon-stub
+                      class="time icon-prepend icon-fw icon"
+                      icon="calendar-alt"
+                    />
+                    
+                    Donnerstag 11:20 - 12:20
+                  
+                  </div>
+                </div>
+                 
+                <div
+                  class="actions"
+                >
+                  <a
+                    class="icon icon-phone green"
+                    href="tel:+49 (0)711 1245 8901"
+                  >
+                    <fa-icon-stub
+                      icon="phone"
+                    />
+                  </a>
+                   
+                  <a
+                    class="icon icon-envelope blue"
+                    href="mailto:rick.sanchez@hft-stuttgart.de"
+                  >
+                    <fa-icon-stub
+                      icon="envelope"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="professor article"
+            >
+              <div
+                class="title"
+              >
+                Prof. Dr.-Ing. Morty Smith
+              </div>
+               
+              <div
+                class="data"
+              >
+                <div
+                  class="infos"
+                >
+                  <div>
+                    <fa-icon-stub
+                      class="room icon-prepend icon-fw icon"
+                      icon="map-marker-alt"
+                    />
+                    
+                    1/201
+                  
+                  </div>
+                   
+                  <div>
+                    <fa-icon-stub
+                      class="time icon-prepend icon-fw icon"
+                      icon="calendar-alt"
+                    />
+                    
+                    nach Vereinbarung
+                  
+                  </div>
+                </div>
+                 
+                <div
+                  class="actions"
+                >
+                  <a
+                    class="icon icon-phone green"
+                    href="tel:+49 (0)711 1245 8910"
+                  >
+                    <fa-icon-stub
+                      icon="phone"
+                    />
+                  </a>
+                   
+                  <a
+                    class="icon icon-envelope blue"
+                    href="mailto:morty.smith@hft-stuttgart.de"
+                  >
+                    <fa-icon-stub
+                      icon="envelope"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </transition-group-stub>
+        </div>
+      </div>
+       
+      <div
+        class="note"
+      >
+        <div
+          class="container"
+        >
+          <p>
+            page.professors.title
+          </p>
+           
+          <p>
+            
+            © 
+            <a
+              href="http://www.hft-stuttgart.de/"
+              target="_blank"
+            >
+              Hochschule für Technik Stuttgart
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</div>
+`;
