@@ -1,8 +1,10 @@
+jest.mock('../../package.json', () => ({version: '2.0.1'}), {virtual: true});
+
 import {config, createLocalVue, shallowMount} from '@vue/test-utils'
 import Menu from 'components/Menu.vue';
 import Vuex from 'vuex';
 
-config.mocks['$d'] = date => date.toString();
+config.mocks['$d'] = date => date.valueOf();
 
 describe('Menu', () => {
   test('renders correctly', () => {

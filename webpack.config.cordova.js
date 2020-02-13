@@ -1,7 +1,6 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -51,7 +50,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html')
         }),
-        new WriteFilePlugin(),
         new HtmlWebpackTagsPlugin({tags: ['cordova.js'], append: true})
         //new BundleAnalyzerPlugin()
     ]

@@ -16,7 +16,7 @@ exports[`TimetableItem renders correctly 1`] = `
     class="time"
   >
     
-    Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) - Mon Feb 10 2020 09:30:00 GMT+0100 (Central European Standard Time)
+    1581318000000 - 1581323400000
   
   </div>
    
@@ -64,7 +64,7 @@ exports[`TimetableItem renders correctly without professor 1`] = `
     class="time"
   >
     
-    Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) - Mon Feb 10 2020 09:30:00 GMT+0100 (Central European Standard Time)
+    1581318000000 - 1581323400000
   
   </div>
    
@@ -103,7 +103,7 @@ exports[`TimetableItem renders correctly without room 1`] = `
     class="time"
   >
     
-    Mon Feb 10 2020 08:00:00 GMT+0100 (Central European Standard Time) - Mon Feb 10 2020 09:30:00 GMT+0100 (Central European Standard Time)
+    1581318000000 - 1581323400000
   
   </div>
    

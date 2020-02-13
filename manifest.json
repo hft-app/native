@@ -1,8 +1,14 @@
 {
   "manifest_version": 2,
   "name": "hft-app",
-  "version": "1.4",
+  "version": "3.0.1",
   "description": "The HFT App",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "hft-app-firefox@hft-app.de"
+    }
+  },
+
   "icons": {
     "96": "icon.png"
   },

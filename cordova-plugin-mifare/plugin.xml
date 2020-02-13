@@ -20,6 +20,6 @@
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.NFC"/>
         </config-file>
-        <source-file src="src/android/de/hft/cordova/Mifare/Mifare.java" target-dir="src/de/hft/cordova/mifare/"/>
+        <source-file src="src/android/de/hft/cordova/mifare/Mifare.java" target-dir="src/de/hft/cordova/mifare/"/>
     </platform>
 </plugin>

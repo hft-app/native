@@ -1,17 +1,14 @@
 {
   "name": "hft-app",
-  "version": "1.0.0",
+  "version": "3.0.1",
   "private": true,
   "description": "",
   "author": "Christoph Walcher & Lukas Jans",
   "scripts": {
     "build:webext": "webpack --config webpack.config.webext.js --mode=production",
-    "build:cordova:android": "cross-env CORDOVA_PLATFORM=android vue-cli-service cordova-build-android",
-    "build:cordova:ios": "cross-env CORDOVA_PLATFORM=ios vue-cli-service cordova-build-ios",
-    "prepare:cordova": "vue-cli-service cordova-prepare",
-    "serve:cordova:android": "cross-env CORDOVA_PLATFORM=android vue-cli-service cordova-serve-android",
-    "serve:cordova:ios": "cross-env CORDOVA_PLATFORM=ios vue-cli-service cordova-serve-ios",
+    "sign:webext": "cd dist; web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET; cd ..",
     "serve:dev": "webpack-dev-server --config webpack.config.cordova.js",
+    "lint": "eslint --ext .js,.vue src tests",
     "test": "jest"
   },
   "dependencies": {
@@ -24,7 +21,8 @@
     "vue-i18n": "^8.11.2",
     "vue-router": "^3.0.6",
     "vuex": "^3.1.0",
-    "vuex-persist": "^2.2.0"
+    "vuex-persist": "^2.2.0",
+    "web-ext": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -55,8 +53,7 @@
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.3.1",
-    "write-file-webpack-plugin": "^4.5.0"
+    "webpack-dev-server": "^3.3.1"
   },
   "jest": {
     "moduleFileExtensions": [

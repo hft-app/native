@@ -1,7 +1,7 @@
 import {config, shallowMount} from '@vue/test-utils'
 import TimetableItem from 'components/TimetableItem.vue';
 
-config.mocks['$d'] = date => date.toString();
+config.mocks['$d'] = date => date.valueOf();
 
 describe('TimetableItem', () => {
   test('renders correctly', () => {

@@ -1,8 +1,6 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
-const ZipPlugin = require('zip-webpack-plugin');
 const path = require('path');
 // const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
@@ -59,11 +57,6 @@ module.exports = (env, options) => {
         {from: 'image/icon.png', to: 'icon.png'},
         {from: 'manifest.json', to: 'manifest.json'},
       ]),
-      new WriteFilePlugin(),
-      new ZipPlugin({
-        filename: 'hft-app',
-        extension: 'xpi'
-      }),
       // new BundleAnalyzerPlugin()
     ]
   }

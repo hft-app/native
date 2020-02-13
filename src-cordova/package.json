@@ -5,7 +5,8 @@
   "description": "The HFT App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare:cordova": "cordova prepare",
+    "build:cordova:android": "cordova build android --release -- --webpackConfig ../webpack.config.cordova.js --keystore=../sec/android.keystore --storePassword=12345678 --alias=key0 --password=12345678"
   },
   "keywords": [
     "ecosystem:cordova"

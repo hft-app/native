@@ -46,6 +46,7 @@
 
 <script>
   import {mapState} from 'vuex';
+  import {version} from '../../package.json'
 
   export default {
     data() {
@@ -135,7 +136,7 @@
       }
 
       return {
-        version: '2.0.1',
+        version,
         groups
       };
     },

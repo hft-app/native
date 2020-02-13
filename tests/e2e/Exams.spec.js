@@ -2,6 +2,7 @@ import {config, createLocalVue, shallowMount} from '@vue/test-utils'
 import Exams from 'components/Exams.vue';
 import Vuex from 'vuex';
 
+config.mocks['$d'] = date => date.valueOf();
 config.mocks['$t'] = str => str;
 
 describe('Exams', () => {
@@ -17,7 +18,7 @@ describe('Exams', () => {
               passed: true,
               grade: 1.7,
               title: 'Exam0',
-              date: new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
+              date: '10.11.2020', //new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
               cp: 3,
               try: 1
             }, {
@@ -34,7 +35,7 @@ describe('Exams', () => {
             }, {
               passed: false,
               title: 'Exam3',
-              date: new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
+              date: '20.10.2020', //new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
               cp: 6,
               try: 2
             }]

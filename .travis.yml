@@ -1,0 +1,47 @@
+language: android
+dist: trusty
+android:
+  components:
+    - build-tools-28.0.3
+    - android-28
+    - add-on
+    - extra
+  licenses:
+    - android-sdk-preview-license-52d11cd2
+    - android-sdk-license-.+
+    - google-gdk-license-.+
+before_install:
+  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "build-tools;28.0.3"
+  - openssl aes-256-cbc -K $encrypted_3fe2cb6c7c91_key -iv $encrypted_3fe2cb6c7c91_iv -in sec/android.keystore.enc -out sec/android.keystore -d
+  - nvm install 12
+  - node --version
+  - npm --version
+  - gradle --version
+install:
+  - npm install
+  - npm install -g cordova
+  - cd src-cordova
+  - npm install
+  - cordova prepare
+  - cd ..
+script:
+  - npm run lint
+  - npm test
+  - npm run build:webext
+  - cd src-cordova
+  - npm run build:cordova:android
+  - cd ..
+before_deploy:
+  - npm run sign:webext
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: Vaz8uAHBE2i5gMO5B9aNYnAoHatyZYHjp7gIByboCM6DxyDrzcOONPfZEnXY8t+WnI7xuoiLKfjWyNxXBwufS674khhUODoMsgQsIwUgeeKysvi+Pi57NafS+YSEZemEiBmOF3OCsIdmce4Ey2S76lDcGOIWVAvWPX9lcBcyXMzCjHZH01pGwpcPrpZ4GzB0tuyUmd0Z4P+ZyXaRDf/s7cta0lw2yvje8ZRZ6AK/AwuN7UKYWevjUkonMzTnVDQhQW3u5rFmyLXyAwMnj8UrNIl5TodJ/WUMdfYnXFcDtG+SAOYuppIqNeMy44M80pWhhP8UPkDsZEdbxOfwS4CMsyCgftdzOrLh4mfEOPzytr2nQLxQo9S6EUwU+blKp8vGqghebPfdh1KqDdKUlowsHjGZVbqgEiffGZ2ZA98kw1ZPURNKAdOq5KliQMxReUqC3i5RIOwLpAloA7nAuylSEW/Y3M2732UO4GBND5MbeqC0NBtTIzO4NeqTaUV73PLcFLoLbS70Gjko9raGgsnrSXwDjZSZP7MYbv+PsYLexIVy1mncyGPsmV6zRqA5WLY+1/KijrKoW2nCJhJITyV81KHARM82pXYxZG1pM8NmvdlIfyhYgRnVTEk0VY0yUGYG+y3zT6dv6i/3C+fB8g7umw3bDE1CGz1RPb+1UeCQd0o=
+  file:
+    - dist/web-ext-artifacts/*.xpi
+    - src-cordova/platforms/android/app/build/outputs/apk/release/app-release.apk
+  on:
+    repo: wiomoc/hft-app-native
+    tags: true

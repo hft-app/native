@@ -8,11 +8,11 @@
     </div>
     <div class="info">
       <div v-if="event.professor" class="professor data icon-prepend icon">
-        <fa-icon icon="user-alt"/>
+        <fa-icon icon="user-alt" />
         {{ event.professor }}
       </div>
       <div v-if="event.room" class="room data icon-prepend icon">
-        <fa-icon icon="map-marker-alt"/>
+        <fa-icon icon="map-marker-alt" />
         {{ event.room }}
       </div>
     </div>
