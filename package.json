@@ -1,12 +1,12 @@
 {
   "name": "hft-app",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": true,
   "description": "",
   "author": "Christoph Walcher & Lukas Jans",
   "scripts": {
     "build:webext": "webpack --config webpack.config.webext.js --mode=production",
-    "sign:webext": "cd dist; web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET; cd ..",
+    "sign:webext": "cd dist; web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET --id hft-app-firefox@hft-app.de; cd ..",
     "serve:dev": "webpack-dev-server --config webpack.config.cordova.js",
     "lint": "eslint --ext .js,.vue src tests",
     "test": "jest"

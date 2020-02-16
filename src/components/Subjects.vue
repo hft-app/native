@@ -3,7 +3,7 @@
     <nav>
       <div class="bar container">
         <a @click="$router.back()">Abbrechen</a>
-        <a class="save">Speichern</a>
+        <a class="save" @click="next">Weiter</a>
       </div>
     </nav>
 
@@ -19,15 +19,9 @@
                 <div class="header">
                   <label>
                     <div class="icon icon-fw icon-prepend checkbox">
+                      <input v-model="subject.selected" type="checkbox">
                       <span class="name">{{ subject.name }}</span>
-                      <span class="amount">({{ subject.courses.length }})</span>
                     </div>
-                  </label>
-                </div>
-                <div v-for="course in subject.courses" class="courses">
-                  <label>
-                    <input type="checkbox" name="courses" value="on" checked>
-                    <span class="icon icon-fw icon-prepend checkbox">{{ course.title }}</span>
                   </label>
                 </div>
               </div>
@@ -52,23 +46,24 @@
   import {Client} from '../stores/lsf'
 
   export default {
-    props: {
-      selectedSubjects: {
-        required: true,
-        type: Array
-      }
-    },
     data() {
       return {
         selected: '',
-        courses: [],
+        subjects: [],
+      }
+    },
+    computed: {
+      selectedSubjects() {
+        return this.subjects.filter(subject => subject.selected)
       }
     },
     async created() {
-      this.courses = Promise.all(this.selectedSubjects.map(Client.loadCourses))
+        this.subjects = await Client.loadSubjects();
     },
     methods: {
-      log: console.log
+      next() {
+        this.$router.push({name: 'courses', params: {selectedSubjects: this.selectedSubjects}})
+      },
     }
   }
 </script>

@@ -94,7 +94,7 @@ describe('Menu', () => {
     wrapper.find('.widget:nth-child(2) .item').trigger('click');
     await wrapper.vm.$nextTick();
 
-    expect($router.push).toHaveBeenCalledWith('courses');
+    expect($router.push).toHaveBeenCalledWith('subjects');
   });
 
   it('should share via mail', async () => {

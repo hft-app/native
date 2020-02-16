@@ -11,7 +11,7 @@ function i18nEquals(german, english) {
   }
 }
 
-const Client = {
+export const Client = {
   async login({username, password}) {
     const formData = {
       asdf: username, // No shit!
@@ -202,11 +202,6 @@ const Client = {
       })
   }
 };
-
-Client.loadSubjects().then(list => {
-  console.log(list);
-  return Client.loadCourses(list[0]);
-}).then(console.log);
 
 export default {
   namespaced: true,

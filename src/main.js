@@ -11,6 +11,7 @@ import Meals from './components/Meals.vue'
 import Events from './components/Events.vue'
 import Exams from './components/Exams.vue'
 import Menu from './components/Menu.vue'
+import Subjects from './components/Subjects.vue';
 import Courses from './components/Courses.vue'
 import Tips from './components/Tips.vue'
 import Professors from './components/Professors.vue'
@@ -75,7 +76,8 @@ const routes = [
   {path: '/events', component: Events},
   {path: '/exams', component: Exams},
   {path: '/menu', component: Menu, meta: {canGoBack: true}},
-  {path: '/courses', component: Courses, meta: {canGoBack: true}},
+  {path: '/subjects', component: Subjects, meta: {canGoBack: true}},
+  {path: '/courses', component: Courses, name: 'courses', meta: {canGoBack: true}, props: true},
   {path: '/professors', component: Professors, meta: {canGoBack: true}},
   {path: '/printers', component: Printers, meta: {canGoBack: true}},
   {path: '/tips', component: Tips, meta: {canGoBack: true}},

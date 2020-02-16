@@ -1,7 +1,7 @@
 {
   "name": "de.hft.app",
   "displayName": "HFT App",
-  "version": "1.0.0",
+  "version": "3.0.2",
   "description": "The HFT App",
   "main": "index.js",
   "scripts": {

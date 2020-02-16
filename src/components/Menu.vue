@@ -55,7 +55,7 @@
         color: 'red',
         items: [
           {
-            to: 'courses',
+            to: 'subjects',
             icon: 'book',
             title: 'Kurse auswählen'
           }, {
