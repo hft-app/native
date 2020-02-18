@@ -87,6 +87,11 @@ nav {
     padding: 8px 0;
     color: $primary;
 
+    &.disabled {
+      color: $secondary;
+      cursor: default;
+    }
+
     &.arrow {
       font-size: 26px;
       padding: 0 4px;

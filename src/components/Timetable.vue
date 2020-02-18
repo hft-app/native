@@ -7,7 +7,7 @@
       <div class="info">
         <p>Keine Vorlesungen in nächster Zeit.</p>
       </div>
-      <router-link class="button" to="courses">Zur Kursauswahl</router-link>
+      <router-link class="button" to="subjects">Zur Kursauswahl</router-link>
     </div>
   </div>
   <div v-else class="wrapper">

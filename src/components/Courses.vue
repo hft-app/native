@@ -2,8 +2,9 @@
   <div>
     <nav>
       <div class="bar container">
-        <a @click="$router.back()">Abbrechen</a>
-        <a class="save">Speichern</a>
+        <a @click="$router.go(-2)">Abbrechen</a>
+        <a v-if="!saving" :class="selectedCourses.length === 0? 'disabled':''" @click="save">Speichern</a>
+        <a v-else class="disabled">Speichert</a>
       </div>
     </nav>
 
@@ -26,8 +27,8 @@
                 </div>
                 <div v-for="course in subject.courses" class="courses">
                   <label>
-                    <input type="checkbox" name="courses" value="on" checked>
-                    <span class="icon icon-fw icon-prepend checkbox">{{ course.title }}</span>
+                    <input v-model="course.selected" type="checkbox" value="on">
+                    <span class="checkbox course-name">{{ course.name }}</span>
                   </label>
                 </div>
               </div>
@@ -52,23 +53,41 @@
   import {Client} from '../stores/lsf'
 
   export default {
-    props: {
-      selectedSubjects: {
-        required: true,
-        type: Array
-      }
-    },
     data() {
       return {
-        selected: '',
-        courses: [],
+        subjects: [],
+        saving: false
+      }
+    },
+    computed: {
+      selectedCourses() {
+        return this.subjects.flatMap(subject => subject.courses.filter(course => course.selected))
       }
     },
     async created() {
-      this.courses = Promise.all(this.selectedSubjects.map(Client.loadCourses))
+      const selectedSubjects = this.$store.state.lsf.selectedSubjects;
+      const selectedCourses = new Set(this.$store.state.lsf.selectedCourses.map(course => course.id));
+      this.subjects = await Promise.all(selectedSubjects.map(async subject => {
+        const courses = await Client.loadCoursesBySubject(subject);
+        courses.forEach(course => {
+          if (selectedCourses.has(course.id)) course.selected = true
+        });
+        return {courses, ...subject}
+      }));
     },
     methods: {
-      log: console.log
+      async save() {
+        try {
+          this.saving = true;
+          await this.$store.dispatch('lsf/selectCourses', this.selectedCourses.map(course => ({
+            id: course.id,
+            subjectId: course.subjectId
+          })));
+          this.$router.push('timetable')
+        } finally {
+          this.saving = false;
+        }
+      }
     }
   }
 </script>
@@ -83,12 +102,6 @@
 
     .item {
       padding: 8px 6px;
-
-      &.active {
-        .courses {
-          display: block;
-        }
-      }
 
       & + .item {
         border-top: 1px solid #F1F2F3;
@@ -108,6 +121,10 @@
     .header {
       display: flex;
 
+      label {
+        padding: 8px 0;
+      }
+
       span.name {
         font-weight: 500;
       }
@@ -118,18 +135,25 @@
         padding-left: 6px;
       }
 
-      input {
-        height: 25px;
-        width: 25px;
+      .arrow {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: $icon;
+        font-size: 26px;
       }
     }
 
     .courses {
-      display: none;
       padding-left: 34px;
 
+      .course-name {
+        font-size: 16px;
+      }
+
       label {
-        display: block;
+        display: flex;
         padding: 8px 0;
       }
     }

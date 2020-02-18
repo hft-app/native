@@ -186,16 +186,45 @@ export const Client = {
         }
       });
   },
+  addSelectedCourses(courseRefs) {
+    return fetchDOM(BASE_URL + '?state=wplan&act=add&show=plan&par=old&from=out' +
+      courseRefs.map(ref => `&add.${ref.id}=${ref.subjectId}`).join(''));
+  },
 
-  async loadCourses({parallelId, id}) {
+  removeSelectedCourse({subjectId, id}) {
+    return fetchDOM(BASE_URL + `?state=wplan&search=ver&act=rem&show=plan&Gid=${subjectId}&Vid=${id}`)
+  },
+
+  async loadSelectedCourses() {
+    const dom = await fetchDOM(BASE_URL + '?state=wplan&week=-2&act=show&pool=&show=plan&P.vx=kurz&P.subc=plan');
+    const courses = new Set();
+    return [...dom.querySelectorAll('td[title="aus Ansicht entfernen"]')]
+      .map(element => {
+        const linkHref = element.children[0].getAttribute('href');
+        return {
+          id: /Vid=(\d+)/.exec(linkHref)[1],
+          subjectId: /Gid=(\d+)/.exec(linkHref)[1]
+        }
+      }).filter(course => {
+        if (courses.has(course.id)) {
+          return false
+        } else {
+          courses.add(course.id);
+          return true
+        }
+      })
+  },
+
+  async loadCoursesBySubject({parallelId, id}) {
     const dom = await fetchDOM(BASE_URL + '?state=wplan&act=stg&show=liste&P.Print' +
       `&k_parallel.parallelid=${parallelId}&k_abstgv.abstgvnr=${id}`);
 
-    return Array(...dom.querySelectorAll('table tbody tr'))
+    return [...dom.querySelectorAll('table tbody tr')]
       .slice(1)
       .map(element => {
         const linkElement = element.children[1].children[0];
         return {
+          subjectId: parallelId,
           name: linkElement.textContent.trim(),
           id: /publishid=(\d+)/.exec(linkElement.getAttribute('href'))[1]
         }
@@ -209,6 +238,8 @@ export default {
     lectures: [],
     exams: [],
     fullName: '',
+    selectedSubjects: [],
+    selectedCourses: []
   },
   actions: {
     async login(context, credentials) {
@@ -237,6 +268,28 @@ export default {
       context.commit('exams', exams);
       context.commit('fullname', fullname);
       context.commit('lectures', lectures);
+    },
+
+    async selectCourses(context, newCourses) {
+      await Client.login(context.state.credentials);
+
+      const oldCourses = await Client.loadSelectedCourses();
+      console.log(oldCourses);
+      const oldCoursesSet = new Set(oldCourses.map(course => course.id));
+      const newCoursesSet = new Set(newCourses.map(course => course.id));
+
+      const coursesToAdd = newCourses.filter(x => !oldCoursesSet.has(x.id));
+      const coursesToRemove = oldCourses.filter(x => !newCoursesSet.has(x.id));
+
+      await Promise.all([Client.addSelectedCourses(coursesToAdd),
+        ...coursesToRemove.map(Client.removeSelectedCourse)]);
+      context.commit('selectedCourses', newCourses);
+
+
+      const lecturesThisWeek = Client.loadLectures(new Date());
+      const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
+      const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
+      context.commit('lectures', lectures);
     }
   },
   getters: {
@@ -260,5 +313,13 @@ export default {
     fullname(state, fullname) {
       state.fullname = fullname;
     },
+
+    selectedSubjects(state, selectedSubjects) {
+      state.selectedSubjects = selectedSubjects
+    },
+
+    selectedCourses(state, selectedCourses) {
+      state.selectedCourses = selectedCourses
+    }
   }
 }

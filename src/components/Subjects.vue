@@ -1,13 +1,21 @@
 <template>
-  <div>
+  <div class="wrapper">
     <nav>
       <div class="bar container">
         <a @click="$router.back()">Abbrechen</a>
-        <a class="save" @click="next">Weiter</a>
+        <a :class="selectedSubjects.length === 0? 'disabled':''" @click="next">Weiter</a>
       </div>
     </nav>
 
-    <div class="wrapper">
+    <div v-if="!subjects || !subjects.length" class="screen container">
+      <fa-icon class="icon icon-spin" icon="sync-alt" />
+      <div class="title">{{ $t('page.subjects.loadingTitle') }}</div>
+      <div class="line" />
+      <div class="info">
+        <p>{{ $t('page.subjects.loadingInfo') }}</p>
+      </div>
+    </div>
+    <div v-else class="wrapper">
       <div class="dashboard">
         <div class="widget">
           <div class="container">
@@ -48,7 +56,6 @@
   export default {
     data() {
       return {
-        selected: '',
         subjects: [],
       }
     },
@@ -58,11 +65,21 @@
       }
     },
     async created() {
-        this.subjects = await Client.loadSubjects();
+      this.subjects = await Client.loadSubjects();
+      this.$store.state.lsf.selectedSubjects.forEach(subject => {
+        const foundSubject = this.subjects.find(s =>
+          s.id === subject.id && s.parallelId === subject.parallelId);
+        if (foundSubject) {
+          foundSubject.selected = true
+        }
+      })
     },
     methods: {
       next() {
-        this.$router.push({name: 'courses', params: {selectedSubjects: this.selectedSubjects}})
+        if (this.selectedSubjects.length > 0) {
+          this.$store.commit('lsf/selectedSubjects', this.selectedSubjects);
+          this.$router.push('courses');
+        }
       },
     }
   }

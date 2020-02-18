@@ -72,9 +72,6 @@
 <style lang="scss" scoped>
   @import '../colors';
 
-  $sqrt2: 1.4142;
-
-
   p {
     margin: 0;
     line-height: 1.4;

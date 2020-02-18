@@ -112,17 +112,14 @@
             url: 'https://luniversity.de/info/terms',
             icon: 'handshake',
             title: 'Nutzungsbedingungen',
-            blank: true
           }, {
-            url: 'https:://luniversity.de/info/imprint',
+            url: 'https://luniversity.de/info/imprint',
             icon: 'bullhorn',
             title: 'Impressum',
-            blank: true
           }, {
             url: 'https://luniversity.de/info/privacy',
             icon: 'shield-alt',
             title: 'Datenschutzrichtlinien',
-            blank: true
           }
         ]
       }];

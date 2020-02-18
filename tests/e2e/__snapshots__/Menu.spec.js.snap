@@ -283,7 +283,7 @@ exports[`Menu renders correctly 1`] = `
           <span>
             <a
               class="item"
-              href="https:://luniversity.de/info/imprint"
+              href="https://luniversity.de/info/imprint"
             >
               <fa-icon-stub
                 class="square icon blue"

@@ -24,6 +24,7 @@ export default new Vuex.Store({
   },
   actions: {
     async refresh(context, credentials) {
+      if (context.state.refreshing) return;
       context.commit('refreshing', true);
       try {
         if (credentials) {
@@ -35,7 +36,7 @@ export default new Vuex.Store({
           context.dispatch('lsf/refresh', {skipLogin: !!credentials})
         ]);
       } catch (e) {
-        console.error(JSON.stringify(e));
+        console.error(e);
         if (e.type) {
           throw e;
         } else if (e.constructor.name === 'TypeError') {

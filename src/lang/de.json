@@ -59,6 +59,10 @@
     "welcome": {
       "title": "Willkommen"
     },
+    "subjects": {
+      "loadingTitle": "Einen Moment\u2026",
+      "loadingInfo": "Lade Studiengänge aus LSF"
+    },
     "error": {
       "title": "Oh nein!"
     }
