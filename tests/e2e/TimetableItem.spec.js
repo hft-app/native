@@ -1,5 +1,6 @@
 import {config, shallowMount} from '@vue/test-utils'
 import TimetableItem from 'components/TimetableItem.vue';
+import 'hash-color'
 
 config.mocks['$d'] = date => date.valueOf();
 
@@ -8,9 +9,8 @@ describe('TimetableItem', () => {
     const wrapper = shallowMount(TimetableItem, {
       stubs: ['fa-icon'],
       propsData: {
-        event: {
+        lecture: {
           title: 'Advanced Stuff',
-          color: 'orange',
           room: '2/433',
           professor: 'Müller',
           start: new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
@@ -25,9 +25,8 @@ describe('TimetableItem', () => {
     const wrapper = shallowMount(TimetableItem, {
       stubs: ['fa-icon'],
       propsData: {
-        event: {
+        lecture: {
           title: 'Advanced Stuff',
-          color: 'orange',
           professor: 'Müller',
           start: new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
           end: new Date('Mon Feb 10 2020 09:30:00 GMT+0100'),
@@ -41,9 +40,8 @@ describe('TimetableItem', () => {
     const wrapper = shallowMount(TimetableItem, {
       stubs: ['fa-icon'],
       propsData: {
-        event: {
+        lecture: {
           title: 'Advanced Stuff',
-          color: 'orange',
           room: '2/433',
           start: new Date('Mon Feb 10 2020 08:00:00 GMT+0100'),
           end: new Date('Mon Feb 10 2020 09:30:00 GMT+0100'),

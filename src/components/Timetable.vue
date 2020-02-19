@@ -61,7 +61,7 @@
             <tr v-for="row in day.table" :class="row.type">
               <td v-for="cell in row.cells" :rowspan="cell.rowspan" :colspan="cell.colspan"
                   :class="cell.title? 'occupied' :''">
-                <TimetableItem v-if="cell.title" :event="cell" />
+                <TimetableItem v-if="cell.title" :lecture="cell" />
               </td>
             </tr>
           </tbody>
@@ -82,14 +82,12 @@
     },
     computed: {
       days() {
-        const colors = ['green', 'blue', 'orange', 'red', 'yellow', 'teal', 'purple', 'pink'];
-
         const lectures = this.$store.state.lsf.lectures;
         let days = [];
 
         // Create timetable for the next 3 weeks
         for (let i = 0; i < 21; i++) {
-          const start = new Date(new Date());
+          const start = new Date();
           start.setDate(start.getDate() + i);
           start.setHours(0, 0, 0);
 
@@ -100,16 +98,9 @@
             continue;
           }
 
-          // Calculate color hash
-          let column = today.map(lecture => {
-            let hash = lecture.title.charCodeAt(0) + lecture.title.charCodeAt(1);
-            let color = colors[hash % colors.length];
-            return {color, ...lecture}
-          });
-
           // Add day to timetable
           if (today.length > 0) days.push({
-            table: new Table(column, this.$root.$t).render(),
+            table: new Table(today, this.$root.$t).render(),
             date: start,
           });
         }
@@ -122,7 +113,7 @@
     created() {
       this.$options.interval = setInterval(() => {
         this.now = Date.now();
-      }, 15 * 30 * 1000)
+      }, 15 * 60 * 1000)
     },
     beforeDestroy() {
       clearInterval(this.$options.interval)
@@ -138,7 +129,7 @@
 
       // Setup grid
       this.grid = [];
-      for (var x = 0; x < 12; x++) this.grid[x] = [];
+      for (let x = 0; x < 12; x++) this.grid[x] = [];
 
       // Place loadLectures
       for (const lecture of this.lectures) this.place(lecture);
@@ -182,7 +173,6 @@
 
         }
         tableRows.push(row);
-
       }
 
       return tableRows;
@@ -209,9 +199,9 @@
         if (typeof this.grid[x][y] !== 'undefined') continue;
 
         // Find overlapping loadLectures
-        var overlapping = 0;
-        for (var index in this.lectures) {
-          var test = this.lectures[index];
+        let overlapping = 0;
+        for (const index in this.lectures) {
+          const test = this.lectures[index];
 
           // Devide the remaining space among not yet placed loadLectures
           if (!test.placed && this.overlap(test, lecture)) overlapping++;

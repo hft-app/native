@@ -19,6 +19,7 @@ import Printers from './components/Printers.vue'
 import Credit from './components/Credit.vue';
 import store from './stores/store';
 import langDE from './lang/de.json'
+import './hash-color'
 
 import './index.scss'
 

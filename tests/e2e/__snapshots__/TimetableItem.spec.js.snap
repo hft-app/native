@@ -2,7 +2,7 @@
 
 exports[`TimetableItem renders correctly 1`] = `
 <div
-  class="lecture orange"
+  class="lecture purple"
 >
   <div
     class="title"
@@ -50,7 +50,7 @@ exports[`TimetableItem renders correctly 1`] = `
 
 exports[`TimetableItem renders correctly without professor 1`] = `
 <div
-  class="lecture orange"
+  class="lecture purple"
 >
   <div
     class="title"
@@ -89,7 +89,7 @@ exports[`TimetableItem renders correctly without professor 1`] = `
 
 exports[`TimetableItem renders correctly without room 1`] = `
 <div
-  class="lecture orange"
+  class="lecture purple"
 >
   <div
     class="title"

@@ -1,19 +1,19 @@
 <template>
-  <div :class="'lecture '+ event.color">
+  <div v-hash-color="lecture.title" class="lecture">
     <div class="title">
-      {{ event.title }}
+      {{ lecture.title }}
     </div>
     <div class="time">
-      {{ $d(event.start, 'time') }} - {{ $d(event.end, 'time') }}
+      {{ $d(lecture.start, 'time') }} - {{ $d(lecture.end, 'time') }}
     </div>
     <div class="info">
-      <div v-if="event.professor" class="professor data icon-prepend icon">
+      <div v-if="lecture.professor" class="professor data icon-prepend icon">
         <fa-icon icon="user-alt" />
-        {{ event.professor }}
+        {{ lecture.professor }}
       </div>
-      <div v-if="event.room" class="room data icon-prepend icon">
+      <div v-if="lecture.room" class="room data icon-prepend icon">
         <fa-icon icon="map-marker-alt" />
-        {{ event.room }}
+        {{ lecture.room }}
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
 <script>
   export default {
     props: {
-      event: {
+      lecture: {
         type: Object,
         required: true
       }

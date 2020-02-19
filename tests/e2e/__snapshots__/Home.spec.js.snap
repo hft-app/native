@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<div
+  class="wrapper"
+>
+  <div
+    class="dashboard"
+  >
+    <router-link-stub
+      class="widget"
+      to="timetable"
+    >
+      <h5
+        class="container"
+      >
+        Nächste Vorlesungen
+      </h5>
+       
+      <div
+        class="lecture purple"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="start"
+          >
+            
+            Morgen
+          
+          </div>
+           
+          <div
+            class="title"
+          >
+            Geschäftsprozessmanagement
+          </div>
+           
+          <div
+            class="data"
+          >
+            <!---->
+             
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div
+        class="lecture orange"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="start"
+          >
+            1582268400000
+          </div>
+           
+          <div
+            class="title"
+          >
+            Infoveranstaltung Informatik Bachelor-Thesis und Ausland
+          </div>
+           
+          <div
+            class="data"
+          >
+            <!---->
+             
+            <div
+              class="lu-icon lu-prepend lu-map-marker info"
+            >
+              <fa-icon-stub
+                icon="map-marker-alt"
+              />
+              
+              5/U26
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </router-link-stub>
+     
+    <div
+      class="widget"
+    >
+      <h5
+        class="container"
+      >
+        Nächste Termine
+      </h5>
+       
+      <div
+        class="container"
+      >
+        <eventitem-stub
+          event="[object Object]"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

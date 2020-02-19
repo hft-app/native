@@ -274,7 +274,6 @@ export default {
       await Client.login(context.state.credentials);
 
       const oldCourses = await Client.loadSelectedCourses();
-      console.log(oldCourses);
       const oldCoursesSet = new Set(oldCourses.map(course => course.id));
       const newCoursesSet = new Set(newCourses.map(course => course.id));
 
