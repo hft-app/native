@@ -5,17 +5,19 @@ import swsStore from './sws'
 import lsfStore from './lsf'
 import hftStore from './hft'
 import {VuexPersistence} from 'vuex-persist';
+import createLogger from 'vuex/dist/logger';
 
 Vue.use(Vuex);
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
-  modules: ['sws', 'hft', 'lsf']
+  modules: ['sws', 'hft', 'lsf'],
 });
 
 export default new Vuex.Store({
   state: {
     refreshing: false,
+    lastRefresh: localStorage.getItem('lastRefresh')
   },
   modules: {
     sws: swsStore,
@@ -35,15 +37,7 @@ export default new Vuex.Store({
           context.dispatch('hft/refresh'),
           context.dispatch('lsf/refresh', {skipLogin: !!credentials})
         ]);
-      } catch (e) {
-        console.error(e);
-        if (e.type) {
-          throw e;
-        } else if (e.constructor.name === 'TypeError') {
-          throw {type: 'offline'}
-        } else {
-          throw {type: 'unknown'}
-        }
+        context.commit('lastRefresh', Date.now())
       } finally {
         context.commit('refreshing', false);
       }
@@ -52,7 +46,12 @@ export default new Vuex.Store({
   mutations: {
     refreshing(state, refreshing) {
       state.refreshing = refreshing;
+    },
+
+    lastRefresh(state, lastRefresh) {
+      state.lastRefresh = lastRefresh;
+      localStorage.setItem('lastRefresh', lastRefresh);
     }
   },
-  plugins: [vuexLocal.plugin]
+  plugins: [vuexLocal.plugin, createLogger()]
 })

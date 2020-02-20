@@ -14,6 +14,7 @@ describe('Menu', () => {
     const store = new Vuex.Store({
       modules: {
         lsf: {
+          namespaced: true,
           state: {
             fullname: 'Max Müller'
           }
@@ -40,6 +41,7 @@ describe('Menu', () => {
     const store = new Vuex.Store({
       modules: {
         lsf: {
+          namespaced: true,
           state: {
             fullname: 'Max Miller'
           }
@@ -75,6 +77,7 @@ describe('Menu', () => {
     const store = new Vuex.Store({
       modules: {
         lsf: {
+          namespaced: true,
           state: {
             fullname: 'Mac Müller'
           }
@@ -104,6 +107,7 @@ describe('Menu', () => {
     const store = new Vuex.Store({
       modules: {
         lsf: {
+          namespaced: true,
           state: {
             fullname: 'Max Müller'
           }

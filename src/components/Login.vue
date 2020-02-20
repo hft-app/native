@@ -54,6 +54,7 @@
 </template>
 <script>
   import {mapState} from 'vuex';
+  import {getErrorInfo} from '../stores/util';
 
   export default {
     data() {
@@ -77,8 +78,9 @@
           });
           await this.$router.push('/home')
         } catch (e) {
-          this.error = e;
-          if (e.type === 'invalidCreds') {
+          const errorInfo = getErrorInfo(e);
+          this.error = errorInfo;
+          if (errorInfo.type === 'invalidCreds') {
             this.invalidCreds = true;
           }
         }

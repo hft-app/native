@@ -36,7 +36,7 @@
     },
     computed: mapState({
       events: state => state.hft.events.filter(event =>
-        event.endDate && event.endDate + 864E5 >= new Date().valueOf() || event.startDate >= new Date().valueOf())
+        event.endDate && event.endDate + 864E5 >= Date.now() || event.startDate >= Date.now())
     })
   }
 

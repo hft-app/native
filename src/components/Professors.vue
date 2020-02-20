@@ -11,10 +11,10 @@
     <transition name="fade" mode="out-in">
       <div v-if="filteredProfessors.length === 0" class="screen container">
         <fa-icon class="icon-address-card-o icon" icon="address-card" />
-        <div class="title">Keine Professoren</div>
+        <div class="title">{{ $t('page.professors.nothingFoundTitle') }}</div>
         <div class="line" />
         <div class="info">
-          <p>Es wurde kein Professor gefunden.</p>
+          <p>{{ $t('page.professors.nothingFoundInfo') }}</p>
         </div>
       </div>
       <div v-else class="wrapper">
@@ -39,10 +39,10 @@
                   </div>
 
                   <div class="actions">
-                    <a class="icon icon-phone green" :href="'tel:' +professor.phone">
+                    <a class="icon icon-phone green" :href="'tel:' + professor.phone">
                       <fa-icon icon="phone" />
                     </a>
-                    <a class="icon icon-envelope blue" :href="'mailto:'+professor.email">
+                    <a class="icon icon-envelope blue" :href="'mailto:' + professor.email">
                       <fa-icon icon="envelope" />
                     </a>
                   </div>

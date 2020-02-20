@@ -61,7 +61,7 @@
         }]
       }
     },
-    computed: mapState({refreshing: state => state.refreshing}),
+    computed: mapState(['refreshing']),
     methods: {
       async refresh() {
         await this.$store.dispatch('refresh');

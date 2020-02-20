@@ -1,7 +1,7 @@
 <template>
   <div v-if="!days.length" class="wrapper">
     <div class="screen container">
-      <fa-icon class="icon-thumbs-up icon" icon="thumbs-up" />
+      <fa-icon class="icon" icon="thumbs-up" />
       <div class="title">Pure Freizeit</div>
       <div class="line" />
       <div class="info">

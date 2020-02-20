@@ -10,7 +10,7 @@
             <a class="target logout item" @click="logout">
               <fa-icon class="teal badge icon" icon="id-badge" />
               <div class="title grow">
-                <p class="displayname">{{ displayname }}</p>
+                <p class="displayname">{{ fullname }}</p>
                 <p class="action">Kontoverknüpfung aufheben</p>
               </div>
             </a>
@@ -137,9 +137,7 @@
         groups
       };
     },
-    computed: mapState({
-      displayname: state => state.lsf.fullname
-    }),
+    computed: mapState('lsf', ['fullname']),
     methods: {
       logout() {
         this.$store.dispatch('lsf/logout');

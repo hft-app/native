@@ -143,7 +143,8 @@ import {
   faUserAlt,
   faMoneyCheckAlt,
   faThumbsUp,
-  faAddressCard
+  faAddressCard,
+  faExclamationTriangle
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -188,7 +189,8 @@ library.add(
   faUserAlt,
   faMoneyCheckAlt,
   faThumbsUp,
-  faAddressCard
+  faAddressCard,
+  faExclamationTriangle
 );
 
 Vue.component('fa-icon', FontAwesomeIcon);

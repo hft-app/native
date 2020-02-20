@@ -166,7 +166,7 @@ exports[`Professors renders correctly - filters nothing found 1`] = `
       <div
         class="title"
       >
-        Keine Professoren
+        page.professors.nothingFoundTitle
       </div>
        
       <div
@@ -177,7 +177,7 @@ exports[`Professors renders correctly - filters nothing found 1`] = `
         class="info"
       >
         <p>
-          Es wurde kein Professor gefunden.
+          page.professors.nothingFoundInfo
         </p>
       </div>
     </div>

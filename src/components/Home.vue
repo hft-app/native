@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="dashboard">
       <router-link v-if="lectures.length > 0" class="widget" to="timetable">
-        <h5 class="container">Nächste Vorlesungen</h5>
+        <h5 class="container">{{ $t('page.home.nextLectures') }}</h5>
         <div v-for="lecture in lectures" v-hash-color="lecture.title" class="lecture">
           <div class="container">
             <div v-if="lecture.start < now" class="start">Jetzt</div>
@@ -16,12 +16,12 @@
 
             <div class="title">{{ lecture.title }}</div>
             <div class="data">
-              <div v-if="lecture.professor" class="lu-icon lu-prepend info">
-                <fa-icon icon="user-alt" />
+              <div v-if="lecture.professor" class="info">
+                <fa-icon icon="user-alt"/>
                 {{ lecture.professor }}
               </div>
-              <div v-if="lecture.room" class="lu-icon lu-prepend lu-map-marker info">
-                <fa-icon icon="map-marker-alt" />
+              <div v-if="lecture.room" class="info">
+                <fa-icon icon="map-marker-alt"/>
                 {{ lecture.room }}
               </div>
             </div>
@@ -29,22 +29,21 @@
         </div>
       </router-link>
       <div v-if="events.length > 0" class="widget">
-        <h5 class="container">Nächste Termine</h5>
+        <h5 class="container">{{ $t('page.home.nextEvents') }}</h5>
         <div class="container">
-          <EventItem v-for="event in events" :key="event" :event="event" />
+          <EventItem v-for="event in events" :key="event" :event="event"/>
         </div>
       </div>
     </div>
-    <!--<div class="note">
+    <div class="note">
       <div class="container">
-        <p>Zuletzt synchronisiert:</p>
-        <p>${c}</p>
+        <p>{{ $t('page.home.lastRefresh') }}</p>
+        <p>{{ $tc('page.home.lastRefreshDuration', Math.floor(lastRefresh / 36E5)) }}</p>
       </div>
-    </div>-->
+    </div>
   </div>
 </template>
 <script>
-  import {mapState} from 'vuex';
   import EventItem from './EventItem.vue';
 
   export default {
@@ -56,19 +55,23 @@
         now: Date.now()
       }
     },
-    computed: mapState({
-      lectures: state => state.lsf.lectures
-        .filter(lecture => lecture.end > Date.now())
-        .slice(0, 2),
-      events: state => state.hft.events
-        .filter(event => event.endDate &&
-          event.endDate + 864E5 >= new Date().valueOf() || event.startDate >= new Date().valueOf())
-        .slice(0, 3)
-    })
+    computed: {
+      lectures() {
+        return this.$store.state.lsf.lectures
+          .filter(lecture => lecture.end > this.now)
+          .slice(0, 2)
+      },
+      events() {
+        return this.$store.state.hft.events
+          .filter(event => event.endDate &&
+            event.endDate + 864E5 >= this.now || event.startDate >= this.now)
+          .slice(0, 3)
+      },
+      lastRefresh() {
+        return Math.max(this.now - this.$store.state.lastRefresh, 0)
+      }
+    }
   }
-  /*c = "noch nie", localStorage.getItem("refreshed") && (f = this.now - localStorage.getItem("refreshed"),
-    c = f < 120 ? "gerade eben" : f < 3600 ? "vor " + Math.floor(f / 60) +
-    " Minuten" : f < 7200 ? "vor einer Stunde" : "vor " + Math.floor(f / 3600) + " Stunden")*/
 </script>
 <style scoped lang="scss">
   @import "../colors";

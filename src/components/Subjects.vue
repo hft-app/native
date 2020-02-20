@@ -2,12 +2,20 @@
   <div class="wrapper">
     <nav>
       <div class="bar container">
-        <a @click="$router.back()">Abbrechen</a>
+        <a @click="$router.back()">{{ $t('page.common.cancel') }}</a>
         <a :class="selectedSubjects.length === 0? 'disabled':''" @click="next">Weiter</a>
       </div>
     </nav>
 
-    <div v-if="!subjects || !subjects.length" class="screen container">
+    <div v-if="error" class="screen container">
+      <fa-icon class="icon" icon="exclamation-triangle" />
+      <div class="title">Ups</div>
+      <div class="line" />
+      <div class="info">
+        <p class="error">{{ $t('error.' + error.type) }}</p>
+      </div>
+    </div>
+    <div v-else-if="!subjects || !subjects.length" class="screen container">
       <fa-icon class="icon icon-spin" icon="sync-alt" />
       <div class="title">{{ $t('page.subjects.loadingTitle') }}</div>
       <div class="line" />
@@ -52,11 +60,13 @@
 </template>
 <script>
   import {Client} from '../stores/lsf'
+  import {getErrorInfo} from '../stores/util';
 
   export default {
     data() {
       return {
         subjects: [],
+        error: null
       }
     },
     computed: {
@@ -65,7 +75,12 @@
       }
     },
     async created() {
-      this.subjects = await Client.loadSubjects();
+      try {
+        this.subjects = await Client.loadSubjects();
+      } catch (e) {
+        console.error(e);
+        this.error = getErrorInfo(e);
+      }
       this.$store.state.lsf.selectedSubjects.forEach(subject => {
         const foundSubject = this.subjects.find(s =>
           s.id === subject.id && s.parallelId === subject.parallelId);
@@ -145,5 +160,9 @@
         padding: 8px 0;
       }
     }
+  }
+
+  .error {
+    white-space: pre;
   }
 </style>

@@ -14,9 +14,45 @@ exports[`Home renders correctly 1`] = `
       <h5
         class="container"
       >
-        Nächste Vorlesungen
+        page.home.nextLectures
       </h5>
        
+      <div
+        class="lecture orange"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="start"
+          >
+            Jetzt
+          </div>
+           
+          <div
+            class="title"
+          >
+            Geo-Visualisierung
+          </div>
+           
+          <div
+            class="data"
+          >
+            <div
+              class="info"
+            >
+              <fa-icon-stub
+                icon="user-alt"
+              />
+              
+              Müller
+            
+            </div>
+             
+            <!---->
+          </div>
+        </div>
+      </div>
       <div
         class="lecture purple"
       >
@@ -46,42 +82,6 @@ exports[`Home renders correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="lecture orange"
-      >
-        <div
-          class="container"
-        >
-          <div
-            class="start"
-          >
-            1582268400000
-          </div>
-           
-          <div
-            class="title"
-          >
-            Infoveranstaltung Informatik Bachelor-Thesis und Ausland
-          </div>
-           
-          <div
-            class="data"
-          >
-            <!---->
-             
-            <div
-              class="lu-icon lu-prepend lu-map-marker info"
-            >
-              <fa-icon-stub
-                icon="map-marker-alt"
-              />
-              
-              5/U26
-            
-            </div>
-          </div>
-        </div>
-      </div>
     </router-link-stub>
      
     <div
@@ -90,7 +90,7 @@ exports[`Home renders correctly 1`] = `
       <h5
         class="container"
       >
-        Nächste Termine
+        page.home.nextEvents
       </h5>
        
       <div
@@ -100,6 +100,22 @@ exports[`Home renders correctly 1`] = `
           event="[object Object]"
         />
       </div>
+    </div>
+  </div>
+   
+  <div
+    class="note"
+  >
+    <div
+      class="container"
+    >
+      <p>
+        page.home.lastRefresh
+      </p>
+       
+      <p>
+        page.home.lastRefreshDuration1
+      </p>
     </div>
   </div>
 </div>

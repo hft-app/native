@@ -1,7 +1,8 @@
 {
   "page": {
     "common": {
-      "noWarranty": "Alle Angaben ohne Gewähr."
+      "noWarranty": "Alle Angaben ohne Gewähr.",
+      "cancel": "Abbrechen"
     },
     "login": {
       "login": "Anmelden",
@@ -10,6 +11,12 @@
       "password": "Passwort",
       "prompt": "Melde dich mit deinem Konto an.",
       "security": "Deine Daten werden verschlüsselt und nur an die Hochschule übertragen."
+    },
+    "home": {
+      "nextLectures": "Nächste Vorlesungen:",
+      "nextEvents": "Nächste Termine:",
+      "lastRefresh": "Zuletzt synchronisiert:",
+      "lastRefreshDuration": "Gerade Eben | Vor einer Stunde | Vor {n} Stunden"
     },
     "meals": {
       "title": "Speiseplan",
@@ -42,8 +49,14 @@
     "menu": {
       "title": "Weitere Inhalte"
     },
+    "subjects": {
+      "loadingTitle": "Einen Moment…",
+      "loadingInfo": "Lade Studiengänge aus LSF"
+    },
     "courses": {
-      "title": "Vorlesungsverzeichnis"
+      "title": "Vorlesungsverzeichnis",
+      "saving": "Speichert…",
+      "save": "Speichern"
     },
     "tips": {
       "title": "Tipps und Tricks"
@@ -54,14 +67,12 @@
     },
     "professors": {
       "title": "Professorensuche",
-      "search": "Suchen..."
+      "search": "Suchen...",
+      "nothingFoundTitle": "Keine Professoren",
+      "nothingFoundInfo": "Es wurde kein Professor gefunden."
     },
     "welcome": {
       "title": "Willkommen"
-    },
-    "subjects": {
-      "loadingTitle": "Einen Moment\u2026",
-      "loadingInfo": "Lade Studiengänge aus LSF"
     },
     "error": {
       "title": "Oh nein!"
@@ -72,6 +83,6 @@
     "offline": "Der Server konnte nicht erreicht werden.\nBitte stelle sicher, dass du mit dem Internet verbunden bist.",
     "invalidCreds": "Deine Zugangsdaten sind ungültig",
     "invalidUser": "Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App.",
-    "unknown": "Ein unbekannter Fehler ist aufgetreten. Bitte versuche es später erneut."
+    "unknown": "Ein unbekannter Fehler ist aufgetreten.\nBitte versuche es später erneut."
   }
 }

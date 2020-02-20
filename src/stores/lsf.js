@@ -237,7 +237,7 @@ export default {
   state: {
     lectures: [],
     exams: [],
-    fullName: '',
+    fullname: '',
     selectedSubjects: [],
     selectedCourses: []
   },
@@ -283,7 +283,6 @@ export default {
       await Promise.all([Client.addSelectedCourses(coursesToAdd),
         ...coursesToRemove.map(Client.removeSelectedCourse)]);
       context.commit('selectedCourses', newCourses);
-
 
       const lecturesThisWeek = Client.loadLectures(new Date());
       const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));

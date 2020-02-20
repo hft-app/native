@@ -4,6 +4,8 @@ import Vuex from 'vuex';
 import 'hash-color'
 
 config.mocks['$d'] = date => date.valueOf();
+config.mocks['$t'] = str => str;
+config.mocks['$tc'] = (str, n) => str + n;
 
 describe('Home', () => {
   test('renders correctly', () => {
@@ -11,6 +13,9 @@ describe('Home', () => {
     localVue.use(Vuex);
 
     const store = new Vuex.Store({
+      state: {
+        lastRefresh: new Date('Mon Feb 19 2020 09:30:00 GMT+0100').valueOf()
+      },
       modules: {
         lsf: {
           state: {
@@ -54,7 +59,7 @@ describe('Home', () => {
       localVue,
       store,
       data() {
-        return {now: new Date('Mon Feb 19 2020 08:00:00 GMT+0100')}
+        return {now: new Date('Mon Feb 19 2020 11:00:00 GMT+0100')}
       }
     });
 

@@ -41,9 +41,7 @@
   import {mapState} from 'vuex';
 
   export default {
-    computed: mapState({
-      exams: state => state.lsf.exams
-    })
+    computed: mapState('lsf', ['exams'])
   }
 </script>
 <style lang="scss" scoped>

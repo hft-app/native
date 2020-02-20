@@ -13,6 +13,7 @@ describe('Exams', () => {
     const store = new Vuex.Store({
       modules: {
         lsf: {
+          namespaced: true,
           state: {
             exams: [{
               passed: true,
