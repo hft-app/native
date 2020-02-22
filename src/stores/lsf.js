@@ -107,8 +107,9 @@ export const Client = {
     const columns = rows[0].querySelectorAll('th');
     for (let columnIndex = 0; columnIndex < 5; columnIndex++) {
       const column = columns[columnIndex];
-      const date = column.querySelector('.klein').textContent;
-      days.push(parseDate(date))
+      const dateEl = column.querySelector('.klein');
+      if(!dateEl) return []; // sometimes the table contains no dates in semester vacation
+      days.push(parseDate(dateEl.textContent))
     }
 
     const lectures = [];
@@ -201,6 +202,7 @@ export const Client = {
     return [...dom.querySelectorAll('td[title="aus Ansicht entfernen"]')]
       .map(element => {
         const linkHref = element.children[0].getAttribute('href');
+        // XXX Maybe use `URLSearchParams` instead for url parsing
         return {
           id: /Vid=(\d+)/.exec(linkHref)[1],
           subjectId: /Gid=(\d+)/.exec(linkHref)[1]
@@ -263,10 +265,10 @@ export default {
       const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
 
       const {exams, fullname} = await examsFullname;
-      const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
-
       context.commit('exams', exams);
       context.commit('fullname', fullname);
+
+      const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
       context.commit('lectures', lectures);
     },
 

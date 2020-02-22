@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MealPicture renders correctly - default photo 1`] = `
+<div
+  class="fullscreen"
+>
+  <div
+    class="photo"
+  >
+    <img
+      alt="page.meals.imageNotLoaded"
+      src="https://sws2.maxmanager.xyz/assets/fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg"
+    />
+     
+    <fa-icon-stub
+      class="lu-icon lu-times-circle close"
+      icon="times"
+    />
+  </div>
+   
+  <div
+    class="data"
+  >
+    <div
+      class="title"
+    >
+      Spätzle mit Soß
+    </div>
+     
+    <div
+      class="price"
+    >
+      2,85
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MealPicture renders correctly 1`] = `
+<div
+  class="fullscreen"
+>
+  <div
+    class="photo"
+  >
+    <img
+      alt="page.meals.imageNotLoaded"
+      src="https://sws2.maxmanager.xyz/assets/photo123.jpg"
+    />
+     
+    <fa-icon-stub
+      class="lu-icon lu-times-circle close"
+      icon="times"
+    />
+  </div>
+   
+  <div
+    class="data"
+  >
+    <div
+      class="title"
+    >
+      Spätzle mit Soß
+    </div>
+     
+    <div
+      class="price"
+    >
+      2,85
+    </div>
+  </div>
+</div>
+`;

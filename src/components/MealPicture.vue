@@ -52,6 +52,7 @@
         width: 0.9em;
         height: 0.9em;
         padding: 0.15em;
+        cursor: pointer;
       }
     }
 

@@ -1,6 +1,10 @@
 # HFT-App native
 [![Build Status](https://travis-ci.com/wiomoc/hft-app-native.svg?token=Ykq2LCBTrhtFGahCmAzN&branch=master)](https://travis-ci.com/wiomoc/hft-app-native)
 
+Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
+
+**Currently** runs as Android App and as Firefox WebExtension
+
 [Latest Release](https://github.com/wiomoc/hft-app-native/releases/latest)
 
 ## Implementation TODOs
@@ -22,5 +26,7 @@
 - [ ] Summary of licenses used in 3th-party-libs
 - [ ] Move this section to separate issues
 - [ ] Improve Readme
+- [ ] i18n for tips and menu
 - [ ] Add english translation
 - [ ] Generate list of professors dynamically
+- [ ] Keep scrollposition after back navigation/tab switch
