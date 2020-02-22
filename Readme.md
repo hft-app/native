@@ -17,9 +17,9 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 - [ ] Support notifications on e.g. new exam result, schedule changes -> requires background refresh
 - [ ] Show schedule changes in the "home" page
 - [ ] Better error handling
-    1. Detect down-for-maintenance
-    2. Show error to user via sth like a toast/snackbar
-    3. Redirect User to login page on invalid credentials
+    1. [ ] Detect down-for-maintenance
+    2. [x] Show errors occurred during refresh to user via sth like a toast/snackbar
+    3. [ ] Redirect User to login page on invalid credentials
 - [ ] Make scrapers more error resistant & improve code style
 - [ ] Some mo tests! most important for components and scrapers
 - [ ] Event export to calendar/ics
