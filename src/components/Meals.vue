@@ -20,11 +20,11 @@
       <div class="list">
         <div class="container">
           <div v-for="meal in meals" class="meal article">
-            <div class="photo">
+            <router-link :to="{name: 'mealpicture', params: {meal}}" class="photo">
               <img :src="'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo:
                      'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg')"
-                   :alt="$t('page.meals.imageNotLoaded')">
-            </div>
+                   :alt="$t('page.meals.imageNotLoaded')" loading="lazy">
+            </router-link>
             <div class="data">
               <div class="title">{{ meal.title }}</div>
               <span v-if="meal.additives" class="info">
@@ -180,6 +180,7 @@
         font-weight: 300;
         font-size: 1.2em;
       }
+
       &::before {
         content: '';
         position: absolute;
@@ -202,9 +203,13 @@
       border-collapse: collapse;
       width: 100%;
 
-      th { text-align: right; }
+      th {
+        text-align: right;
+      }
 
-      td { padding: 0.5em 0.8em; }
+      td {
+        padding: 0.5em 0.8em;
+      }
     }
   }
 

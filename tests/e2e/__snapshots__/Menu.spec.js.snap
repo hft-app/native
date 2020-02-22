@@ -14,7 +14,7 @@ exports[`Menu renders correctly 1`] = `
         class="container"
       >
         <h5>
-          Verknüpftes Konto
+          page.menu.linkedAccount
         </h5>
       </div>
        
@@ -44,7 +44,7 @@ exports[`Menu renders correctly 1`] = `
               <p
                 class="action"
               >
-                Kontoverknüpfung aufheben
+                page.menu.unlinkAccount
               </p>
             </div>
           </a>

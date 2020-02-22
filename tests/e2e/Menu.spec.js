@@ -5,6 +5,7 @@ import Menu from 'components/Menu.vue';
 import Vuex from 'vuex';
 
 config.mocks['$d'] = date => date.valueOf();
+config.mocks['$t'] = str => str;
 
 describe('Menu', () => {
   test('renders correctly', () => {

@@ -8,6 +8,7 @@ import Login from './components/Login.vue'
 import Home from './components/Home.vue';
 import Timetable from './components/Timetable.vue';
 import Meals from './components/Meals.vue'
+import MealPicture from './components/MealPicture.vue'
 import Events from './components/Events.vue'
 import Exams from './components/Exams.vue'
 import Menu from './components/Menu.vue'
@@ -74,11 +75,18 @@ const routes = [
   {path: '/home', component: Home},
   {path: '/timetable', component: Timetable},
   {path: '/meals', component: Meals},
+  {
+    path: '/mealpicture',
+    name: 'mealpicture',
+    component: MealPicture,
+    meta: {hideNav: true, canGoBack: true},
+    props: true
+  },
   {path: '/events', component: Events},
   {path: '/exams', component: Exams},
   {path: '/menu', component: Menu, meta: {canGoBack: true}},
   {path: '/subjects', component: Subjects, meta: {canGoBack: true}},
-  {path: '/courses', component: Courses, name: 'courses', meta: {canGoBack: true}, props: true},
+  {path: '/courses', component: Courses, meta: {canGoBack: true}, props: true},
   {path: '/professors', component: Professors, meta: {canGoBack: true}},
   {path: '/printers', component: Printers, meta: {canGoBack: true}},
   {path: '/tips', component: Tips, meta: {canGoBack: true}},

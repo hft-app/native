@@ -16,7 +16,9 @@
       "nextLectures": "Nächste Vorlesungen:",
       "nextEvents": "Nächste Termine:",
       "lastRefresh": "Zuletzt synchronisiert:",
-      "lastRefreshDuration": "Gerade Eben | Vor einer Stunde | Vor {n} Stunden"
+      "lastRefreshDuration": "Gerade Eben | Vor einer Stunde | Vor {n} Stunden",
+      "currently": "Jetzt",
+      "tomorrow": "Morgen"
     },
     "meals": {
       "title": "Speiseplan",
@@ -47,7 +49,9 @@
       "try": ["Erstversuch", "Zweitversuch", "Drittversuch"]
     },
     "menu": {
-      "title": "Weitere Inhalte"
+      "title": "Weitere Inhalte",
+      "unlinkAccount": "Kontoverknüpfung aufheben",
+      "linkedAccount": "Verknüpftes Konto"
     },
     "subjects": {
       "loadingTitle": "Einen Moment…",
@@ -79,7 +83,7 @@
     }
   },
   "error": {
-    "maintenance": "Die Server der HFT sind wegen Wartungsarbeiten nicht erreichbar.\nBitte versuche es später erneut.",
+    "maintenance": "Die Server der HFT sind wegen\nWartungsarbeiten nicht erreichbar.\nBitte versuche es später erneut.",
     "offline": "Der Server konnte nicht erreicht werden.\nBitte stelle sicher, dass du mit dem Internet verbunden bist.",
     "invalidCreds": "Deine Zugangsdaten sind ungültig",
     "invalidUser": "Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App.",

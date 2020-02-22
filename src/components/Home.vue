@@ -5,23 +5,23 @@
         <h5 class="container">{{ $t('page.home.nextLectures') }}</h5>
         <div v-for="lecture in lectures" v-hash-color="lecture.title" class="lecture">
           <div class="container">
-            <div v-if="lecture.start < now" class="start">Jetzt</div>
+            <div v-if="lecture.start < now" class="start">  {{ $t('page.home.currently') }}</div>
             <div v-else-if="Math.floor(lecture.start/864E5) === Math.floor(now/864E5)" class="start">
               {{ $d(lecture.start, 'time') }}
             </div>
             <div v-else-if="Math.floor(lecture.start/864E5) === Math.floor(now/864E5) + 1" class="start">
-              Morgen
+              {{ $t('page.home.tomorrow') }}
             </div>
             <div v-else class="start">{{ $d(lecture.start, 'day') }}</div>
 
             <div class="title">{{ lecture.title }}</div>
             <div class="data">
               <div v-if="lecture.professor" class="info">
-                <fa-icon icon="user-alt"/>
+                <fa-icon icon="user-alt" />
                 {{ lecture.professor }}
               </div>
               <div v-if="lecture.room" class="info">
-                <fa-icon icon="map-marker-alt"/>
+                <fa-icon icon="map-marker-alt" />
                 {{ lecture.room }}
               </div>
             </div>
@@ -31,7 +31,7 @@
       <div v-if="events.length > 0" class="widget">
         <h5 class="container">{{ $t('page.home.nextEvents') }}</h5>
         <div class="container">
-          <EventItem v-for="event in events" :key="event" :event="event"/>
+          <EventItem v-for="event in events" :key="event" :event="event" />
         </div>
       </div>
     </div>

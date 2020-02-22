@@ -16,7 +16,7 @@
       </div>
     </header>
     <!--  <transition name="next">-->
-    <router-view class="main" />
+    <router-view :class="$route.meta.hideNav? '' :'main'" />
     <!--</transition>-->
 
     <footer v-if="!$route.meta.hideNav">

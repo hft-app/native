@@ -5,7 +5,6 @@ import swsStore from './sws'
 import lsfStore from './lsf'
 import hftStore from './hft'
 import {VuexPersistence} from 'vuex-persist';
-import createLogger from 'vuex/dist/logger';
 
 Vue.use(Vuex);
 
@@ -53,5 +52,5 @@ export default new Vuex.Store({
       localStorage.setItem('lastRefresh', lastRefresh);
     }
   },
-  plugins: [vuexLocal.plugin, createLogger()]
+  plugins: [vuexLocal.plugin]
 })

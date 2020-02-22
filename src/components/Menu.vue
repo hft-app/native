@@ -3,7 +3,7 @@
     <div class="dashboard">
       <div class="widget">
         <div class="container">
-          <h5>Verknüpftes Konto</h5>
+          <h5>{{ $t('page.menu.linkedAccount') }}</h5>
         </div>
         <div class="menu">
           <div class="container">
@@ -11,7 +11,7 @@
               <fa-icon class="teal badge icon" icon="id-badge" />
               <div class="title grow">
                 <p class="displayname">{{ fullname }}</p>
-                <p class="action">Kontoverknüpfung aufheben</p>
+                <p class="action">{{ $t('page.menu.unlinkAccount') }}</p>
               </div>
             </a>
           </div>

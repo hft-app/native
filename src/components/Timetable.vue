@@ -107,6 +107,7 @@
         return days;
       },
       nowPosition() {
+        // TODO Only holds true on DST ?
         return (this.now % 864E5 * 0.001 / 3600 - 7) / 11
       }
     },

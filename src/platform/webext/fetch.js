@@ -9,8 +9,13 @@ export function fetchDOM(url) {
       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
     }
   })
-    .then(response => response.text())
-    .then(text => new DOMParser().parseFromString(text, 'text/html'))
+    .then(response => {
+      if (response.status === 503) {
+        throw {type: 'maintenance'}
+      } else {
+        return response.text();
+      }
+    }).then(text => new DOMParser().parseFromString(text, 'text/html'))
 }
 
 export async function fetchLogin(url, data) {
