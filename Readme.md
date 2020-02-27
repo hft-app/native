@@ -7,6 +7,10 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 
 [Latest Release](https://github.com/wiomoc/hft-app-native/releases/latest)
 
+## Contributors
+* [Lukas Jans](https://github.com/ljans)
+* [Christoph Walcher](https://github.com/wiomoc)
+
 ## Implementation TODOs
 - [ ] Rework everything related to Date, Timers, Durations...
     1. Consider using Luxon for more convenient `Date` handling. How to (De)Serialize to `localStorage`?
@@ -23,7 +27,8 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 - [ ] Make scrapers more error resistant & improve code style
 - [ ] Some mo tests! most important for components and scrapers
 - [ ] Event export to calendar/ics
-- [ ] Summary of licenses used in 3th-party-libs
+- [x] Summary of licenses used in 3th-party-libs
+- [ ] Licenses for cordova build 
 - [ ] Move this section to separate issues
 - [ ] Improve Readme
 - [ ] i18n for tips and menu

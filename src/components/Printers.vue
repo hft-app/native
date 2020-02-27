@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-once>
     <nav>
       <div class="bar container">
         <a href="mailto:info@hft-app.de?subject=Veraltete%20Druckerdaten">

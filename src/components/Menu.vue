@@ -101,7 +101,6 @@
             url: 'https://github.com/hft-app',
             icon: 'puzzle-piece',
             title: 'Selbst mitwirken',
-            blank: true
           }
         ]
       }, {
@@ -109,17 +108,13 @@
         color: 'blue',
         items: [
           {
-            url: 'https://luniversity.de/info/terms',
-            icon: 'handshake',
-            title: 'Nutzungsbedingungen',
-          }, {
-            url: 'https://luniversity.de/info/imprint',
+            to: 'imprint',
             icon: 'bullhorn',
             title: 'Impressum',
           }, {
-            url: 'https://luniversity.de/info/privacy',
-            icon: 'shield-alt',
-            title: 'Datenschutzrichtlinien',
+            to: 'licenses',
+            icon: 'handshake',
+            title: 'Lizenzen',
           }
         ]
       }];

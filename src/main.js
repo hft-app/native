@@ -14,9 +14,6 @@ import Exams from './components/Exams.vue'
 import Menu from './components/Menu.vue'
 import Subjects from './components/Subjects.vue';
 import Courses from './components/Courses.vue'
-import Tips from './components/Tips.vue'
-import Professors from './components/Professors.vue'
-import Printers from './components/Printers.vue'
 import Credit from './components/Credit.vue';
 import store from './stores/store';
 import langDE from './lang/de.json'
@@ -87,10 +84,32 @@ const routes = [
   {path: '/menu', component: Menu, meta: {canGoBack: true}},
   {path: '/subjects', component: Subjects, meta: {canGoBack: true}},
   {path: '/courses', component: Courses, meta: {canGoBack: true}, props: true},
-  {path: '/professors', component: Professors, meta: {canGoBack: true}},
-  {path: '/printers', component: Printers, meta: {canGoBack: true}},
-  {path: '/tips', component: Tips, meta: {canGoBack: true}},
+  {
+    path: '/professors',
+    component: () => import(/* webpackChunkName: "page-professors" */  './components/Professors.vue'),
+    meta: {canGoBack: true}
+  },
+  {
+    path: '/printers',
+    component: () => import(/* webpackChunkName: "page-printers" */  './components/Printers.vue'),
+    meta: {canGoBack: true}
+  },
+  {
+    path: '/tips',
+    component: () => import(/* webpackChunkName: "page-tips" */  './components/Tips.vue'),
+    meta: {canGoBack: true}
+  },
   {path: '/credit', component: Credit, meta: {canGoBack: true}},
+  {
+    path: '/licenses',
+    component: () => import(/* webpackChunkName: "page-license" */  './components/Licenses.vue'),
+    meta: {canGoBack: true}
+  },
+  {
+    path: '/imprint',
+    component: () => import( /* webpackChunkName: "page-imprint" */ './components/Imprint.vue'),
+    meta: {canGoBack: true}
+  },
 ];
 
 const router = new VueRouter({

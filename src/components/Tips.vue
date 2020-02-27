@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div v-once class="wrapper">
     <div class="list">
       <div class="container">
         <a v-for="(tip, index) of tips" :key="index"
@@ -96,7 +96,6 @@
       padding-right: 0.5em;;
       color: $icon;
       flex-shrink: 0;
-
     }
   }
 </style>

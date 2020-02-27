@@ -261,29 +261,6 @@ exports[`Menu renders correctly 1`] = `
           <span>
             <a
               class="item"
-              href="https://luniversity.de/info/terms"
-            >
-              <fa-icon-stub
-                class="square icon blue"
-                icon="handshake"
-              />
-               
-              <span
-                class="title"
-              >
-                Nutzungsbedingungen
-              </span>
-               
-              <fa-icon-stub
-                class="arrow icon"
-                icon="chevron-right"
-              />
-            </a>
-          </span>
-          <span>
-            <a
-              class="item"
-              href="https://luniversity.de/info/imprint"
             >
               <fa-icon-stub
                 class="square icon blue"
@@ -305,17 +282,16 @@ exports[`Menu renders correctly 1`] = `
           <span>
             <a
               class="item"
-              href="https://luniversity.de/info/privacy"
             >
               <fa-icon-stub
                 class="square icon blue"
-                icon="shield-alt"
+                icon="handshake"
               />
                
               <span
                 class="title"
               >
-                Datenschutzrichtlinien
+                Lizenzen
               </span>
                
               <fa-icon-stub

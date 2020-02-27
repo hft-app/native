@@ -23,5 +23,11 @@ module.exports = {
     'vue-i18n': {
       localeDir: './src/lang/*.json'
     }
+  },
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    parser: "babel-eslint",
+    ecmaVersion: 8,
+    sourceType: "module"
   }
 };
