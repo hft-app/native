@@ -1,7 +1,7 @@
 import {config, createLocalVue, shallowMount} from '@vue/test-utils'
 import Home from 'components/Home.vue';
+import HashColor from 'hash-color';
 import Vuex from 'vuex';
-import 'hash-color'
 
 config.mocks['$d'] = date => date.valueOf();
 config.mocks['$t'] = str => str;
@@ -11,6 +11,7 @@ describe('Home', () => {
   test('renders correctly', () => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
+    localVue.use(HashColor);
 
     const store = new Vuex.Store({
       state: {

@@ -96,7 +96,7 @@ export const Client = {
     const table = dom.body.children[1];
 
     const grid = [];
-    for (let i = 0; i < 49; i++) grid[i] = [];
+    for (let i = 0; i < 48; i++) grid[i] = [];
 
     // No lectures available
     if (!table.children[0]) return [];
@@ -108,21 +108,22 @@ export const Client = {
     for (let columnIndex = 0; columnIndex < 5; columnIndex++) {
       const column = columns[columnIndex];
       const dateEl = column.querySelector('.klein');
-      if(!dateEl) return []; // sometimes the table contains no dates in semester vacation
+      if (!dateEl) return []; // sometimes the table contains no dates in semester vacation
       days.push(parseDate(dateEl.textContent))
     }
 
     const lectures = [];
-    for (let rowIndex = 2; rowIndex < 49; rowIndex++) {
-      const row = rows[rowIndex];
+    for (let rowIndex = 0; rowIndex < 47; rowIndex++) {
+      const row = rows[rowIndex + 2];
 
       const columns = row.children;
-      let skip = (rowIndex + 2) % 4 ? 1 : 2;
+      let skip = rowIndex  % 4 ? 1 : 2;
+
       for (let columnIndex = skip; columnIndex < columns.length; columnIndex++) {
         const column = columns[columnIndex];
 
         let x = 0;
-        while (grid[rowIndex][x]) x++;
+        while (grid[rowIndex][x] && days[x + 1]) x++;
 
         const rowspan = parseInt(column.getAttribute('rowspan'));
         if (!rowspan || isNaN(rowspan)) {
@@ -254,7 +255,7 @@ export default {
       context.commit('credentials', null);
     },
 
-    async refresh(context, {skipLogin} = {skipLogin: false}) {
+    async refresh(context, {skipLogin = false} = {}) {
       if (!skipLogin) {
         await Client.login(context.state.credentials);
       }

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 import Nav from './components/Nav.vue'
 import Login from './components/Login.vue'
@@ -17,7 +16,8 @@ import Courses from './components/Courses.vue'
 import Credit from './components/Credit.vue';
 import store from './stores/store';
 import langDE from './lang/de.json'
-import './hash-color'
+import HashColor from  './hash-color'
+import Icons from  './icons'
 
 import './index.scss'
 
@@ -126,107 +126,15 @@ document.addEventListener('deviceready', () =>
     }, false),
   false);
 
-
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {
-  faHome,
-  faIdBadge,
-  faLock,
-  faUtensils,
-  faClock,
-  faCalendar,
-  faGraduationCap,
-  faBars,
-  faSyncAlt,
-  faChevronLeft,
-  faChevronRight,
-  faInfoCircle,
-  faHandshake,
-  faBullhorn,
-  faShieldAlt,
-  faPuzzlePiece,
-  faStar,
-  faShareAlt,
-  faBook,
-  faLightbulb,
-  faListUl,
-  faPrint,
-  faEnvelope,
-  faRss,
-  faPhone,
-  faSearch,
-  faMapMarkerAlt,
-  faFileAlt,
-  faFont,
-  faHistory,
-  faArrowLeft,
-  faCalendarAlt,
-  faTimes,
-  faCheck,
-  faFolderOpen,
-  faChevronDown,
-  faChevronUp,
-  faCalendarPlus,
-  faUserAlt,
-  faMoneyCheckAlt,
-  faThumbsUp,
-  faAddressCard,
-  faExclamationTriangle
-} from '@fortawesome/free-solid-svg-icons';
-
-library.add(
-  faIdBadge,
-  faLock,
-  faHome,
-  faUtensils,
-  faClock,
-  faCalendar,
-  faGraduationCap,
-  faBars,
-  faSyncAlt,
-  faChevronLeft,
-  faChevronRight,
-  faChevronDown,
-  faChevronUp,
-  faInfoCircle,
-  faHandshake,
-  faBullhorn,
-  faShieldAlt,
-  faPuzzlePiece,
-  faStar,
-  faShareAlt,
-  faBook,
-  faLightbulb,
-  faListUl,
-  faPrint,
-  faEnvelope,
-  faRss,
-  faPhone,
-  faSearch,
-  faMapMarkerAlt,
-  faFileAlt,
-  faFont,
-  faHistory,
-  faArrowLeft,
-  faCalendarAlt,
-  faCheck,
-  faTimes,
-  faFolderOpen,
-  faCalendarPlus,
-  faUserAlt,
-  faMoneyCheckAlt,
-  faThumbsUp,
-  faAddressCard,
-  faExclamationTriangle
-);
-
-Vue.component('fa-icon', FontAwesomeIcon);
-
+Vue.use(HashColor);
+Vue.use(Icons);
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   i18n,
   store,
-  render: createEle => createEle(Nav)
+  render: createEle => createEle(Nav),
 }).$mount('#app');
+
+store.dispatch('refresh');

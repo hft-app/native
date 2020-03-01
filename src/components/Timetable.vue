@@ -86,14 +86,13 @@
         let days = [];
 
         // Create timetable for the next 3 weeks
+        const now = Date.now();
         for (let i = 0; i < 21; i++) {
-          const start = new Date();
-          start.setDate(start.getDate() + i);
-          start.setHours(0, 0, 0);
+          const start = now + i * 864E5;
 
           // Filter loadLectures for current day
           const today = lectures.filter(lecture =>
-            Math.floor(lecture.start / 864E5) === Math.floor(start.valueOf() / 864E5));
+            Math.floor(lecture.start / 864E5) === Math.floor(start / 864E5));
           if (!today.length) {
             continue;
           }

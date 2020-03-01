@@ -1,12 +1,16 @@
-import {config, shallowMount} from '@vue/test-utils'
+import {config, createLocalVue, shallowMount} from '@vue/test-utils'
 import TimetableItem from 'components/TimetableItem.vue';
-import 'hash-color'
+import HashColor from 'hash-color'
 
 config.mocks['$d'] = date => date.valueOf();
 
 describe('TimetableItem', () => {
+  const localVue = createLocalVue();
+  localVue.use(HashColor);
+
   test('renders correctly', () => {
     const wrapper = shallowMount(TimetableItem, {
+      localVue,
       stubs: ['fa-icon'],
       propsData: {
         lecture: {
@@ -23,6 +27,7 @@ describe('TimetableItem', () => {
 
   test('renders correctly without room', () => {
     const wrapper = shallowMount(TimetableItem, {
+      localVue,
       stubs: ['fa-icon'],
       propsData: {
         lecture: {
@@ -38,6 +43,7 @@ describe('TimetableItem', () => {
 
   test('renders correctly without professor', () => {
     const wrapper = shallowMount(TimetableItem, {
+      localVue,
       stubs: ['fa-icon'],
       propsData: {
         lecture: {

@@ -82,7 +82,7 @@
         this.error = null;
         clearTimeout(this.$options.toastTimeout);
         try {
-          await this.$store.dispatch('refresh');
+          await this.$store.dispatch('refresh', {force: true});
         } catch (e) {
           this.error = getErrorInfo(e);
           this.$options.toastTimeout = setTimeout(() => this.error = null, 2500)

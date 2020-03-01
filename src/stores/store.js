@@ -24,21 +24,26 @@ export default new Vuex.Store({
     hft: hftStore,
   },
   actions: {
-    async refresh(context, credentials) {
-      if (context.state.refreshing) return;
-      context.commit('refreshing', true);
-      try {
-        if (credentials) {
-          await context.dispatch('lsf/login', credentials);
+    async refresh(context, {credentials, force = false} = {}) {
+      if (context.state.refreshing || !credentials && !context.state.lsf.credentials) return;
+      const lastRefreshDuration = Date.now() - context.state.lastRefresh;
+
+      if (force || lastRefreshDuration > 864E5) {
+        context.commit('refreshing', true);
+        try {
+          if (credentials) {
+            await context.dispatch('lsf/login', credentials);
+          }
+
+          await Promise.all([
+            context.dispatch('sws/refresh'),
+            context.dispatch('hft/refresh'),
+            context.dispatch('lsf/refresh', {skipLogin: !!credentials})
+          ]);
+          context.commit('lastRefresh', Date.now())
+        } finally {
+          context.commit('refreshing', false);
         }
-        await Promise.all([
-          context.dispatch('sws/refresh'),
-          context.dispatch('hft/refresh'),
-          context.dispatch('lsf/refresh', {skipLogin: !!credentials})
-        ]);
-        context.commit('lastRefresh', Date.now())
-      } finally {
-        context.commit('refreshing', false);
       }
     }
   },

@@ -73,8 +73,11 @@
         try {
           this.invalidCreds = false;
           await this.$store.dispatch('refresh', {
-            username: this.username,
-            password: this.password
+            credentials: {
+              username: this.username,
+              password: this.password
+            },
+            force: true
           });
           await this.$router.push('/home')
         } catch (e) {

@@ -6,10 +6,17 @@ export function fetchJSON(url) {
 
 export function fetchDOM(url) {
   return new Promise((resolve, reject) => {
-      cordova.plugin.http.get(url, {}, {}, response => {
+      cordova.plugin.http.get(url, {}, {},
+        response => {
           resolve(new DOMParser().parseFromString(response.data, 'text/html'))
         },
-        reject
+        response => {
+          if (response.status === 503) {
+            reject({type: 'maintenance'})
+          } else {
+            reject(response)
+          }
+        }
       )
     }
   )
@@ -17,16 +24,22 @@ export function fetchDOM(url) {
 
 export async function fetchLogin(url, data) {
   cordova.plugin.http.setFollowRedirect(false);
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     cordova.plugin.http.sendRequest(url, {
-      method: 'POST',
-      data,
-      followRedirect: false
-    }, () => {
-      resolve(false)
-    }, () => {
-      resolve(true)
-    })
+        method: 'POST',
+        data,
+        followRedirect: false
+      },
+      () => {
+        resolve(false)
+      },
+      response => {
+        if (response.status === 503) {
+          reject({type: 'maintenance'})
+        } else {
+          resolve(true) // We get an error on redirect
+        }
+      })
   })
 }
 
