@@ -1,5 +1,5 @@
 # HFT-App native
-[![Build Status](https://travis-ci.com/wiomoc/hft-app-native.svg?token=Ykq2LCBTrhtFGahCmAzN&branch=master)](https://travis-ci.com/wiomoc/hft-app-native)
+[![Build Status](https://travis-ci.org/hft-app/native.svg?branch=master)](https://travis-ci.org/hft-app/native)
 
 Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 

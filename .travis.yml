@@ -13,7 +13,7 @@ android:
 before_install:
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;28.0.3"
-  - openssl aes-256-cbc -K $encrypted_3fe2cb6c7c91_key -iv $encrypted_3fe2cb6c7c91_iv -in sec/android.keystore.enc -out sec/android.keystore -d
+  - openssl aes-256-cbc -K $encrypted_cc21b8817197_key -iv $encrypted_cc21b8817197_iv -in sec/android.keystore.enc -out sec/android.keystore -d
   - nvm install 12
   - node --version
   - npm --version
@@ -39,10 +39,10 @@ deploy:
   provider: releases
   file_glob: true
   api_key:
-    secure: Vaz8uAHBE2i5gMO5B9aNYnAoHatyZYHjp7gIByboCM6DxyDrzcOONPfZEnXY8t+WnI7xuoiLKfjWyNxXBwufS674khhUODoMsgQsIwUgeeKysvi+Pi57NafS+YSEZemEiBmOF3OCsIdmce4Ey2S76lDcGOIWVAvWPX9lcBcyXMzCjHZH01pGwpcPrpZ4GzB0tuyUmd0Z4P+ZyXaRDf/s7cta0lw2yvje8ZRZ6AK/AwuN7UKYWevjUkonMzTnVDQhQW3u5rFmyLXyAwMnj8UrNIl5TodJ/WUMdfYnXFcDtG+SAOYuppIqNeMy44M80pWhhP8UPkDsZEdbxOfwS4CMsyCgftdzOrLh4mfEOPzytr2nQLxQo9S6EUwU+blKp8vGqghebPfdh1KqDdKUlowsHjGZVbqgEiffGZ2ZA98kw1ZPURNKAdOq5KliQMxReUqC3i5RIOwLpAloA7nAuylSEW/Y3M2732UO4GBND5MbeqC0NBtTIzO4NeqTaUV73PLcFLoLbS70Gjko9raGgsnrSXwDjZSZP7MYbv+PsYLexIVy1mncyGPsmV6zRqA5WLY+1/KijrKoW2nCJhJITyV81KHARM82pXYxZG1pM8NmvdlIfyhYgRnVTEk0VY0yUGYG+y3zT6dv6i/3C+fB8g7umw3bDE1CGz1RPb+1UeCQd0o=
+    secure: u0xTJ5thHLlFV92ayfQSS+Xcis0pvKCUWZ9Mk2AxW7iZlIIvDuC5yb4FV+IG5lDWLl5oeTrDDpzhzXSquf0uWYhMWaKWtsQlX5kJ2Oatm6YvnleIQPWOL7cbmeaRLTMOzrKmLVXEGpyNcNtpQ3FAbujm3nPLEGms37SHzkQjuuhqvFDVclLLBS7j7qKNFJod06AsesDQXiq5+df263+Fxhnvc/VFt3PlppIwWvIMhISycTpFhzZPbT066grzHinGcy7h/BZfqHBz1ZrJfG7jInonWY5MEJ6VU0OnhBQ2H7QBO87g+Qt4Vp09FfbGaIUO/wRPuFlqPS8Kd6NzgOLTaTJ3sCvp8ti8xrgg+cXOqVr7tZfc6GW3YRjA0KIOOUOH10qsHa5VHqTMlFZGK0bsAO/KxKmE343yBTJ3QUkQb1I9ZqWngOwZcilTtle8ce9jSkM9b3C+Tija5BO5cDnUwfeEZjG+Zk5L7PyMPhmIQgMfXsa0pBQ+LA0f60B5cRhW88evOOAopLnjn/t/IMte2dHgNihbhIZnOhEQAWjYVLZn8lux0c2w9vhYxLZj712gAiECBZEeEFLtG9cMtp/ehaWrJPmNc415/6sjOG/bAMAhKQZ5IgzpEEq+tzVbK5UwoWhrzDSMm/1Wdd5Zg8aC8LnYSxCuZxuqb2WPq4Q/bzY=
   file:
     - dist/web-ext-artifacts/*.xpi
     - src-cordova/platforms/android/app/build/outputs/apk/release/app-release.apk
   on:
-    repo: wiomoc/hft-app-native
+    repo: hft-app/native
     tags: true

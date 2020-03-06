@@ -63,7 +63,13 @@
     },
     computed: {
       selectedCourses() {
-        return this.subjects.flatMap(subject => subject.courses.filter(course => course.selected))
+        // XXX flatMap isn't supported in older browsers https://caniuse.com/#feat=array-flat
+        // return this.subjects.flatMap(subject => subject.courses.filter(course => course.selected))
+        let courses = [];
+        for (const subject of this.subjects) {
+          courses.push(...subject.courses.filter(course => course.selected))
+        }
+        return courses;
       }
     },
     async created() {
