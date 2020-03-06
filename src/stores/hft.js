@@ -11,7 +11,7 @@ export default {
   actions: {
     async refresh(context) {
       // eslint-disable-next-line max-len
-      const url = 'https://mobile.hft-stuttgart.de/Aktuell/Hochschultermine/Wintersemester1920?set_language=de';
+      const url = 'https://mobile.hft-stuttgart.de/Aktuell/Hochschultermine/Sommersemester2020?set_language=de';
       const dom = await fetchDOM(url);
       const tableEl = dom.getElementById('HTermin');
       const rowsEl = tableEl.querySelectorAll('tr');

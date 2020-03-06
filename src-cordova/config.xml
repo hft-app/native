@@ -2,9 +2,9 @@
 <widget id="de.hft.app" version="3.0.4" xmlns="http://www.w3.org/ns/widgets">
   <name>HFT App</name>
   <description>
-    The HFT App.
+    The HFT App
   </description>
-  <author email="dev@cordova.apache.org" href="http://hft-app.de">
+  <author email="info@hft-app.de" href="http://hft-app.de">
     Lukas Jans &amp; Christoph Walcher
   </author>
   <content src="index.html"/>

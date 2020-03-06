@@ -119,14 +119,6 @@
         ]
       }];
 
-      if (typeof cordova !== 'undefined' && cordova.plugin.mifare) {
-        groups[0].items.push({
-          to: 'credit',
-          icon: 'money-check-alt',
-          title: 'Guthaben überprüfen'
-        })
-      }
-
       return {
         version,
         groups
