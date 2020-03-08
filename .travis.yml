@@ -28,6 +28,7 @@ install:
 script:
   - npm run lint
   - npm test
+  - node build-professors-list.js > src/data/professors.json
   - npm run build:webext
   - cd src-cordova
   - npm run build:cordova:android

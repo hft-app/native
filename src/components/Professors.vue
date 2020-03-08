@@ -26,7 +26,7 @@
                 <div class="title">{{ professor.name }}</div>
                 <div class="data">
                   <div class="infos">
-                    <div>
+                    <div v-if="professor.room">
                       <fa-icon class="room icon-prepend icon-fw icon"
                                icon="map-marker-alt" />
                       {{ professor.room }}
@@ -39,7 +39,7 @@
                   </div>
 
                   <div class="actions">
-                    <a class="icon icon-phone green" :href="'tel:' + professor.phone">
+                    <a v-if="professor.phone" class="icon icon-phone green" :href="'tel:' + professor.phone">
                       <fa-icon icon="phone" />
                     </a>
                     <a class="icon icon-envelope blue" :href="'mailto:' + professor.email">

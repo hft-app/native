@@ -172,7 +172,7 @@ export const Client = {
         }
       }
     }
-    return lectures;
+    return lectures.sort((a,b) => a.start - b.start);
   },
 
   async loadSubjects() {
