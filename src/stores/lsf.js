@@ -188,35 +188,6 @@ export const Client = {
         }
       });
   },
-  addSelectedCourses(courseRefs) {
-    return fetchDOM(BASE_URL + '?state=wplan&act=add&show=plan&par=old&from=out' +
-      courseRefs.map(ref => `&add.${ref.id}=${ref.subjectId}`).join(''));
-  },
-
-  removeSelectedCourse({subjectId, id}) {
-    return fetchDOM(BASE_URL + `?state=wplan&search=ver&act=rem&show=plan&Gid=${subjectId}&Vid=${id}`)
-  },
-
-  async loadSelectedCourses() {
-    const dom = await fetchDOM(BASE_URL + '?state=wplan&week=-2&act=show&pool=&show=plan&P.vx=kurz&P.subc=plan');
-    const courses = new Set();
-    return [...dom.querySelectorAll('td[title="aus Ansicht entfernen"]')]
-      .map(element => {
-        const linkHref = element.children[0].getAttribute('href');
-        // XXX Maybe use `URLSearchParams` instead for url parsing
-        return {
-          id: /Vid=(\d+)/.exec(linkHref)[1],
-          subjectId: /Gid=(\d+)/.exec(linkHref)[1]
-        }
-      }).filter(course => {
-        if (courses.has(course.id)) {
-          return false
-        } else {
-          courses.add(course.id);
-          return true
-        }
-      })
-  },
 
   async loadCoursesBySubject({parallelId, id}) {
     const dom = await fetchDOM(BASE_URL + '?state=wplan&act=stg&show=liste&P.Print' +
@@ -232,6 +203,16 @@ export const Client = {
           id: /publishid=(\d+)/.exec(linkElement.getAttribute('href'))[1]
         }
       })
+  },
+
+  async selectCourses(courses) {
+    // Get URL with ASI
+    let dom = await fetchDOM(BASE_URL + '?state=wplan&act=show&show=plan&P.subc=plan&category=timetable.browse' +
+      '&breadcrumb=schedule&topitem=lectures');
+    const url = dom.querySelector('.content_max > form').getAttribute('action');
+
+    await fetchDOM(url + '&par=old&PlanSpeichern=PlanSpeichern &'+
+      courses.map(ref => `&add.${ref.id}=${ref.subjectId}`).join(''))
   }
 };
 
@@ -275,18 +256,11 @@ export default {
 
     async selectCourses(context, newCourses) {
       await Client.login(context.state.credentials);
-
-      const oldCourses = await Client.loadSelectedCourses();
-      const oldCoursesSet = new Set(oldCourses.map(course => course.id));
-      const newCoursesSet = new Set(newCourses.map(course => course.id));
-
-      const coursesToAdd = newCourses.filter(x => !oldCoursesSet.has(x.id));
-      const coursesToRemove = oldCourses.filter(x => !newCoursesSet.has(x.id));
-
-      await Promise.all([Client.addSelectedCourses(coursesToAdd),
-        ...coursesToRemove.map(Client.removeSelectedCourse)]);
+      await Client.selectCourses(newCourses);
       context.commit('selectedCourses', newCourses);
 
+      // XXX We have to relogin to LSF
+      await Client.login(context.state.credentials);
       const lecturesThisWeek = Client.loadLectures(new Date());
       const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
       const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);

@@ -13,11 +13,11 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 
 ## Implementation TODOs
 - [ ] Rework everything related to Date, Timers, Durations...
-    1. Consider using Luxon for more convenient `Date` handling. How to (De)Serialize to `localStorage`?
-    2. Or write some utility functions directly for timestamps
-    3. Handle Daylight-Saving-Time correctly.
-    4. Global timer for refreshing `data.now`
-    5. Refresh data in background
+    1. [ ] Consider using Luxon for more convenient `Date` handling. How to (De)Serialize to `localStorage`?
+    2. [ ] Or write some utility functions directly for timestamps
+    3. [x] Handle Daylight-Saving-Time correctly.
+    4. [ ] Global timer for refreshing `data.now`
+    5. [ ] Refresh data in background
 - [ ] Support notifications on e.g. new exam result, schedule changes -> requires background refresh
 - [ ] Show schedule changes in the "home" page
 - [ ] Better error handling
