@@ -1,4 +1,3 @@
-import {parseDate} from './util';
 import {fetchDOM} from 'platform/fetch';
 
 export default {
@@ -11,42 +10,25 @@ export default {
   actions: {
     async refresh(context) {
       // eslint-disable-next-line max-len
-      const url = 'https://mobile.hft-stuttgart.de/Aktuell/Hochschultermine/Sommersemester2020?set_language=de';
+      const url = 'https://www.hft-stuttgart.de/veranstaltungen-2';
       const dom = await fetchDOM(url);
-      const tableEl = dom.getElementById('HTermin');
-      const rowsEl = tableEl.querySelectorAll('tr');
+      const rowsEl = dom.querySelectorAll('.col-lg-7');
 
       let events = [];
-
       for (let rowEl of rowsEl) {
-        if (rowEl.children.length < 3) continue;
-
-        const date = rowEl.children[0].textContent.split(/–/);
-
-        const startDate = parseDate(date[0]).valueOf();
+        const dates = rowEl.querySelectorAll('time');
+        const startDate = new Date(dates[0].getAttribute('datetime')).valueOf();
         let endDate;
-        if (date[1]) {
-          endDate = parseDate(date[1]).valueOf();
+        if (dates[1]) {
+          endDate = new Date(dates[1].getAttribute('datetime')).valueOf();
         }
 
-        const contentEl = rowEl.children[2];
-        const titleEl = contentEl.querySelector('strong');
-        let title;
-        let description = contentEl.textContent;
-        if (titleEl && titleEl.textContent) {
-          title = titleEl.textContent;
-          if (description.length > title.length) {
-            description = description.substring(title.length + 1);
-          }
-          title = title.trim();
-        }
-        description = description.trim();
+        let title = rowEl.querySelector('h2').textContent.trim();
 
         events.push({
           startDate,
           endDate,
-          title,
-          description
+          title
         })
       }
       context.commit('events', events)

@@ -23,7 +23,7 @@
     "cookies",
     "storage",
     "https://lsf.hft-stuttgart.de/*",
-    "https://mobile.hft-stuttgart.de/*",
+    "https://www.hft-stuttgart.de/*",
     "*://sws.maxmanager.xyz/*"
   ],
   "background": {
