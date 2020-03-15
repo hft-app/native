@@ -60,7 +60,7 @@
           <tbody>
             <tr v-for="row in day.table" :class="row.type">
               <td v-for="cell in row.cells" :rowspan="cell.rowspan" :colspan="cell.colspan"
-                  :class="cell.title? 'occupied' :''">
+                  :class="{occupied: cell.title}">
                 <TimetableItem v-if="cell.title" :lecture="cell" />
               </td>
             </tr>

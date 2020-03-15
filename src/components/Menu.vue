@@ -26,7 +26,7 @@
           <div class="container">
             <span v-for="item in group.items" :key="item.url">
               <a class="item" :href="item.url" @click="navigate(item)">
-                <fa-icon :class="'square icon ' + group.color" :icon="item.icon" />
+                <fa-icon class="square icon" :class="group.color" :icon="item.icon" />
                 <span class="title">{{ item.title }}</span>
                 <fa-icon class="arrow icon" icon="chevron-right" />
               </a>

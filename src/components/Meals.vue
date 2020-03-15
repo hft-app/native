@@ -2,9 +2,9 @@
   <div class="wrapper meals">
     <nav>
       <div class="container bar">
-        <fa-icon icon="chevron-left" :class="dateIndex > 0?'active':''" @click="prevDay" />
+        <fa-icon icon="chevron-left" :class="{active: dateIndex > 0}" @click="prevDay" />
         {{ $d(date, 'short') }}
-        <fa-icon icon="chevron-right" :class="dateIndex < dates.length - 1?'active':''" @click="nextDay" />
+        <fa-icon icon="chevron-right" :class="{active: dateIndex < dates.length - 1}" @click="nextDay" />
       </div>
     </nav>
     <div v-if="!meals || !meals.length" class="screen container">

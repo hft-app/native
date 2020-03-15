@@ -4,7 +4,7 @@
       <div class="container">
         <a v-for="(tip, index) of tips" :key="index"
            class="tip article" :href="tip.link" target="_blank">
-          <div :class="'strip ' + tip.color">
+          <div class="strip" :class="tip.color">
             <fa-icon :icon="tip.icon" />
           </div>
           <div class="text">

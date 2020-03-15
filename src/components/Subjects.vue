@@ -3,7 +3,7 @@
     <nav>
       <div class="bar container">
         <a @click="$router.back()">{{ $t('page.common.cancel') }}</a>
-        <a :class="selectedSubjects.length === 0? 'disabled':''" @click="next">Weiter</a>
+        <a :class="{disabled: selectedSubjects.length === 0}" @click="next">Weiter</a>
       </div>
     </nav>
 

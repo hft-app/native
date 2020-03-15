@@ -31,7 +31,7 @@
                                icon="map-marker-alt" />
                       {{ professor.room }}
                     </div>
-                    <div>
+                    <div v-if="professor.time">
                       <fa-icon class="time icon-prepend icon-fw icon"
                                icon="calendar-alt" />
                       {{ professor.time }}

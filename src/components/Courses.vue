@@ -3,7 +3,7 @@
     <nav>
       <div class="bar container">
         <a @click="$router.go(-2)">{{ $t('page.common.cancel') }}</a>
-        <a v-if="!saving" :class="selectedCourses.length === 0? 'disabled':''" @click="save">
+        <a v-if="!saving" :class="{disabled: selectedCourses.length === 0}" @click="save">
           {{ $t('page.courses.save') }}
         </a>
         <a v-else class="disabled">{{ $t('page.courses.saving') }}</a>

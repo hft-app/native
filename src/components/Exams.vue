@@ -10,7 +10,7 @@
     </div>
     <div v-else class="list">
       <div class="container">
-        <div v-for="exam in exams" :class="(exam.passed ? 'passed' : 'failed') + ' exam article'">
+        <div v-for="exam in exams" :class="(exam.passed ? 'passed' : 'failed')" class="exam article">
           <div v-if="!exam.grade && exam.passed" class="grade icon">
             <fa-icon icon="check" />
           </div>

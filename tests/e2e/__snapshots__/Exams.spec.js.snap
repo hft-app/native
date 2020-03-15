@@ -11,7 +11,7 @@ exports[`Exams renders correctly 1`] = `
       class="container"
     >
       <div
-        class="passed exam article"
+        class="exam article passed"
       >
         <div
           class="grade icon"
@@ -46,7 +46,7 @@ exports[`Exams renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="failed exam article"
+        class="exam article failed"
       >
         <div
           class="grade icon"
@@ -79,7 +79,7 @@ exports[`Exams renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="passed exam article"
+        class="exam article passed"
       >
         <div
           class="grade icon"
@@ -114,7 +114,7 @@ exports[`Exams renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="failed exam article"
+        class="exam article failed"
       >
         <div
           class="grade icon"

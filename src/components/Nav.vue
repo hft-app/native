@@ -12,11 +12,11 @@
           <span class="light">Hochschule </span>
           <span class="bold">für&nbsp;Technik</span>
         </div>
-        <fa-icon :class="'refresh icon' + (refreshing? ' icon-spin':'')" icon="sync-alt" @click="refresh" />
+        <fa-icon class="refresh icon" :class="{'icon-spin': refreshing}" icon="sync-alt" @click="refresh" />
       </div>
     </header>
     <!--  <transition name="next">-->
-    <router-view :class="$route.meta.hideNav? '' :'main'" />
+    <router-view :class="{main: !$route.meta.hideNav}" />
     <!--</transition>-->
 
     <transition name="fly-bottom">
@@ -36,8 +36,8 @@
       <div class="container">
         <router-link v-for="route in routes" :key="route.name"
                      v-slot="{navigate, isActive}" :to="route.link">
-          <a :class="isActive ? 'active' : ''" @click="navigate">
-            <fa-icon class="icon " :icon="route.icon" />
+          <a :class="{active: isActive}" @click="navigate">
+            <fa-icon class="icon" :icon="route.icon" />
             <span class="title">{{ route.name }}</span>
           </a>
         </router-link>

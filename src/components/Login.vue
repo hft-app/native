@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <form :class="invalidCreds? 'shaking':''" @submit.prevent="login">
+        <form :class="{shaking: invalidCreds}" @submit.prevent="login">
           <div class="group">
             <input v-model="username" required name="username" type="text"
                    :placeholder="$t('page.login.username')">
@@ -36,7 +36,7 @@
                    :placeholder="$t('page.login.password')">
           </div>
           <button v-t="loginIn? 'page.login.loginIn' : 'page.login.login'" name="submit"
-                  :class="loginIn? 'active':''" />
+                  :class="{active: loginIn}" />
         </form>
       </div>
     </section>
