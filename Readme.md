@@ -5,7 +5,7 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 
 **Currently** runs as Android App and as Firefox WebExtension
 
-[Latest Release](https://github.com/wiomoc/hft-app-native/releases/latest)
+[Latest Release](https://github.com/hft-app/native/releases/latest)
 
 ## Screenshots
 <p float="left">
