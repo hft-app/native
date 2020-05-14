@@ -13,6 +13,7 @@
       "security": "Deine Daten werden verschlüsselt und nur an die Hochschule übertragen."
     },
     "home": {
+      "tab": "Start",
       "nextLectures": "Nächste Vorlesungen:",
       "nextEvents": "Nächste Termine:",
       "lastRefresh": "Zuletzt synchronisiert:",
@@ -30,9 +31,9 @@
       "allergens": "Allergene",
       "additives": "Zusatzstoffe"
     },
-    "loadLectures": {
+    "lectures": {
       "title": "Vorlesungsplan",
-      "tab": "Vorlesungen"
+      "tab": "Kurse"
     },
     "events": {
       "title": "Terminkalender",
@@ -46,12 +47,28 @@
       "tab": "Noten",
       "noDataTitle": "Hier ist nichts",
       "noDataInfo": "Bisher keine Prüfungsergebnisse.",
-      "try": ["Erstversuch", "Zweitversuch", "Drittversuch"]
+      "try": [
+        "Erstversuch",
+        "Zweitversuch",
+        "Drittversuch"
+      ]
     },
     "menu": {
-      "title": "Weitere Inhalte",
+      "otherContents": "Weitere Inhalte",
       "unlinkAccount": "Kontoverknüpfung aufheben",
-      "linkedAccount": "Verknüpftes Konto"
+      "linkedAccount": "Verknüpftes Konto",
+      "selectCourses": "Kurse auswählen",
+      "tips": "Tipps und Tricks",
+      "printerLocations": "Druckerstandorte",
+      "professorIndex": "Professorenverzeichnis",
+      "supportApp": "App unterstützen",
+      "inviteFriends": "Freunde einladen",
+      "shareMessage": "Lad dir jetzt die neue HFT App",
+      "sendFeedback": "Feedback senden",
+      "contribute": "Selbst mitwirken",
+      "informations": "Informationen",
+      "imprint": "Impressum",
+      "licenses": "Lizenzen"
     },
     "subjects": {
       "loadingTitle": "Einen Moment…",
@@ -63,7 +80,23 @@
       "save": "Speichern"
     },
     "tips": {
-      "title": "Tipps und Tricks"
+      "title": "Tipps und Tricks",
+      "pushMail": {
+        "title": "Push-Mails empfangen",
+        "description": "Erfahre, wie du HFT-Mails auf dein Smartphone synchronisieren kannst."
+      },
+      "eduroam": {
+        "title": "WLAN Eduroam",
+        "description": "Folge den Anweisungen, um dich mit dem WLAN der HFT zu verbinden."
+      },
+      "datesExport": {
+        "title": "Termine exportieren",
+        "description": "Tippe auf das Datum von Terminen, um sie in deinen Kalender einzutragen."
+      },
+      "msOffice": {
+        "title": "Microsoft Office",
+        "description": "Installiere Office 365 ProPlus für nur 3,99€/Jahr auf all deinen Geräten."
+      }
     },
     "printers": {
       "title": "Druckerstandorte",
@@ -86,7 +119,6 @@
     "maintenance": "Die Server der HFT sind wegen\nWartungsarbeiten nicht erreichbar.\nBitte versuche es später erneut.",
     "offline": "Der Server konnte nicht erreicht werden.\nBitte stelle sicher, dass du mit dem Internet verbunden bist.",
     "invalidCreds": "Deine Zugangsdaten sind ungültig",
-    "invalidUser": "Das angegebene Konto entspricht nicht den Vorraussetzungen zur Nutzung der App.",
     "unknown": "Ein unbekannter Fehler ist aufgetreten.\nBitte versuche es später erneut."
   }
 }

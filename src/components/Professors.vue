@@ -1,3 +1,4 @@
+
 <template>
   <div class="wrapper">
     <nav>
@@ -89,6 +90,10 @@
 </script>
 <style lang="scss" scoped>
   @import '../colors';
+
+  .container > label {
+     flex-grow: 1;
+   }
 
   .list {
     padding-top: 60px;

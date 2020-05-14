@@ -128,6 +128,6 @@ describe('Menu', () => {
     await wrapper.vm.$nextTick();
 
     expect(window.open).toHaveBeenCalledWith(
-      'mailto:?to=&subject=Lad%20dir%20jetzt%20die%20neue%20HFT%20App&body=https%3A%2F%2Fhft-app.de');
+      'mailto:?to=&subject=page.menu.shareMessage&body=https%3A%2F%2Fhft-app.de');
   });
 });

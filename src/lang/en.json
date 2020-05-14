@@ -1,0 +1,124 @@
+{
+  "page": {
+    "common": {
+      "noWarranty": "All information is supplied without guarantee.",
+      "cancel": "Cancel"
+    },
+    "login": {
+      "login": "Login",
+      "loggingIn": "Logging in...",
+      "username": "Username",
+      "password": "Password",
+      "prompt": "Login with your HFT account.",
+      "security": "Your data will be transmitted encrypted and only to the University."
+    },
+    "home": {
+      "tab": "Home",
+      "nextLectures": "Next lectures:",
+      "nextEvents": "Next events:",
+      "lastRefresh": "Last Refresh:",
+      "lastRefreshDuration": "Now | One hour ago | {n} hours ago",
+      "currently": "Now",
+      "tomorrow": "Tomorrow"
+    },
+    "meals": {
+      "title": "Menu",
+      "tab": "Canteen",
+      "noDataTitle": "Nothing to eat",
+      "noDataInfo": "No meals was loaded.",
+      "tryLater": "Please try again later.",
+      "imageNotLoaded": "Image could not be loaded",
+      "allergens": "Allergens",
+      "additives": "Additives"
+    },
+    "lectures": {
+      "title": "Lecture schedule",
+      "tab": "Lectures"
+    },
+    "events": {
+      "title": "Event calendar",
+      "tab": "Events",
+      "noDataTitle": "Nothing planned",
+      "noDataInfo": "No appointments in the near future.",
+      "currently": "Currently"
+    },
+    "exams": {
+      "title": "Overview of grades",
+      "tab": "Grades",
+      "noDataTitle": "There's nothing",
+      "noDataInfo": "So far no examination results.",
+      "try": [
+        "Initial attempt",
+        "Second attempt",
+        "Third attempt"
+      ]
+    },
+    "menu": {
+      "unlinkAccount": "Unlink account",
+      "linkedAccount": "Linked Account",
+      "otherContents": "Further contents",
+      "selectCourses": "Select Courses",
+      "tips": "Tips and tricks",
+      "printerLocations": "Printer locations",
+      "professorIndex": "List of professors",
+      "supportApp": "Support App",
+      "inviteFriends": "Invite friends",
+      "shareMessage": "Download now the new HFT App",
+      "sendFeedback": "Send feedback",
+      "contribute": "Contribute",
+      "information": "Information",
+      "imprint": "Imprint",
+      "licenses": "Licenses"
+    },
+    "subjects": {
+      "loadingTitle": "One moment…",
+      "loadingInfo": "Loading Subjects from LSF"
+    },
+    "courses": {
+      "title": "Course catalogue",
+      "saving": "Saving…",
+      "save": "Save"
+    },
+    "tips": {
+      "title": "Tips and tricks",
+      "pushMail": {
+        "title": "Receive Push Mails",
+        "description": "Learn how to synchronize HFT mail to your smartphone."
+      },
+      "eduroam": {
+        "title": "WLAN Eduroam",
+        "description": "Follow the instructions to connect to the WLAN of the HFT."
+      },
+      "datesExport": {
+        "title": "Export events",
+        "description": "Tap the date of events to add them to your calendar."
+      },
+      "msOffice": {
+        "title": "Microsoft Office",
+        "description": "Install Office 365 ProPlus on all your devices for only 3.99€ per year."
+      }
+    },
+    "printers": {
+      "title": "Printer locations",
+      "report": "Report outdated data"
+    },
+    "professors": {
+      "title": "Professors",
+      "search": "Search...",
+      "nothingFoundTitle": "No professors",
+      "nothingFoundInfo": "No professor was found."
+    },
+    "welcome": {
+      "title": "Welcome"
+    },
+    "error": {
+      "title": "Oh no!"
+    }
+  },
+  "error": {
+    "maintenance": "The servers of the HFT are not\naccessible due to maintenance work.\nPlease try again later.",
+    "offline": "The server could not be reached.\nPlease make sure that you are\nconnected to the internet.",
+    "invalidCreds": "Your credentials are invalid",
+    "unknown": "An unknown error has occurred.\nPlease try again later."
+  }
+}

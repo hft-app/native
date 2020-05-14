@@ -38,7 +38,7 @@
                      v-slot="{navigate, isActive}" :to="route.link">
           <a :class="{active: isActive}" @click="navigate">
             <fa-icon class="icon" :icon="route.icon" />
-            <span class="title">{{ route.name }}</span>
+            <span class="title">{{ $t('page.' + route.name + '.tab') }}</span>
           </a>
         </router-link>
       </div>
@@ -55,23 +55,23 @@
         error: null,
         routes: [{
           icon: 'home',
-          name: 'Start',
+          name: 'home',
           link: 'home'
         }, {
           icon: 'utensils',
-          name: 'Mensa',
+          name: 'meals',
           link: 'meals'
         }, {
           icon: 'clock',
-          name: 'Kurse',
+          name: 'lectures',
           link: 'timetable'
         }, {
           icon: 'calendar',
-          name: 'Termine',
+          name: 'events',
           link: 'events'
         }, {
           icon: 'graduation-cap',
-          name: 'Noten',
+          name: 'exams',
           link: 'exams'
         }]
       }

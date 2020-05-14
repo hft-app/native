@@ -59,7 +59,7 @@ exports[`Menu renders correctly 1`] = `
         class="container"
       >
         <h5>
-          Weitere Inhalte
+          page.menu.otherContents
         </h5>
       </div>
        
@@ -81,7 +81,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Kurse auswählen
+                page.menu.selectCourses
               </span>
                
               <fa-icon-stub
@@ -102,7 +102,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Tipps und Tricks
+                page.menu.tips
               </span>
                
               <fa-icon-stub
@@ -123,7 +123,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Druckerstandorte
+                page.menu.printerLocations
               </span>
                
               <fa-icon-stub
@@ -144,7 +144,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Professorenverzeichnis
+                page.menu.professorIndex
               </span>
                
               <fa-icon-stub
@@ -163,7 +163,7 @@ exports[`Menu renders correctly 1`] = `
         class="container"
       >
         <h5>
-          App unterstützen
+          page.menu.supportApp
         </h5>
       </div>
        
@@ -185,7 +185,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Freunde einladen
+                page.menu.inviteFriends
               </span>
                
               <fa-icon-stub
@@ -207,7 +207,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Feedback senden
+                page.menu.sendFeedback
               </span>
                
               <fa-icon-stub
@@ -229,7 +229,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Selbst mitwirken
+                page.menu.contribute
               </span>
                
               <fa-icon-stub
@@ -248,7 +248,7 @@ exports[`Menu renders correctly 1`] = `
         class="container"
       >
         <h5>
-          Informationen
+          page.menu.information
         </h5>
       </div>
        
@@ -270,7 +270,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Impressum
+                page.menu.imprint
               </span>
                
               <fa-icon-stub
@@ -291,7 +291,7 @@ exports[`Menu renders correctly 1`] = `
               <span
                 class="title"
               >
-                Lizenzen
+                page.menu.licenses
               </span>
                
               <fa-icon-stub

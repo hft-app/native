@@ -15,6 +15,7 @@ import Subjects from './components/Subjects.vue';
 import Courses from './components/Courses.vue'
 import store from './stores/store';
 import langDE from './lang/de.json'
+import langEN from './lang/en.json'
 import HashColor from  './hash-color'
 import Icons from  './icons'
 
@@ -23,37 +24,36 @@ import './index.scss'
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 
-const dateTimeFormats = {
-  'en': {
-    long: {
-      year: 'numeric', month: 'short', day: 'numeric',
-      weekday: 'short', hour: 'numeric', minute: 'numeric'
-    }
+const dateTimeFormat = {
+  long: {
+    year: 'numeric', month: 'short', day: 'numeric',
+    weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
   },
-  'de': {
-    long: {
-      year: 'numeric', month: 'short', day: 'numeric',
-      weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
-    },
-    short: {
-      weekday: 'long', month: 'long', day: 'numeric'
-    },
-    weekday: {
-      weekday: 'long'
-    },
-    day: {
-      month: 'long', day: 'numeric'
-    },
-    time: {
-      hour: 'numeric', minute: 'numeric', hour12: false
-    }
+  short: {
+    weekday: 'long', month: 'long', day: 'numeric'
+  },
+  weekday: {
+    weekday: 'long'
+  },
+  day: {
+    month: 'long', day: 'numeric'
+  },
+  time: {
+    hour: 'numeric', minute: 'numeric', hour12: false
   }
 };
 
+const dateTimeFormats = {
+  'en': dateTimeFormat,
+  'de': dateTimeFormat
+};
+
 const i18n = new VueI18n({
-  locale: 'de',
+  locale: navigator.language.substring(0, 2),
+  fallbackLocale: 'en',
   messages: {
-    de: langDE
+    de: langDE,
+    en: langEN
   },
   dateTimeFormats
 });

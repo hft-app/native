@@ -35,8 +35,8 @@
             <input v-model="password" required name="password" type="password"
                    :placeholder="$t('page.login.password')">
           </div>
-          <button v-t="loginIn? 'page.login.loginIn' : 'page.login.login'" name="submit"
-                  :class="{active: loginIn}" />
+          <button v-t="loggingIn? 'page.login.loggingIn' : 'page.login.login'" name="submit"
+                  :class="{active: loggingIn}" />
         </form>
       </div>
     </section>
@@ -66,7 +66,7 @@
       }
     },
 
-    computed: mapState({loginIn: state => state.refreshing}),
+    computed: mapState({loggingIn: state => state.refreshing}),
 
     methods: {
       async login() {

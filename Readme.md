@@ -28,7 +28,7 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
     4. [ ] Global timer for refreshing `data.now`
     5. [ ] Refresh data in background
 - [ ] Support notifications on e.g. new exam result, schedule changes -> requires background refresh
-- [ ] Show schedule changes in the "home" page
+- [ ] Show schedule changes on the "home" page
 - [ ] Better error handling
     1. [x] Detect down-for-maintenance
     2. [x] Show errors occurred during refresh to user via sth like a toast/snackbar
@@ -40,7 +40,7 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 - [ ] Licenses for cordova build 
 - [ ] Move this section to separate issues
 - [ ] Improve Readme
-- [ ] i18n for tips and menu
-- [ ] Add english translation
+- [x] i18n for tips and menu
+- [x] Add english translation
 - [x] Generate list of professors dynamically
 - [ ] Keep scrollposition after back navigation/tab switch

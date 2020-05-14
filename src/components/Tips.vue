@@ -8,9 +8,9 @@
             <fa-icon :icon="tip.icon" />
           </div>
           <div class="text">
-            <div class="title">{{ tip.title }}</div>
+            <div class="title">{{ $t("pages.tips." + tip.name + ".title") }}</div>
             <div class="description">
-              <p>{{ tip.description }}</p>
+              <p>{{ $t("pages.tips." + tip.name + ".description") }}</p>
             </div>
           </div>
           <div class="arrow">
@@ -27,28 +27,24 @@
       return {
         tips: [
           {
-            title: 'Push-Mails empfangen',
-            description: 'Erfahre, wie du HFT-Mails auf dein Smartphone synchronisieren kannst.',
+            name: 'pushMail',
             icon: 'envelope',
             color: 'red',
             link: 'https://confluence.hft-stuttgart.de/display/DFST/Clienteinrichtung+mit+Autodiscover'
           },
           {
-            title: 'WLAN Eduroam',
-            description: 'Folge den Anweisungen, um dich mit dem WLAN der HFT zu verbinden.',
+            name: 'eduroam',
             icon: 'rss',
             color: 'orange',
             link: 'https://confluence.hft-stuttgart.de/display/DFST/Internet+und+WLAN#InternetundWLAN-Eduroam'
           },
           {
-            title: 'Termine exportieren',
-            description: 'Tippe auf das Datum von Terminen, um sie in deinen Kalender einzutragen.',
+            name: 'datesExport',
             icon: 'calendar-plus',
             color: 'yellow',
           },
           {
-            title: 'Microsoft Office',
-            description: 'Installiere Office 365 ProPlus für nur 3,99€/Jahr auf all deinen Geräten.',
+            name: 'msOffice',
             icon: 'file-alt',
             color: 'blue',
             link: 'https://confluence.hft-stuttgart.de/display/DFST/Microsoft+Office+365+Installation'

@@ -20,14 +20,14 @@
 
       <div v-for="group in groups" :key="group.name" class="widget">
         <div class="container">
-          <h5>{{ group.name }}</h5>
+          <h5>{{ $t('page.menu.' + group.name) }}</h5>
         </div>
         <div class="menu">
           <div class="container">
             <span v-for="item in group.items" :key="item.url">
               <a class="item" :href="item.url" @click="navigate(item)">
                 <fa-icon class="square icon" :class="group.color" :icon="item.icon" />
-                <span class="title">{{ item.title }}</span>
+                <span class="title">{{ $t('page.menu.' + item.title) }}</span>
                 <fa-icon class="arrow icon" icon="chevron-right" />
               </a>
             </span>
@@ -51,70 +51,71 @@
   export default {
     data() {
       const groups = [{
-        name: 'Weitere Inhalte',
+        name: 'otherContents',
         color: 'red',
         items: [
           {
             to: 'subjects',
             icon: 'book',
-            title: 'Kurse auswählen'
+            title: 'selectCourses'
           }, {
             to: 'tips',
             icon: 'lightbulb',
-            title: 'Tipps und Tricks'
+            title: 'tips'
           }, {
             to: 'printers',
             icon: 'print',
-            title: 'Druckerstandorte'
+            title: 'printerLocations'
           }, {
             to: 'professors',
             icon: 'list-ul',
-            title: 'Professorenverzeichnis'
+            title: 'professorIndex'
           }
         ]
       }, {
-        name: 'App unterstützen',
+        name: 'supportApp',
         color: 'green',
         items: [
           {
             action: () => {
+              const shareMessage = this.$t('page.menu.shareMessage');
               if (window.plugins) {
                 window.plugins.socialsharing.shareWithOptions({
-                  message: 'Lad dir jetzt die neue HFT App',
+                  message: shareMessage,
                   url: 'https://hft-app.de'
                 });
               } else {
                 window.open(`mailto:?to=&subject=${
-                  encodeURIComponent('Lad dir jetzt die neue HFT App')
+                  encodeURIComponent(shareMessage)
                 }&body=${
                   encodeURIComponent('https://hft-app.de')
                 }`)
               }
             },
             icon: 'share-alt',
-            title: 'Freunde einladen'
+            title: 'inviteFriends'
           }, {
             url: 'mailto:info@hft-app.de?subject=Feedback',
             icon: 'star',
-            title: 'Feedback senden'
+            title: 'sendFeedback'
           }, {
             url: 'https://github.com/hft-app',
             icon: 'puzzle-piece',
-            title: 'Selbst mitwirken',
+            title: 'contribute',
           }
         ]
       }, {
-        name: 'Informationen',
+        name: 'information',
         color: 'blue',
         items: [
           {
             to: 'imprint',
             icon: 'bullhorn',
-            title: 'Impressum',
+            title: 'imprint',
           }, {
             to: 'licenses',
             icon: 'handshake',
-            title: 'Lizenzen',
+            title: 'licenses',
           }
         ]
       }];
