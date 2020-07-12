@@ -9,10 +9,15 @@
     <div class="data">
       <div class="title">{{ meal.title }}</div>
       <div class="price">{{ meal.price }}</div>
+      <ul v-if="attributesList.length" class="info">
+        <li v-for="item in attributesList">{{ item }}</li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
+  import mealAttributes from '../data/meal-attributes.json'
+
   export default {
     props: {
       meal: {
@@ -20,6 +25,22 @@
         required: true
       }
     },
+
+    computed: {
+      attributesList() {
+        return this.meal.attributes.split(/, /g)
+          .map(attr => {
+            const additive = mealAttributes.additives[attr];
+            if(additive) return additive;
+            const allergen = mealAttributes.allergens[attr];
+            if(allergen) return allergen;
+            const characteristic = mealAttributes.characteristic[attr];
+            if(characteristic) return characteristic;
+            return attr;
+          })
+      }
+    },
+
     created() {
       // go back if the user return from history
       if (!this.meal) this.$router.back();
@@ -60,9 +81,15 @@
       padding: 2em;
 
       .title {
-        padding-bottom: 2em;
+        padding-bottom: 1.4em;
         font-weight: 300;
         font-size: 1.4em;
+      }
+
+      .info {
+        font-size: 1.2em;
+        color: $secondary;
+        font-weight: 300;
       }
 
       .price {

@@ -12,7 +12,8 @@ describe('MealPicture', () => {
         meal: {
           title: 'Spätzle mit Soß',
           photo: 'photo123.jpg',
-          price: '2,85'
+          price: '2,85',
+          attributes: '2, 5, Ei, So, La, Sf, Sw, GlW, G'
         }
       }
     });
@@ -26,7 +27,8 @@ describe('MealPicture', () => {
       propsData: {
         meal: {
           title: 'Spätzle mit Soß',
-          price: '2,85'
+          price: '2,85',
+          attributes: '2, 5, Ei, So, La, Sf, Sw, GlW, G'
         }
       }
     });

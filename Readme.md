@@ -41,6 +41,7 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 - [ ] Move this section to separate issues
 - [ ] Improve Readme
 - [x] i18n for tips and menu
+- [x] i18n for meal attributes
 - [x] Add english translation
 - [x] Generate list of professors dynamically
 - [ ] Keep scrollposition after back navigation/tab switch

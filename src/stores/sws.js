@@ -23,7 +23,7 @@ export default {
           }
           return {
             title,
-            additives: meal.additives.replace(/,/g, ', '),
+            attributes: meal.additives.replace(/,/g, ', '),
             price: meal.price1,
             photo: meal.foto
           }

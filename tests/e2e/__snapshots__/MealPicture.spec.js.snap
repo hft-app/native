@@ -32,6 +32,38 @@ exports[`MealPicture renders correctly - default photo 1`] = `
     >
       2,85
     </div>
+     
+    <ul
+      class="info"
+    >
+      <li>
+        mit Farbstoffen
+      </li>
+      <li>
+        geschwefelt
+      </li>
+      <li>
+        Ei
+      </li>
+      <li>
+        Soja
+      </li>
+      <li>
+        Milch und Laktose
+      </li>
+      <li>
+        Senf
+      </li>
+      <li>
+        Schwefeloxid ("SO2") und Sulfite
+      </li>
+      <li>
+        Weizen
+      </li>
+      <li>
+        Geflügel
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -68,6 +100,38 @@ exports[`MealPicture renders correctly 1`] = `
     >
       2,85
     </div>
+     
+    <ul
+      class="info"
+    >
+      <li>
+        mit Farbstoffen
+      </li>
+      <li>
+        geschwefelt
+      </li>
+      <li>
+        Ei
+      </li>
+      <li>
+        Soja
+      </li>
+      <li>
+        Milch und Laktose
+      </li>
+      <li>
+        Senf
+      </li>
+      <li>
+        Schwefeloxid ("SO2") und Sulfite
+      </li>
+      <li>
+        Weizen
+      </li>
+      <li>
+        Geflügel
+      </li>
+    </ul>
   </div>
 </div>
 `;

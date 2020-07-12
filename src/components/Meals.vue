@@ -21,14 +21,15 @@
         <div class="container">
           <div v-for="meal in meals" class="meal article">
             <router-link :to="{name: 'mealpicture', params: {meal}}" class="photo">
-              <img :src="'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo:
-                     'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg')"
-                   :alt="$t('page.meals.imageNotLoaded')" loading="lazy">
+              <div :style="'background-image: url(\'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo:
+                     'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg') +'\')'"
+                   :alt="$t('page.meals.imageNotLoaded')" loading="lazy" class="img" />
             </router-link>
             <div class="data">
               <div class="title">{{ meal.title }}</div>
-              <span v-if="meal.additives" class="info">
-                <fa-icon icon="info-circle" class="icon-prepend" />{{ meal.additives }}</span>
+              <span v-if="meal.attributes" class="info">
+                <fa-icon icon="info-circle" class="icon-prepend" />{{ meal.attributes }}
+              </span>
               <div class="price">{{ meal.price }}</div>
             </div>
           </div>
@@ -73,51 +74,13 @@
 </template>
 
 <script>
+  import mealAttributes from '../data/meal-attributes.json'
+
   export default {
     data() {
       return {
         dateIndex: 0,
-        allergens: {
-          'Ei': 'Ei',
-          'En': 'Erdnuss',
-          'Fi': 'Fisch',
-          'GlW': 'Weizen',
-          'GlD': 'Dinkel',
-          'GlKW': 'Khorsan-Weizen',
-          'GlR': 'Roggen',
-          'GlG': 'Gerste',
-          'GlH': 'Hafer',
-          'Kr': 'Krebstiere (Krusten- und Schalentiere)',
-          'La': 'Milch und Laktose',
-          'Lu': 'Lupine',
-          'NuM': 'Mandeln',
-          'NuH': 'Haselnüsse',
-          'NuW': 'Walnüsse',
-          'NuC': 'Cashewnüsse',
-          'NuPe': 'Pecanüsse',
-          'NuPa': 'Paranüsse',
-          'NuPi': 'Pistazien',
-          'NuMa': 'Macadamianüsse',
-          'Se': 'Sesam',
-          'Sf': 'Senf',
-          'Sl': 'Sellerie',
-          'So': 'Soja',
-          'Sw': 'Schwefeloxid ("SO2") und Sulfite',
-          'Wt': 'Weichtiere',
-        },
-        additives: {
-          1: 'mit Konservierungsstoffen',
-          2: 'mit Farbstoffen',
-          3: 'mit Antioxodationsmitteln',
-          4: 'mit Geschmacksverstärkern',
-          5: 'geschwefelt',
-          6: 'gewachst',
-          7: 'mit Phosphaten',
-          8: 'mit Süßungsmitteln',
-          9: 'enthält eine Phenylaninquelle',
-          10: 'geschwärzt',
-          11: 'mit Alkohol',
-        }
+        ...mealAttributes
       }
     },
 
@@ -226,10 +189,12 @@
       font-size: 30px;
     }
 
-    img {
+    .img {
       width: 130px;
       height: 130px;
       position: relative;
+      background-size: cover;
+      background-position-x: center;
     }
   }
 
