@@ -1,5 +1,5 @@
 <template>
-  <div class="event article">
+  <div class="event article" @click="exportEvent">
     <a class="date">
       <fa-icon class="icon-prepend icon" icon="calendar-alt" />
       <span v-if="event.startDate <= Date.now()" v-t="'page.events.currently'" />
@@ -12,11 +12,27 @@
   </div>
 </template>
 <script>
+  import icsGenerator from '../ics-generator'
+
   export default {
     props: {
       event: {
         type: Object,
         required: true
+      }
+    },
+
+    methods: {
+      exportEvent() {
+        const ics = icsGenerator(this.event);
+
+        const elem = window.document.createElement('a');
+        const blob = new Blob([ics], {type: 'text/calendar'});
+        elem.href = window.URL.createObjectURL(blob);
+        elem.download = 'HFT_Event.ics';
+        document.body.appendChild(elem);
+        elem.click();
+        document.body.removeChild(elem);
       }
     }
   }

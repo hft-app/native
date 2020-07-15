@@ -8,9 +8,9 @@
             <fa-icon :icon="tip.icon" />
           </div>
           <div class="text">
-            <div class="title">{{ $t("pages.tips." + tip.name + ".title") }}</div>
+            <div class="title">{{ $t("page.tips." + tip.name + ".title") }}</div>
             <div class="description">
-              <p>{{ $t("pages.tips." + tip.name + ".description") }}</p>
+              <p>{{ $t("page.tips." + tip.name + ".description") }}</p>
             </div>
           </div>
           <div class="arrow">

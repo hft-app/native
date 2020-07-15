@@ -9,7 +9,7 @@ exports[`MealPicture renders correctly - default photo 1`] = `
   >
     <img
       alt="page.meals.imageNotLoaded"
-      src="https://sws2.maxmanager.xyz/assets/fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg"
+      src="https://sws2.maxmanager.xyz/assets/fotos/dummies/foto-kommt-noch.jpg"
     />
      
     <fa-icon-stub

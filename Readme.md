@@ -35,13 +35,13 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
     3. [ ] Redirect User to login page on invalid credentials
 - [ ] Make scrapers more error resistant & improve code style
 - [ ] Some mo tests! most important for components and scrapers
-- [ ] Event export to calendar/ics
+- [x] Event export to calendar/ics
 - [x] Summary of licenses used in 3th-party-libs
 - [ ] Licenses for cordova build 
 - [ ] Move this section to separate issues
 - [ ] Improve Readme
 - [x] i18n for tips and menu
-- [x] i18n for meal attributes
+- [ ] i18n for meal attributes
 - [x] Add english translation
 - [x] Generate list of professors dynamically
 - [ ] Keep scrollposition after back navigation/tab switch
