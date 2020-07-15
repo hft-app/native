@@ -22,7 +22,7 @@
           <div v-for="meal in meals" class="meal article">
             <router-link :to="{name: 'mealpicture', params: {meal}}" class="photo">
               <div :style="'background-image: url(\'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo:
-                     'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg') +'\')'"
+                     'fotos/dummies/foto-kommt-noch.jpg') +'\')'"
                    :alt="$t('page.meals.imageNotLoaded')" loading="lazy" class="img" />
             </router-link>
             <div class="data">

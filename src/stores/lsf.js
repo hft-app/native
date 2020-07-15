@@ -64,6 +64,9 @@ export const Client = {
       let columns = rows[rowIndex].children;
       if (columns[0].className === 'qis_kontoOnTop') continue;
 
+      const semesterParts = columns[2].textContent.trim().split(' ');
+      const semester = semesterParts[semesterParts.length - 1];
+
       exams.push({
         id: columns[0].textContent.trim(),
         title: columns[1].textContent.trim(),
@@ -72,10 +75,12 @@ export const Client = {
         cp: parseFloat(columns[5].textContent.trim()),
         try: parseInt(columns[7].textContent.trim()),
         date: columns[8].textContent.trim() || null,
+        semester,
       });
     }
 
-    exams = exams.reverse();
+    exams = exams.sort((a, b) => a.date && b.date ? b.date - a.date : 0);
+    exams = exams.sort((a, b) => b.semester.localeCompare(a.semester));
 
     return {exams, fullname};
   },
@@ -117,7 +122,7 @@ export const Client = {
       const row = rows[rowIndex + 2];
 
       const columns = row.children;
-      let skip = rowIndex  % 4 ? 1 : 2;
+      let skip = rowIndex % 4 ? 1 : 2;
 
       for (let columnIndex = skip; columnIndex < columns.length; columnIndex++) {
         const column = columns[columnIndex];
@@ -172,7 +177,7 @@ export const Client = {
         }
       }
     }
-    return lectures.sort((a,b) => a.start - b.start);
+    return lectures.sort((a, b) => a.start - b.start);
   },
 
   async loadSubjects() {
@@ -211,7 +216,7 @@ export const Client = {
       '&breadcrumb=schedule&topitem=lectures');
     const url = dom.querySelector('.content_max > form').getAttribute('action');
 
-    await fetchDOM(url + '&par=old&PlanSpeichern=PlanSpeichern &'+
+    await fetchDOM(url + '&par=old&PlanSpeichern=PlanSpeichern &' +
       courses.map(ref => `&add.${ref.id}=${ref.subjectId}`).join(''))
   }
 };

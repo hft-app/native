@@ -2,7 +2,7 @@
   <div class="fullscreen">
     <div class="photo">
       <img :src="'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo:
-             'fotos/musikhochschule/Speisefotos/0-1/27816947m_dummy_speisen.jpg')"
+             'fotos/dummies/foto-kommt-noch.jpg')"
            :alt="$t('page.meals.imageNotLoaded')">
       <fa-icon icon="times" class="lu-icon lu-times-circle close" @click="$router.back()" />
     </div>
