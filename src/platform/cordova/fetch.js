@@ -31,9 +31,11 @@ export async function fetchLogin(url, data) {
         followRedirect: false
       },
       () => {
+        cordova.plugin.http.setFollowRedirect(true);
         resolve(false)
       },
       response => {
+        cordova.plugin.http.setFollowRedirect(true);
         if (response.status === 503) {
           reject({type: 'maintenance'})
         } else {

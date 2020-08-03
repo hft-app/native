@@ -90,6 +90,7 @@
         font-size: 1.2em;
         color: $secondary;
         font-weight: 300;
+        padding-left: 18px;
       }
 
       .price {

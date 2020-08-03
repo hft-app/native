@@ -74,6 +74,7 @@ nav {
   position: fixed;
   left: 0;
   right: 0;
+  user-select: none;
 
   .container {
     position: relative;

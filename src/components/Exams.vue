@@ -21,7 +21,7 @@
           <div class="data">
             <div class="title">{{ exam.title }}</div>
             <div class="info">
-              <span v-if="exam.date">{{ exam.date }} &middot;&nbsp;</span>
+              <span v-if="exam.date">{{ $d(exam.date, 'dayYear') }} &middot;&nbsp;</span>
               <span v-if="exam.cp">{{ exam.cp }} CP &middot;&nbsp;</span>
               <span>{{ $t('page.exams.try[' + (exam.try - 1) + ']') }}</span>
             </div>

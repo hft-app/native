@@ -1,12 +1,13 @@
 {
   "name": "de.hft.app",
   "displayName": "HFT App",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "The HFT App",
   "main": "index.js",
   "scripts": {
-    "prepare:cordova": "cordova prepare",
-    "build:cordova:android": "cordova build android --release -- --webpackConfig ../webpack.config.cordova.js --keystore=../sec/android.keystore --storePassword=12345678 --alias=key0 --password=12345678"
+    "prepare:cordova": "cordova prepare && cordova-icon --icon=../image/icon.png",
+    "build:cordova:android": "cordova build android --release -- --webpack.config ../webpack.config.cordova.js --keystore=../sec/android.keystore --storePassword=12345678 --alias=key0 --password=12345678",
+    "build:cordova:ios": "cordova build ios -- --webpack.config ../webpack.config.cordova.js --webpack.mode=production"
   },
   "keywords": [
     "ecosystem:cordova"
@@ -14,7 +15,7 @@
   "author": "Christoph Walcher",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.1.0",
+    "cordova-android": "^9.0.0",
     "cordova-ios": "^5.1.0",
     "cordova-plugin-advanced-http": "^2.4.1",
     "cordova-plugin-file": "^6.0.2",
@@ -24,13 +25,17 @@
     "es6-promise-plugin": "^4.2.2"
   },
   "devDependencies": {
+    "cordova": "^9.0.0",
+    "cordova-icon": "jakirseu/cordova-icon#master",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-x-socialsharing": {
-        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
+        "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
       },
       "cordova-plugin-statusbar": {},
       "cordova-plugin-webpack": {},

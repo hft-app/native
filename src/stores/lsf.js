@@ -67,6 +67,11 @@ export const Client = {
       const semesterParts = columns[2].textContent.trim().split(' ');
       const semester = semesterParts[semesterParts.length - 1];
 
+      let date = columns[8].textContent.trim() || null;
+      if(date) {
+        date = parseDate(date).valueOf();
+      }
+
       exams.push({
         id: columns[0].textContent.trim(),
         title: columns[1].textContent.trim(),
@@ -74,13 +79,12 @@ export const Client = {
         passed: i18nEquals('bestanden', 'passed')(columns[4]),
         cp: parseFloat(columns[5].textContent.trim()),
         try: parseInt(columns[7].textContent.trim()),
-        date: columns[8].textContent.trim() || null,
+        date,
         semester,
       });
     }
-
     exams = exams.sort((a, b) => a.date && b.date ? b.date - a.date : 0);
-    exams = exams.sort((a, b) => b.semester.localeCompare(a.semester));
+    exams = exams.sort((a, b) => b.semester.localeCompare(a.semester) );
 
     return {exams, fullname};
   },
@@ -245,18 +249,22 @@ export default {
       if (!skipLogin) {
         await Client.login(context.state.credentials);
       }
+      try {
 
-      const examsFullname = Client.loadExamsAndFullname();
+        const examsFullname = Client.loadExamsAndFullname();
 
-      const lecturesThisWeek = Client.loadLectures(new Date());
-      const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
+        const lecturesThisWeek = Client.loadLectures(new Date());
+        const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
 
-      const {exams, fullname} = await examsFullname;
-      context.commit('exams', exams);
-      context.commit('fullname', fullname);
+        const {exams, fullname} = await examsFullname;
+        context.commit('exams', exams);
+        context.commit('fullname', fullname);
 
-      const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
-      context.commit('lectures', lectures);
+        const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
+        context.commit('lectures', lectures);
+      } catch (e) {
+        console.error(e);
+      }
     },
 
     async selectCourses(context, newCourses) {

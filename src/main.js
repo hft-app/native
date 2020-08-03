@@ -32,6 +32,9 @@ const dateTimeFormat = {
   short: {
     weekday: 'long', month: 'long', day: 'numeric'
   },
+  dayYear: {
+    year: '2-digit', month: '2-digit', day: '2-digit'
+  },
   weekday: {
     weekday: 'long'
   },
@@ -111,7 +114,14 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 });
 
 document.addEventListener('deviceready', () =>

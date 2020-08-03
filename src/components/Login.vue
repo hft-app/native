@@ -44,7 +44,7 @@
     <footer>
       <div class="container">
         <span>
-          <a href="https://github.com/luniverse/hft-app" title="GitHub Repository" target="_blank"
+          <a href="https://hft-app.de" title="Website" target="_blank"
              class="icon icon-prepend icon-github-alt">hft-app</a> &middot;
           <a href="https:://luniversity.de/info/imprint" title="Impressum" target="_blank">Impressum</a>
         </span>

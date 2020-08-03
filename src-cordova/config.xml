@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.hft.app" version="3.0.6" xmlns="http://www.w3.org/ns/widgets">
+<widget id="de.hft.app" version="3.0.7" xmlns="http://www.w3.org/ns/widgets">
   <name>HFT App</name>
   <description>
     The HFT App
@@ -16,11 +16,11 @@
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
 
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="StatusBarOverlaysWebView" value="false" />
   <preference name="StatusBarBackgroundColor" value="#D41A17"/>
   <preference name="StatusBarDefaultScrollToTop" value="true"/>
-  <preference name="StatusBarStyle" value="blacktranslucent"/>
 
-  <icon src="../image/icon.png"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
