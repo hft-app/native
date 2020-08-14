@@ -20,6 +20,7 @@ before_install:
   - gradle --version
 install:
   - npm install
+  - npm run icons
   - cd src-cordova
   - npm install
   - npm run prepare:cordova

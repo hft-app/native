@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "hft-app",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "The HFT App",
   "browser_specific_settings": {
     "gecko": {
@@ -10,11 +10,12 @@
   },
 
   "icons": {
-    "96": "icon.png"
+    "96": "icon_96.png",
+    "48": "icon_48.png"
   },
   "browser_action": {
     "default_icon": {
-      "38": "icon.png"
+      "32": "icon_32.png"
     },
     "default_title": "HFT App"
   },

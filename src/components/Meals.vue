@@ -19,19 +19,19 @@
     <div v-else class="wrapper">
       <div class="list">
         <div class="container">
-          <div v-for="meal in meals" class="meal article">
-            <router-link :to="{name: 'mealpicture', params: {meal}}" class="photo">
+          <div v-for="meal in meals" class="article">
+            <router-link :to="{name: 'mealpicture', params: {meal}}" class="meal">
               <div :style="'background-image: url(\'https://sws2.maxmanager.xyz/assets/' + (meal.photo? meal.photo:
                      'fotos/dummies/foto-kommt-noch.jpg') +'\')'"
-                   :alt="$t('page.meals.imageNotLoaded')" loading="lazy" class="img" />
+                   :alt="$t('page.meals.imageNotLoaded')" loading="lazy" class="photo" />
+              <div class="data">
+                <div class="title">{{ meal.title }}</div>
+                <span v-if="meal.attributes" class="info">
+                  <fa-icon icon="info-circle" class="icon-prepend" />{{ meal.attributes }}
+                </span>
+                <div class="price">{{ meal.price }}</div>
+              </div>
             </router-link>
-            <div class="data">
-              <div class="title">{{ meal.title }}</div>
-              <span v-if="meal.attributes" class="info">
-                <fa-icon icon="info-circle" class="icon-prepend" />{{ meal.attributes }}
-              </span>
-              <div class="price">{{ meal.price }}</div>
-            </div>
           </div>
         </div>
       </div>
@@ -177,11 +177,9 @@
   }
 
 
-  .photo {
-    position: relative;
+  .meal {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 1;
 
     &::before {
       position: absolute;
@@ -189,40 +187,40 @@
       font-size: 30px;
     }
 
-    .img {
+    .photo {
       width: 130px;
       height: 130px;
-      position: relative;
       background-size: cover;
       background-position-x: center;
     }
-  }
 
-  .data {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 14px;
-    justify-content: space-between;
-    flex-grow: 1;
-  }
+    .data {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 14px;
+      justify-content: space-between;
+    }
 
-  .title {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    .title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 210px;
+    }
 
-  .info {
-    font-size: 13px;
-    color: $secondary;
-    font-weight: 300;
-  }
+    .info {
+      font-size: 13px;
+      color: $secondary;
+      font-weight: 300;
+    }
 
-  .price {
-    text-align: right;
-    font-weight: 500;
-    font-size: 20px;
+    .price {
+      text-align: right;
+      font-weight: 500;
+      font-size: 20px;
+    }
   }
 </style>

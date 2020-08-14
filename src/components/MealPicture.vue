@@ -8,7 +8,7 @@
     </div>
     <div class="data">
       <div class="title">{{ meal.title }}</div>
-      <div class="price">{{ meal.price }}</div>
+      <div class="price">{{ meal.price }}&ThinSpace;&euro;</div>
       <ul v-if="attributesList.length" class="info">
         <li v-for="item in attributesList">{{ item }}</li>
       </ul>
@@ -28,6 +28,8 @@
 
     computed: {
       attributesList() {
+        if (this.meal.attributes === '')
+          return [];
         return this.meal.attributes.split(/, /g)
           .map(attr => {
             const additive = mealAttributes.additives[attr];

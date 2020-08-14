@@ -30,7 +30,7 @@ exports[`MealPicture renders correctly - default photo 1`] = `
     <div
       class="price"
     >
-      2,85
+      2,85 €
     </div>
      
     <ul
@@ -98,7 +98,7 @@ exports[`MealPicture renders correctly 1`] = `
     <div
       class="price"
     >
-      2,85
+      2,85 €
     </div>
      
     <ul

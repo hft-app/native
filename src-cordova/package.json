@@ -1,11 +1,11 @@
 {
   "name": "de.hft.app",
   "displayName": "HFT App",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "The HFT App",
   "main": "index.js",
   "scripts": {
-    "prepare:cordova": "cordova prepare && cordova-icon --icon=../image/icon.png",
+    "prepare:cordova": "cordova prepare",
     "build:cordova:android": "cordova build android --release -- --webpack.config ../webpack.config.cordova.js --keystore=../sec/android.keystore --storePassword=12345678 --alias=key0 --password=12345678",
     "build:cordova:ios": "cordova build ios -- --webpack.config ../webpack.config.cordova.js --webpack.mode=production"
   },
@@ -13,6 +13,11 @@
     "ecosystem:cordova"
   ],
   "author": "Christoph Walcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hft-app/native",
+    "directory": "src-cordova"
+  },
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^9.0.0",
@@ -25,8 +30,7 @@
     "es6-promise-plugin": "^4.2.2"
   },
   "devDependencies": {
-    "cordova": "^9.0.0",
-    "cordova-icon": "jakirseu/cordova-icon#master",
+    "cordova": "^10.0.0",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {

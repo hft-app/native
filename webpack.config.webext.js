@@ -54,7 +54,9 @@ module.exports = (env, options) => {
         template: 'src/index.html'
       }),
       new CopyPlugin([
-        {from: 'image/icon.png', to: 'icon.png'},
+        {from: 'image/dist/icon_32.png', to: 'icon_32.png'},
+        {from: 'image/dist/icon_48.png', to: 'icon_48.png'},
+        {from: 'image/dist/icon_96.png', to: 'icon_96.png'},
         {from: 'manifest.json', to: 'manifest.json'},
       ]),
       // new BundleAnalyzerPlugin()
