@@ -1,4 +1,4 @@
-import {parseDate} from './util';
+import {parseDate, sleep} from './util';
 import {fetchDOM, fetchLogin} from 'platform/fetch';
 
 
@@ -14,7 +14,7 @@ function i18nEquals(german, english) {
 export const Client = {
   async login({username, password}) {
     const formData = {
-      asdf: username, // No shit!
+      asdf: username,
       fdsa: password,
       submit: 'Anmelden'
     };
@@ -30,7 +30,7 @@ export const Client = {
     if (!success) {
       throw {type: 'invalidCreds'};
     }
-    await new Promise(resolve => setTimeout(resolve, 100))
+    await sleep(100)
   },
 
   async loadExamsAndFullname() {
@@ -68,7 +68,7 @@ export const Client = {
       const semester = semesterParts[semesterParts.length - 1];
 
       let date = columns[8].textContent.trim() || null;
-      if(date) {
+      if (date) {
         date = parseDate(date).valueOf();
       }
 
@@ -84,7 +84,7 @@ export const Client = {
       });
     }
     exams = exams.sort((a, b) => a.date && b.date ? b.date - a.date : 0);
-    exams = exams.sort((a, b) => b.semester.localeCompare(a.semester) );
+    exams = exams.sort((a, b) => b.semester.localeCompare(a.semester));
 
     return {exams, fullname};
   },
@@ -225,6 +225,310 @@ export const Client = {
   }
 };
 
+var DemoClient = {
+  async login({username, password}) {
+    await new Promise(resolve => setTimeout(resolve, 1200))
+    if (username !== 'demo' || password !== 'demo') {
+      throw {type: 'invalidCreds'};
+    }
+  },
+
+  async loadExamsAndFullname() {
+    return {
+      exams: [
+        {
+          'id': '2010',
+          'title': 'Mathematik 2',
+          'grade': '1,3',
+          'passed': true,
+          'cp': 5,
+          'try': 1,
+          'date': 1562536800000,
+          'semester': '19'
+        },
+        {
+          'id': '2015',
+          'title': 'Vorleistung Mathematik 2',
+          'grade': null,
+          'passed': true,
+          'cp': 0,
+          'try': 1,
+          'date': 1562536800000,
+          'semester': '19'
+        },
+        {
+          'id': '2035',
+          'title': 'Prüfungsvorleistung Programmieren 2',
+          'grade': null,
+          'passed': true,
+          'cp': 0,
+          'try': 1,
+          'date': 1562536800000,
+          'semester': '19'
+        },
+        {
+          'id': '2040',
+          'title': 'Informatik-Projekt 1',
+          'grade': '1,0',
+          'passed': true,
+          'cp': 9,
+          'try': 1,
+          'date': null,
+          'semester': '19'
+        },
+        {
+          'id': '2045',
+          'title': 'Prüfungsvorleistung Informatik-Projekt 1',
+          'grade': null,
+          'passed': true,
+          'cp': 0,
+          'try': 2,
+          'date': null,
+          'semester': '20'
+        },
+        {
+          'id': '2045',
+          'title': 'Prüfungsvorleistung Informatik-Projekt 1',
+          'grade': null,
+          'passed': false,
+          'cp': 0,
+          'try': 1,
+          'date': null,
+          'semester': '19'
+        },
+        {
+          'id': '2050',
+          'title': 'Internet-Programmierung',
+          'grade': null,
+          'passed': true,
+          'cp': 5,
+          'try': 1,
+          'date': null,
+          'semester': '19'
+        },
+        {
+          'id': '1010',
+          'title': 'Mathematik 1',
+          'grade': null,
+          'passed': true,
+          'cp': 5,
+          'try': 1,
+          'date': 1549580400000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1025',
+          'title': 'Vorleistung Diskrete Mathematik',
+          'grade': null,
+          'passed': true,
+          'cp': 0,
+          'try': 1,
+          'date': 1549580400000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1030',
+          'title': 'Einführung in die Informatik',
+          'grade': '1,7',
+          'passed': true,
+          'cp': 5,
+          'try': 1,
+          'date': 1549407600000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1020',
+          'title': 'Diskrete Mathematik',
+          'grade': '1,3',
+          'passed': true,
+          'cp': 5,
+          'try': 1,
+          'date': 1548716400000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1035',
+          'title': 'Prüfungsvorleistung Einführung in die Informatik',
+          'grade': null,
+          'passed': true,
+          'cp': 0,
+          'try': 1,
+          'date': null,
+          'semester': '18/19'
+        },
+        {
+          'id': '1040',
+          'title': 'Programmieren 1',
+          'grade': null,
+          'passed': true,
+          'cp': 8,
+          'try': 1,
+          'date': 1549580400000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1060',
+          'title': 'Arbeitstechniken im Studium',
+          'grade': null,
+          'passed': true,
+          'cp': 2,
+          'try': 1,
+          'date': 1549580400000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1050',
+          'title': 'Betriebswirtschaftslehre',
+          'grade': '1,0',
+          'passed': true,
+          'cp': 4,
+          'try': 1,
+          'date': 1548889200000,
+          'semester': '18/19'
+        },
+        {
+          'id': '1070',
+          'title': 'Fremdsprachen',
+          'grade': null,
+          'passed': true,
+          'cp': 2,
+          'try': 1,
+          'date': null,
+          'semester': '18/19'
+        }
+      ], fullname: 'Max Mustermann'
+    };
+  },
+
+  async loadLectures(date) {
+    const t = Math.ceil(date / 86400000) * 86400000;
+
+    return [
+      {
+        'start': t + 50400000,
+        'end': t + 62100000,
+        'title': 'Enterprise Architecture Management',
+        'room': '2/433',
+        'professor': 'Wanner, Knoll',
+        'date': t
+      },
+      {
+        'start': t + 121500000,
+        'end': t + 126900000,
+        'title': 'Algorithmische Geometrie',
+        'room': '1/109',
+        'professor': 'Wolpert',
+        'date': t + 86400000
+      },
+      {
+        'start': t + 207900000,
+        'end': t + 219600000,
+        'title': 'Informatik-Projekt 2',
+        'room': '',
+        'professor': 'Coors',
+        'date': t + 172800000
+      },
+      {
+        'start': t + 223200000,
+        'end': t + 234000000,
+        'title': 'Seminar',
+        'room': '',
+        'professor': 'Noe',
+        'date': t + 172800000
+      },
+      {
+        'start': t + 294300000,
+        'end': t + 299700000,
+        'title': 'Algorithmische Geometrie',
+        'room': '1/109',
+        'professor': 'Wolpert',
+        'date': t + 259200000
+      },
+      {
+        'start': t + 374400000,
+        'end': t + 392400000,
+        'title': 'Recht',
+        'room': '',
+        'professor': 'Seybold-Schryro',
+        'date': t + 345600000
+      },
+      {
+        'start': t + 380700000,
+        'end': t + 392400000,
+        'title': 'Geo-Visualisierung',
+        'room': '',
+        'professor': 'Coors',
+        'date': t + 345600000
+      },
+      {
+        'start': t + 396000000,
+        'end': t + 407700000,
+        'title': 'IT-Sicherheit 2',
+        'room': '',
+        'professor': 'Seedorf, Paukstadt',
+        'date': t + 345600000
+      },
+      {
+        'start': t + 655200000,
+        'end': t + 666900000,
+        'title': 'Enterprise Architecture Management',
+        'room': '2/433',
+        'professor': 'Wanner, Knoll',
+        'date': t + 604800000
+      },
+      {
+        'start': t + 726300000,
+        'end': t + 731700000,
+        'title': 'Algorithmische Geometrie',
+        'room': '1/109',
+        'professor': 'Wolpert',
+        'date': t + 691200000
+      },
+      {
+        'start': t + 812700000,
+        'end': t + 824400000,
+        'title': 'Informatik-Projekt 2',
+        'room': '',
+        'professor': 'Coors',
+        'date': t + 777600000
+      },
+      {
+        'start': t + 899100000,
+        'end': t + 904500000,
+        'title': 'Algorithmische Geometrie',
+        'room': '1/109',
+        'professor': 'Wolpert',
+        'date': t + 864000000
+      },
+      {
+        'start': t + 985500000,
+        'end': t + 997200000,
+        'title': 'Geo-Visualisierung',
+        'room': '',
+        'professor': 'Coors',
+        'date': t + 950400000
+      },
+      {
+        'start': t + 1000800000,
+        'end': t + 1012500000,
+        'title': 'IT-Sicherheit 2',
+        'room': '',
+        'professor': 'Seedorf, Paukstadt',
+        'date': t + 950400000
+      }
+    ];
+  },
+
+
+  loadSubjects: Client.loadSubjects,
+  loadCoursesBySubject: Client.loadCoursesBySubject,
+
+  selectCourses() {
+    sleep(1600)
+  }
+};
+
+let client = Client;
 export default {
   namespaced: true,
   state: {
@@ -236,7 +540,12 @@ export default {
   },
   actions: {
     async login(context, credentials) {
-      await Client.login(credentials);
+      if (credentials.username === 'demo') {
+        client = DemoClient;
+      } else {
+        client = Client;
+      }
+      await client.login(credentials);
 
       context.commit('credentials', credentials);
     },
@@ -247,14 +556,18 @@ export default {
 
     async refresh(context, {skipLogin = false} = {}) {
       if (!skipLogin) {
-        await Client.login(context.state.credentials);
+        const credentials = context.state.credentials;
+        if (credentials.username === 'demo') {
+          client = DemoClient;
+        }
+        await client.login(credentials);
       }
       try {
 
-        const examsFullname = Client.loadExamsAndFullname();
+        const examsFullname = client.loadExamsAndFullname();
 
-        const lecturesThisWeek = Client.loadLectures(new Date());
-        const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
+        const lecturesThisWeek = client.loadLectures(new Date());
+        const lecturesNextWeek = client.loadLectures(new Date(Date.now() + 6.04e+8));
 
         const {exams, fullname} = await examsFullname;
         context.commit('exams', exams);
@@ -268,14 +581,14 @@ export default {
     },
 
     async selectCourses(context, newCourses) {
-      await Client.login(context.state.credentials);
-      await Client.selectCourses(newCourses);
+      await client.login(context.state.credentials);
+      await client.selectCourses(newCourses);
       context.commit('selectedCourses', newCourses);
 
       // XXX We have to relogin to LSF
-      await Client.login(context.state.credentials);
-      const lecturesThisWeek = Client.loadLectures(new Date());
-      const lecturesNextWeek = Client.loadLectures(new Date(Date.now() + 6.04e+8));
+      await client.login(context.state.credentials);
+      const lecturesThisWeek = client.loadLectures(new Date());
+      const lecturesNextWeek = client.loadLectures(new Date(Date.now() + 6.04e+8));
       const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
       context.commit('lectures', lectures);
     }

@@ -9,11 +9,12 @@ Remastered HFT App, uses Vue and Cordova, doesn't require any own backend.
 
 ## Screenshots
 <p float="left">
+<img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/lectures.png" width="400" alt="events" style="margin: 20px">
 <img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/events.png" width="400" alt="events" style="margin: 20px">
 <img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/grades.png" width="400" alt="grades" style="margin: 20px">
-<img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/meals.png" width="400" alt="meals" style="margin: 20px" >
+<img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/meals_en.png" width="400" alt="meals" style="margin: 20px" >
 <img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/printers.png" width="400" alt="printers" style="margin: 20px">
-<img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/menu.png" width="500" alt="menu">
+<img src="https://raw.githubusercontent.com/hft-app/native/master/screenshot/menu_webext.png" width="500" alt="menu">
 </p>
 
 ## Contributors
