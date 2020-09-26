@@ -241,6 +241,9 @@
     left: 0;
     right: 0;
 
+    margin-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
+    margin-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
+
     .container {
       position: relative;
       height: 64px;
