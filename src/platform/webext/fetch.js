@@ -18,6 +18,10 @@ export function fetchDOM(url) {
     }).then(text => new DOMParser().parseFromString(text, 'text/html'))
 }
 
+export function clearCookies() {
+  //not implemented
+}
+
 export async function fetchLogin(url, data) {
   const queryString = Object.entries(data)
     .map(pair => `${pair[0]}=${encodeURIComponent(pair[1])}`)

@@ -1,5 +1,5 @@
 import {parseDate, sleep} from './util';
-import {fetchDOM, fetchLogin} from 'platform/fetch';
+import {fetchDOM, fetchLogin, clearCookies} from 'platform/fetch';
 
 
 const BASE_URL = 'https://lsf.hft-stuttgart.de/qisserver/rds';
@@ -185,9 +185,10 @@ export const Client = {
   },
 
   async loadSubjects() {
+    clearCookies();
     const dom = await fetchDOM(BASE_URL + '?state=verpublish&publishContainer=stgPlanList');
 
-    return Array(...dom.querySelectorAll('.content tbody tr'))
+    return Array(...dom.querySelectorAll('.divcontent tbody tr'))
       .map(element => {
         const href = element.children[1].children[0].getAttribute('href');
         return {
@@ -587,9 +588,9 @@ export default {
 
       // XXX We have to relogin to LSF
       await client.login(context.state.credentials);
-      const lecturesThisWeek = client.loadLectures(new Date());
-      const lecturesNextWeek = client.loadLectures(new Date(Date.now() + 6.04e+8));
-      const lectures = (await lecturesThisWeek).concat(await lecturesNextWeek);
+      const lecturesThisWeek = await client.loadLectures(new Date());
+      const lecturesNextWeek = await client.loadLectures(new Date(Date.now() + 6.04e+8));
+      const lectures = lecturesThisWeek.concat(lecturesNextWeek);
       context.commit('lectures', lectures);
     }
   },

@@ -9,7 +9,7 @@ function fetchDOM(url) {
 
 
 async function buildProfessorsList() {
-  const entries = await Promise.all((await Promise.all([1, 2]
+  const entries = await Promise.all((await Promise.all([1, 2, 3]
     .map(async page =>
       fetchDOM('https://www.hft-stuttgart.de/personenverzeichnis?' +
         'tx_solr[filter][0]=role%3AProfessor%2Fin' +

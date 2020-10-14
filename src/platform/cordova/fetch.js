@@ -4,20 +4,28 @@ export function fetchJSON(url) {
   })
 }
 
+export function clearCookies() {
+  cordova.plugin.http.clearCookies();
+}
+
 export function fetchDOM(url) {
   return new Promise((resolve, reject) => {
-      cordova.plugin.http.get(url, {}, {},
-        response => {
-          resolve(new DOMParser().parseFromString(response.data, 'text/html'))
-        },
-        response => {
-          if (response.status === 503) {
-            reject({type: 'maintenance'})
-          } else {
-            reject(response)
+      try {
+        cordova.plugin.http.get(url, {}, {},
+          response => {
+            resolve(new DOMParser().parseFromString(response.data, 'text/html'))
+          },
+          response => {
+            if (response.status === 503) {
+              reject({type: 'maintenance'})
+            } else {
+              reject(response)
+            }
           }
-        }
-      )
+        )
+      } catch (e) {
+        reject(e);
+      }
     }
   )
 }
