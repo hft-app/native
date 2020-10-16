@@ -14,7 +14,10 @@
     <div class="timetable">
       <div class="sticky col">
         <div v-if="nowPosition > 0 && nowPosition < 1" class="now"
-             :style="'top:' + nowPosition*100 + '%'" />
+             :style="'top:' + nowPosition * 100 + '%'" />
+        <router-link class="edit" to="subjects">
+          <fa-icon class="icon" icon="edit" />
+        </router-link>
         <div class="r6 block">
           <div class="start">8:00</div>
           <div class="index">1</div>
@@ -222,6 +225,7 @@
   .timetable {
     $height: 13px;
     display: flex;
+    width: max-content;
 
     .col {
       white-space: normal;
@@ -284,7 +288,6 @@
       background-color: $background;
       border-right: 1px solid $border;
       z-index: 2;
-      padding-top: 50px;
 
       .block {
         display: flex;
@@ -314,6 +317,18 @@
       .index {
         font-size: 1.8em;
         font-weight: 200;
+      }
+
+      .edit {
+        display: block;
+        padding-top: 12px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+
+        .icon {
+          color: $primary;
+          height: 30px;
+        }
       }
 
       .now {

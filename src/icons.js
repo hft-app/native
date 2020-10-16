@@ -44,7 +44,8 @@ import {
   faMoneyCheckAlt,
   faThumbsUp,
   faAddressCard,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faEdit
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -90,7 +91,8 @@ library.add(
   faMoneyCheckAlt,
   faThumbsUp,
   faAddressCard,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faEdit
 );
 
 
