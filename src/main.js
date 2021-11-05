@@ -13,6 +13,7 @@ import Exams from './components/Exams.vue'
 import Menu from './components/Menu.vue'
 import Subjects from './components/Subjects.vue';
 import Courses from './components/Courses.vue'
+import Credit from './components/Credit.vue';
 import store from './stores/store';
 import langDE from './lang/de.json'
 import langEN from './lang/en.json'
@@ -101,6 +102,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "page-tips" */  './components/Tips.vue'),
     meta: {canGoBack: true}
   },
+  {path: '/credit', component: Credit, meta: {canGoBack: true}},
   {
     path: '/licenses',
     component: () => import(/* webpackChunkName: "page-license" */  './components/Licenses.vue'),

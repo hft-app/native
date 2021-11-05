@@ -111,6 +111,12 @@
     "welcome": {
       "title": "Willkommen"
     },
+    "credit": {
+      "idRequired": "Studentenausweis benötigt",
+      "intro": "Bitte lege den Studentenausweis auf die Rückseite deines Gerätes.",
+      "errorNotSupported": "NFC nicht unterstützt oder nicht aktiviert.",
+      "errorRead": "Konnte Karte nicht lesen."
+    },
     "error": {
       "title": "Oh nein!"
     }
