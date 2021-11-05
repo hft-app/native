@@ -111,6 +111,12 @@
     "welcome": {
       "title": "Welcome"
     },
+    "credit": {
+      "idRequired": "Student id required",
+      "intro": "Place your student id on the back of your phone.",
+      "errorNotSupported": "NFC not supported or not activated.",
+      "errorRead": "Could not read card."
+    },
     "error": {
       "title": "Oh no!"
     }
