@@ -9,7 +9,7 @@ export default {
 
   actions: {
     async refresh(context) {
-      let response = await fetchJSON('https://sws.maxmanager.xyz/extern/mensa_stuttgart-mitte.json');
+      let response = await fetchJSON('https://sws.maxmanager.xyz/extern/mensa_central.json');
       const newMealsByDay = Object.values(response)[0];
 
       let meals = {};
