@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-mifare",
+  "name": "cordova-plugin-studentid",
   "version": "0.1.0",
-  "description": "A sample for a new cordova plugin",
+  "description": "Plugin for reading Student ID with Mifare Classic or DESFire",
   "cordova": {
-    "id": "cordova-plugin-mifare",
+    "id": "cordova-plugin-studentid",
     "platforms": [
       "android"
     ]
@@ -11,7 +11,7 @@
   "keywords": [
     "cordova",
     "plugin",
-    "hello",
+    "mifare",
     "ecosystem:cordova",
     "cordova-android"
   ]
