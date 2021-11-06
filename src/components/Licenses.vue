@@ -37,9 +37,6 @@
         }, {
           library: 'vuex-persist',
           text: require('raw-loader!vuex-persist/LICENSE.md').default
-        }, {
-          library: 'lodash.merge',
-          text: require('raw-loader!lodash.merge/LICENSE').default
         }]
       }
     }
