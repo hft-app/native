@@ -5,19 +5,19 @@
       <div class="title">{{ $t('page.error.title') }}</div>
       <div class="line" />
       <div class="info">
-        <p v-if="errorNotSupported">{{ $t('page.credit.errorNotSupported') }}</p>
-        <p v-else>{{ $t('page.credit.errorRead') }}</p>
+        <p v-if="errorNotSupported">{{ $t('page.balance.errorNotSupported') }}</p>
+        <p v-else>{{ $t('page.balance.errorRead') }}</p>
       </div>
     </div>
     <div v-else-if="!balance" class="screen container">
       <fa-icon class="icon-folder-open icon" icon="money-check-alt" />
-      <div class="title">{{ $t('page.credit.idRequired') }}</div>
+      <div class="title">{{ $t('page.balance.idRequired') }}</div>
       <div class="line" />
       <div class="info">
-        <p>{{ $t('page.credit.intro') }}</p>
+        <p>{{ $t('page.balance.intro') }}</p>
       </div>
     </div>
-    <div class="list">
+    <div v-else class="list">
       <div class="container">
         <div class="balance">{{ $n(balance, {style: 'currency', currency: 'EUR'}) }}</div>
       </div>
@@ -42,19 +42,23 @@
     },
     created() {
       const studentid = cordova.plugin.studentid;
-      studentid.subscribe(async () => {
-        try {
-          const result = await studentid.read()
-          this.balance = result.balance;
-          this.errorRead = false;
-        } catch (error) {
-          this.errorRead = true;
+      const subscribe = () => {
+        studentid.subscribe(async () => {
+          try {
+            const result = await studentid.read()
+            this.balance = result.balance;
+            this.errorRead = false;
+          } catch (error) {
+            this.errorRead = true;
+            console.error(error);
+          }
+          subscribe();
+        }, (error) => {
+          this.errorNotSupported = true;
           console.error(error);
-        }
-      }, (error) => {
-        this.errorNotSupported = true;
-        console.error(error);
-      })
+        })
+      }
+      subscribe()
     },
     destroyed() {
       cordova.plugin.studentid.unsubscribe();

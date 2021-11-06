@@ -122,9 +122,9 @@
 
       if (typeof cordova !== 'undefined' && cordova.plugin.studentid) {
         groups[0].items.push({
-          to: 'credit',
+          to: 'balance',
           icon: 'money-check-alt',
-          title: 'Guthaben überprüfen'
+          title: 'checkBalance'
         })
       }
 

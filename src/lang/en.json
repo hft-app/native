@@ -68,7 +68,8 @@
       "contribute": "Contribute",
       "information": "Information",
       "imprint": "Imprint",
-      "licenses": "Licenses"
+      "licenses": "Licenses",
+      "checkBalance": "Check balance"
     },
     "subjects": {
       "loadingTitle": "One moment…",
@@ -111,7 +112,7 @@
     "welcome": {
       "title": "Welcome"
     },
-    "credit": {
+    "balance": {
       "idRequired": "Student id required",
       "intro": "Place your student id on the back of your phone.",
       "errorNotSupported": "NFC not supported or not activated.",

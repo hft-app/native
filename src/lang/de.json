@@ -68,7 +68,8 @@
       "contribute": "Selbst mitwirken",
       "informations": "Informationen",
       "imprint": "Impressum",
-      "licenses": "Lizenzen"
+      "licenses": "Lizenzen",
+      "checkBalance": "Guthaben überprüfen"
     },
     "subjects": {
       "loadingTitle": "Einen Moment…",
@@ -111,7 +112,7 @@
     "welcome": {
       "title": "Willkommen"
     },
-    "credit": {
+    "balance": {
       "idRequired": "Studentenausweis benötigt",
       "intro": "Bitte lege den Studentenausweis auf die Rückseite deines Gerätes.",
       "errorNotSupported": "NFC nicht unterstützt oder nicht aktiviert.",

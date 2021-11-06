@@ -3,13 +3,13 @@
         id="cordova-plugin-studentid" version="2.4.0">
     <name>Student ID Plugin</name>
     <description>
-      Plugin for reading Student ID with Mifare Classic
+      Plugin for reading Student ID with Mifare Classic or DESFire
     </description>
     <engines>
         <engine name="cordova-android" version=">=4.0.0"/>
     </engines>
     <js-module src="www/studentid.js" name="studentid">
-        <clobbers target="cordova.plugin.mifare"/>
+        <clobbers target="cordova.plugin.studentid"/>
     </js-module>
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
