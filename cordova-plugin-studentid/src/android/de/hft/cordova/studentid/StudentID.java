@@ -52,7 +52,9 @@ public class StudentID extends CordovaPlugin {
 
       adapter.enableForegroundDispatch(activity,
         PendingIntent.getActivity(activity, 0,
-          new Intent(activity, activity.getClass()), 0),
+          new Intent(activity, activity.getClass())
+            .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),
+          PendingIntent.FLAG_MUTABLE),
         new IntentFilter[]{intentFilter},
         new String[][]{
           new String[]{MifareClassic.class.getName()},
