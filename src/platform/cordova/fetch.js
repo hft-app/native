@@ -38,8 +38,9 @@ export async function fetchLogin(url, data) {
         data,
         followRedirect: false
       },
-      () => {
+      response => {
         cordova.plugin.http.setFollowRedirect(true);
+        console.error("Received error during login", response)
         resolve(false)
       },
       response => {

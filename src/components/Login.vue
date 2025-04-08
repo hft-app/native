@@ -70,17 +70,27 @@
 
     methods: {
       async login() {
+        function removeEmailSurfix(username) {
+          const hftMailDomain = "@hft-stuttgart.de"
+          if (username.endsWith(hftMailDomain)) {
+            return username.substring(0, username.indexOf("@"))
+          } else {
+            return username;
+          }
+        }
+
         try {
           this.invalidCreds = false;
           await this.$store.dispatch('refresh', {
             credentials: {
-              username: this.username,
+              username: removeEmailSurfix(this.username),
               password: this.password
             },
             force: true
           });
           await this.$router.push('/home')
         } catch (e) {
+          console.error("login failed", e)
           const errorInfo = getErrorInfo(e);
           this.error = errorInfo;
           if (errorInfo.type === 'invalidCreds') {

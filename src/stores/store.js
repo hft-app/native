@@ -42,7 +42,11 @@ export default new Vuex.Store({
                     ]);
                     context.commit('lastRefresh', Date.now())
                 } catch (e) {
-                    console.error(e);
+                    if (e.type === "invalidCreds") {
+                        throw e;
+                    } else {
+                        console.error(e);
+                    }
                 } finally {
                     context.commit('refreshing', false);
                 }
